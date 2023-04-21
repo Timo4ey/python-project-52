@@ -1,3 +1,3 @@
 PORT ?= 8000
 start:
-	poetry run gunicorn task_manager.wsgi
+	poetry run gunicorn -w 5 task_manager.wsgi
