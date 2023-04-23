@@ -6,7 +6,7 @@ test-django:lint
 	 poetry run python manage.py test task_manager/tests
 
 lint:
-	flake8 task_manager
+	poetry run flake8 task_manager
 
 install:
 	poetry install
