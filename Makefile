@@ -7,3 +7,6 @@ test-django:lint
 
 lint:
 	flake8 task_manager
+
+install:
+	poetry install
