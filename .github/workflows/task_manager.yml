@@ -3,12 +3,17 @@ on:
   - push
   - pull_request
 
+
+
+
 jobs:
   build:
     runs-on: ubuntu-latest
     strategy:
       matrix:
         python-version: [3.9]
+    env:
+      SECRET_KEY: ${{ secrets.SECRET_KEY }}
     steps:
       - name: Clone repo
         uses: actions/checkout@v3
@@ -23,6 +28,7 @@ jobs:
       - name: Run linter
         run: |
           make lint
+
       - name: Tests
         run: |
           make test-django
