@@ -3,6 +3,9 @@ MANAGE := poetry run python manage.py
 start:
 	poetry run gunicorn -w 5 task_manager.wsgi
 
+prod:migrate
+	poetry run gunicorn -w 5 task_manager.wsgi
+
 test-django:lint
 	 poetry run python manage.py test task_manager/tests
 
