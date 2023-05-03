@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+    {% load i18n %}
+    {% block content %}
+    {% load user_extras %}
+    {% if user.is_authenticated %}
+
+     <h1 class="my-4">{% trans "Вы уже вошли, " %}{{ user }}!</h1>
+        {% else %}
+        <h1 class="my-4">{% trans "Вход" %}</h1>
+            <form action="{% url 'login' %}" method="post">
+            {% csrf_token %}
+               <div class="form-group">
+                <label for="{{ form.username.auto_id }}">{{ form.username.label }}</label>
+                {{ form.username | add_classes:'form-control' }}
+                <small class="form-text text-muted">{{ form.username.help_text }}</small>
+
+            </div>
+            <div class="form-group">
+                <label for="{{ form.password.auto_id }}">{{ form.password.label }}</label>
+
+                {{ form.password | add_classes:'form-control' }}
+
+            </div>
+        <input class="btn btn-primary" type="submit" value="{% trans 'Войти' %}">
+        </form>
+    {% endif %}
+    {% endblock %}

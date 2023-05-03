@@ -55,6 +55,22 @@ class UserLoginView(View):
         return render(request, 'login.html', {'form': form})
 
 
+# def update_user(request, *args, **kwargs):
+#
+#     if request.user.is_authenticated:
+#         current_user = User.objects.get(id=request.user.id)
+#         # Get Forms
+#         user_form = UserRegistrationForm(request.POST or None, instance=current_user)
+#         if user_form.is_valid():
+#             user_form.save()
+#             login(request, current_user)
+#             messages.success(request, ("Your Profile Has Been Updated!"))
+#             return redirect('users')
+#         return render(request, "update.html", {'user_form':user_form})
+#     else:
+#         messages.success(request, ("You Must Be Logged In To View That Page..."))
+#         return redirect('login')
+
 class UserUpdateView(View):
 
     def get(self, request,  *args, **kwargs):
@@ -66,24 +82,26 @@ class UserUpdateView(View):
 
         if user.id == kwargs.get('id'):
             current_user = User.objects.get(id=user.id)
-            form = UpdateForm(instance=current_user)
+            form = UpdateForm(request.POST or None, instance=current_user)
             return render(request, 'update.html', {'form': form})
 
         messages.error(request, _('У вас нет прав для изменения другого пользователя.'))
         return redirect('users')
 
     def post(self, request, *args, **kwargs):
+        print('!!!')
         if request.user.is_authenticated:
             user = request.user
             current_user = User.objects.get(id=user.id)
             form = UpdateForm(data=request.POST or None, instance=current_user)
+
             if form.is_valid():
+                print('!!!')
                 form.save()
                 messages.success(request, _('Пользователь успешно изменён'))
                 return redirect('users')
         form = UpdateForm(request.POST)
         return render(request, 'update.html', {'form': form})
-
 
 class UserLogOutView(View):
 

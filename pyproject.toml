@@ -17,6 +17,8 @@ python-dotenv = "^1.0.0"
 django-bootstrap4 = "^23.1"
 django-modeltranslation = "^0.18.9"
 pytest = "^7.3.1"
+django-extensions = "^3.2.1"
+ipython = "^8.13.1"
 
 [tool.poetry.group.dev.dependencies]
 flake8 = "^6.0.0"

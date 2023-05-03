@@ -13,6 +13,7 @@ import os
 from dotenv import load_dotenv
 from pathlib import Path
 from django.utils.translation import gettext_lazy as _
+from django.contrib.messages import constants as message_constants
 
 
 load_dotenv()
@@ -35,6 +36,8 @@ ALLOWED_HOSTS = ["127.0.0.1", "webserver", ".railway.app"]
 
 INSTALLED_APPS = [
     # 'modeltransaltion'
+    # "django.contrib.staticfiles",
+    'django_extensions',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -44,6 +47,10 @@ INSTALLED_APPS = [
     'bootstrap4',
     'whitenoise.runserver_nostatic',
     'task_manager',
+    'task_manager.main',
+    'task_manager.users',
+    'task_manager.main.templatetags',
+
 ]
 
 MIDDLEWARE = [
@@ -57,7 +64,6 @@ MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.middleware.locale.LocaleMiddleware',
     'django.middleware.locale.LocaleMiddleware',
-    'django.middleware.common.CommonMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
 
 ]
@@ -147,3 +153,13 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 LOCALE_PATHS = (
     (BASE_DIR / 'task_manager/main/locale'),
 )
+
+SHELL_PLUS_PRINT_SQL = True
+
+
+MESSAGE_TAGS = {message_constants.DEBUG: "debug",
+                message_constants.INFO: "info",
+                message_constants.SUCCESS: "success",
+                message_constants.WARNING: "warning",
+                message_constants.ERROR: "danger",
+                }
