@@ -12,8 +12,6 @@ cmds = ['python -m venv /opt/venv && . /opt/venv/bin/activate && pip install poe
 cacheDirectories = ['/root/.cache/pip']
 paths = ['/opt/venv/bin']
 
-[phases.build]
-cmds = ["make migrate"]
 
 [phases.setup]
 nixPkgs = [
@@ -27,6 +25,9 @@ nixLibs = [
 ]
 nixOverlays = []
 nixpkgsArchive = '293a28df6d7ff3dec1e61e37cc4ee6e6c0fb0847'
+
+#[phases.build]
+#cmds = ["poetry run python3 manage.py migrate"]
 
 [start]
 cmd = 'make start'
