@@ -11,6 +11,7 @@ dependsOn = ['setup']
 cmds = ['python -m venv /opt/venv && . /opt/venv/bin/activate && pip install poetry==$NIXPACKS_POETRY_VERSION && poetry install --no-interaction --no-ansi']
 cacheDirectories = ['/root/.cache/pip']
 paths = ['/opt/venv/bin']
+cmd = 'make migrate'
 
 [phases.setup]
 nixPkgs = [
@@ -26,5 +27,5 @@ nixOverlays = []
 nixpkgsArchive = '293a28df6d7ff3dec1e61e37cc4ee6e6c0fb0847'
 
 [start]
-cmd = 'make migrate | make start'
+cmd = 'make start'
 
