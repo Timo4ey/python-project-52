@@ -28,7 +28,10 @@ jobs:
       - name: Run linter
         run: |
           make lint
-
+      - name: Run Migrations
+        run: |
+          make makemigrations
+          make migrate
       - name: Tests
         run: |
           make test-django
