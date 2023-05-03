@@ -1,0 +1,7 @@
+{% extends 'base.html' %}
+    {% load i18n %}
+    {% load static %}
+    {% block content %}
+      <h1 class="my-4">{% trans "Произошла ошибка"%}</h1>
+    <a href="{% url 'main' %}">{% trans 'Перейти на главную' %}</a>
+    {% endblock %}

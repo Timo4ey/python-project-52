@@ -2,7 +2,7 @@
     {% load i18n %}
     {% block content %}
     {% load user_extras %}
-    <h1 class="my-4"> {% trans "Изменение пользователя " %}</h1>
+    <h1 class="my-4"> {% trans "Изменение пользователя" %}</h1>
 
         <form action="{% url 'update' id=user.id %}" method="post">
 
@@ -25,7 +25,7 @@
 
             <!--last_name-->
          <div class="form-group">
-                <label for="{{ form.second_name.auto_id }}">{{ form.last_name.label }}</label>
+                <label for="{{ form.last_name.auto_id }}">{{ form.last_name.label }}</label>
                 {% if not form.errors %}
                     {{ form.last_name }}
                 {% elif not form.errors.second_name %}

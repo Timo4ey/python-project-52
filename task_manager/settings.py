@@ -28,15 +28,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.getenv("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ["127.0.0.1", "webserver", ".railway.app"]
 
 # Application definition
 
 INSTALLED_APPS = [
-    # 'modeltransaltion'
-    # "django.contrib.staticfiles",
     'django_extensions',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -74,7 +72,7 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
-            BASE_DIR / 'templates', 'task_manager/main/templates',
+            BASE_DIR / 'templates', 'task_manager/main/templates', 'task_manager/users/templates'
         ],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -151,7 +149,8 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 LOCALE_PATHS = (
-    (BASE_DIR / 'task_manager/main/locale'),
+    # (BASE_DIR / 'task_manager/main/locale'),
+    (BASE_DIR / 'task_manager/users/locale'),
 )
 
 SHELL_PLUS_PRINT_SQL = True

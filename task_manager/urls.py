@@ -23,6 +23,7 @@ from django.urls import path, include
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('task_manager.main.urls'), name='main'),
+    path('users/', include('task_manager.users.urls'), name='users'),
 
     # path('i18n/', include('django.conf.urls.i18n')),
 ]

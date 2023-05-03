@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+    {% load i18n %}
+    {% block content %}
+        <h1 class="my-4">{% trans 'Удаление пользователя' %}</h1>
+        <p>{% trans 'Вы уверены, что хотите удалить' %} {{ full_name }}?</p>
+    <form action="{% url 'delete_user' id=user.id %}" method="POST">
+        {% csrf_token %}
+        <input  class="btn btn-danger" type="submit" value="{% trans 'Да, удалить' %}">
+    </form>
+    {% endblock %}

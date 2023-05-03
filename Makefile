@@ -23,10 +23,13 @@ shell:
 migrate:
 	@$(MANAGE) migrate
 
+makemigrations:
+	@$(MANAGE) makemigrations
+
 messages:
 	@$(MANAGE) makemessages -l en
 
-compilemessages:messages
+compilemessages:
 	@$(MANAGE) compilemessages
 
 .PHONY: setup

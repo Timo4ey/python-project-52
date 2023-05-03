@@ -1,34 +1,17 @@
-from django.shortcuts import render, reverse, redirect, HttpResponsePermanentRedirect
+from django.shortcuts import render, redirect
 from django.utils.translation import gettext as _
-from django.views.generic.base import View, TemplateView
-from .forms import UserLogingForm, SignUpForm, UpdateForm
+from django.views.generic.base import View
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from django.contrib.auth.models import User
-# Create your views here.
+
+from task_manager.main.forms import UserLogingForm
 
 
 class IndexViews(View):
 
     def get(self, request, *args, **kwargs):
         return render(request, 'index.html')
-
-
-# Create your views here.
-class UserFormCreateView(View):
-    def get(self, request, *args, **kwargs):
-        form = SignUpForm()  # auto_id="id_for_%s", label_suffix=""
-        return render(request, 'create.html', {'form': form})
-
-    def post(self, request, *args, **kwargs):
-        form = SignUpForm(request.POST)
-        if form.is_valid():
-            profile = form.save(commit=False)
-            profile.user = request.user
-            profile.save()
-            messages.success(request, message=_('Пользователь успешно зарегистрирован'))
-            return HttpResponsePermanentRedirect(reverse('login'))
-        return render(request, 'create.html', {'form': form})
 
 
 class UserLoginView(View):
@@ -53,36 +36,6 @@ class UserLoginView(View):
                              Оба поля могут быть чувствительны к регистру.'))
         form = UserLogingForm(request.POST, instance=User)
         return render(request, 'login.html', {'form': form})
-
-
-class UserUpdateView(View):
-
-    def get(self, request,  *args, **kwargs):
-        user = request.user
-
-        if not user.is_authenticated:
-            messages.error(request, _("Вы не авторизованы! Пожалуйста, выполните вход."))
-            return redirect('login')
-
-        if user.id == kwargs.get('id'):
-            current_user = User.objects.get(id=user.id)
-            form = UpdateForm(instance=current_user)
-            return render(request, 'update.html', {'form': form})
-
-        messages.error(request, _('У вас нет прав для изменения другого пользователя.'))
-        return redirect('users')
-
-    def post(self, request, *args, **kwargs):
-        if request.user.is_authenticated:
-            user = request.user
-            current_user = User.objects.get(id=user.id)
-            form = UpdateForm(data=request.POST or None, instance=current_user)
-            if form.is_valid():
-                form.save()
-                messages.success(request, _('Пользователь успешно изменён'))
-                return redirect('users')
-        form = UpdateForm(request.POST)
-        return render(request, 'update.html', {'form': form})
 
 
 class UserLogOutView(View):

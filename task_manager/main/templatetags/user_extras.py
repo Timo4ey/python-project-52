@@ -16,4 +16,3 @@ def add_classes(value, arg):
             classes.append(cl)
 
     return value.as_widget(attrs={"class": " ".join(classes)})
-# | add_classes:'form-group'
