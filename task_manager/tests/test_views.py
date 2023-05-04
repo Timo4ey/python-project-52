@@ -67,7 +67,7 @@ class Registration(TestCase):
         response = self.client.get(self.main_url)
         self.assertEquals(response.status_code, 200)
 
-    def test_ru_content(self):
+    def test_ruPlease_content(self):
         response = self.client.get(self.main_url, headers=ru_headers)
         self.assertIn('<h1 class="my-4">Регистрация</h1>', str(response._container[0].decode('utf-8')))
 

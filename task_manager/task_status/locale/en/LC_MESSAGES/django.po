@@ -1,0 +1,87 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-05-04 12:50+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+#: task_manager/task_status/forms.py:12
+#: task_manager/task_status/templates/status/index.html:10
+msgid "Имя"
+msgstr "Name"
+
+#: task_manager/task_status/templates/status/create.html:6
+#: task_manager/task_status/templates/status/index.html:5
+msgid "Создать статус"
+msgstr "Create a status"
+
+#: task_manager/task_status/templates/status/create.html:20
+msgid "Создать"
+msgstr "Create"
+
+#: task_manager/task_status/templates/status/delete.html:4
+msgid "Удаление статуса"
+msgstr "Delete this status"
+
+#: task_manager/task_status/templates/status/delete.html:5
+msgid "Вы уверены, что хотите удалить"
+msgstr "Are you sure that you want to delete"
+
+#: task_manager/task_status/templates/status/delete.html:8
+msgid "Да, удалить"
+msgstr "Yes, delete"
+
+#: task_manager/task_status/templates/status/index.html:4
+msgid "Статусы"
+msgstr "Statuses"
+
+#: task_manager/task_status/templates/status/index.html:9
+msgid "ID"
+msgstr ""
+
+#: task_manager/task_status/templates/status/index.html:11
+msgid "Дата создания"
+msgstr "Created at"
+
+#: task_manager/task_status/templates/status/index.html:24
+#: task_manager/task_status/templates/status/update.html:22
+msgid "Изменить"
+msgstr "Update"
+
+#: task_manager/task_status/templates/status/index.html:26
+msgid "Удалить"
+msgstr "Delete"
+
+#: task_manager/task_status/templates/status/update.html:5
+msgid "Изменение статуса "
+msgstr "Update status"
+
+#: task_manager/task_status/views.py:16 task_manager/task_status/views.py:26
+#: task_manager/task_status/views.py:37 task_manager/task_status/views.py:49
+#: task_manager/task_status/views.py:65
+msgid "Вы не авторизованы! Пожалуйста, выполните вход."
+msgstr "You aren't authorized! Please, login."
+
+#: task_manager/task_status/views.py:34
+msgid "Статус успешно создан"
+msgstr "Status has been created successfully"
+
+#: task_manager/task_status/views.py:63
+msgid "Статус успешно изменён"
+msgstr "Status has been updated successfully"
+
+#: task_manager/task_status/views.py:85
+msgid "Статус успешно удалён"
+msgstr "Status has been deleted successfully"

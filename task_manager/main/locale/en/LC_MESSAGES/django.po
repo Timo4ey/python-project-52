@@ -1,0 +1,41 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-05-04 12:48+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+#: task_manager/main/forms.py:16 task_manager/main/forms.py:17
+msgid "Имя пользователя"
+msgstr ""
+
+#: task_manager/main/forms.py:23 task_manager/main/forms.py:24
+msgid "Пароль"
+msgstr ""
+
+#: task_manager/main/views.py:32
+msgid "Вы залогинены"
+msgstr ""
+
+#: task_manager/main/views.py:35
+msgid ""
+"Пожалуйста, введите правильные имя пользователя и "
+"пароль.                              Оба поля могут быть чувствительны к "
+"регистру."
+msgstr ""
+
+#: task_manager/main/views.py:45
+msgid "Вы разлогинены"
+msgstr ""

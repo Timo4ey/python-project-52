@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-03 09:02+0000\n"
+"POT-Creation-Date: 2023-05-04 12:50+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,34 +17,12 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-#: task_manager/main/forms.py:16 task_manager/main/forms.py:17
-msgid "Имя пользователя"
-msgstr ""
 
-#: task_manager/main/forms.py:23 task_manager/main/forms.py:24
-msgid "Пароль"
-msgstr "Password"
-
-#: task_manager/main/views.py:32
-msgid "Вы залогинены"
-msgstr "You are login"
-
-#: task_manager/main/views.py:35
-msgid ""
-"Пожалуйста, введите правильные имя пользователя и "
-"пароль.                              Оба поля могут быть чувствительны к "
-"регистру."
-msgstr ""
-
-#: task_manager/main/views.py:45
-msgid "Вы разлогинены"
-msgstr "You are logout"
-
-#: task_manager/settings.py:130
+#: task_manager/settings.py:131
 msgid "English"
 msgstr ""
 
-#: task_manager/settings.py:131
+#: task_manager/settings.py:132
 msgid "Russian"
 msgstr ""
 
@@ -52,9 +30,19 @@ msgstr ""
 msgid "Страница не найдена"
 msgstr "Page Not Found"
 
-#: task_manager/templates/404.html:6
+#: task_manager/templates/404.html:6 task_manager/templates/500.html:6
 msgid "Перейти на главную"
 msgstr "Follow to the main page"
+
+#: task_manager/templates/500.html:5
+msgid "Произошла ошибка"
+msgstr ""
+
+#: task_manager/templates/base.html:12
+#, fuzzy
+#| msgid "Менеджер задач"
+msgid "Менеджер задач Hexlet"
+msgstr "Task Manger"
 
 #: task_manager/templates/index.html:11
 msgid "Привет от Хекслета!"
@@ -107,3 +95,12 @@ msgstr "Logout"
 #: task_manager/templates/navbar.html:40
 msgid "Регистрация"
 msgstr "Registration"
+
+#~ msgid "Пароль"
+#~ msgstr "Password"
+
+#~ msgid "Вы залогинены"
+#~ msgstr "You are login"
+
+#~ msgid "Вы разлогинены"
+#~ msgstr "You are logout"

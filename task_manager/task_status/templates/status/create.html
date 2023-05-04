@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+    {% load i18n %}
+    {% block content %}
+    {% load user_extras %}
+
+    <h1 class="my-4">{% trans 'Создать статус' %}</h1>
+    <form action="{% url 'create' %}" method="post">
+        {% csrf_token %}
+        <div class="form-group">
+            {% if form %}
+            <label for="{{ form.name.auto_id }}">{{ form.name.label }}</label>
+                {% if form.errors %}
+                    {{ form.name | add_classes:'is-invalid'}}
+                {% else %}
+                    {{ form.name }}
+
+                {% endif %}
+            {% endif %}
+            </div>
+        <input class="btn btn-primary" type="submit" name="{% trans 'Создать' %}">
+    </form>
+    {% endblock %}
