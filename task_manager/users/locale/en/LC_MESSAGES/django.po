@@ -23,7 +23,7 @@ msgstr "Name"
 
 #: task_manager/users/forms.py:16 task_manager/users/forms.py:74
 msgid "Фамилия"
-msgstr "Surname"
+msgstr "Last name"
 
 #: task_manager/users/forms.py:29 task_manager/users/forms.py:30
 #: task_manager/users/forms.py:33 task_manager/users/forms.py:92
@@ -60,7 +60,7 @@ msgstr ""
 
 #: task_manager/users/forms.py:64
 msgid "Пользователь с таким именем уже существует."
-msgstr ""
+msgstr "A user with that username already exists."
 
 #: task_manager/users/forms.py:78
 msgid ""

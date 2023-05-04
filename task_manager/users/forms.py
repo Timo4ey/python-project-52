@@ -11,11 +11,11 @@ class SignUpForm(UserCreationForm):
 
     first_name = forms.CharField(label=_('Имя'), max_length=150,
                                  widget=forms.TextInput(
-                                 attrs={'class': 'form-control', 'placeholder': 'First name'}))
+                                 attrs={'class': 'form-control', 'placeholder': _('Имя')}))
 
     last_name = forms.CharField(label=_('Фамилия'), max_length=150,
                                 widget=forms.TextInput(
-                                attrs={'class': 'form-control', 'placeholder': 'Second name'}))
+                                attrs={'class': 'form-control', 'placeholder': _('Фамилия')}))
 
     # username_help_text = _("Обязательное поле. Не более 150 символов. Только буквы, цифры и символы @/./+/-/_.")
 
@@ -69,18 +69,18 @@ class UpdateForm(UserChangeForm):
     # form =
     first_name = forms.CharField(label=_('Имя'), max_length=150,
                                  widget=forms.TextInput(
-                                 attrs={'class': 'form-control', 'placeholder': 'First name'}))
+                                 attrs={'class': 'form-control', 'placeholder': _('Имя')}))
 
     last_name = forms.CharField(label=_('Фамилия'), max_length=150,
                                 widget=forms.TextInput(
-                                attrs={'class': 'form-control', 'placeholder': 'Second name'}))
+                                attrs={'class': 'form-control', 'placeholder': _('Фамилия')}))
 
-    username_help_text = _("Обязательное поле. Не более 150 символов.\
-                            Только буквы, цифры и символы @/./+/-/_.")
-    password1 = forms.CharField(label="Password", widget=forms.PasswordInput(
-                                attrs={'class': 'form-control', 'placeholder': 'Second name'}),)
-    password2 = forms.CharField(label="Password", widget=forms.PasswordInput(
-                                attrs={'class': 'form-control', 'placeholder': 'Second name'}),)
+    # username_help_text = _("Обязательное поле. Не более 150 символов.\
+    #                         Только буквы, цифры и символы @/./+/-/_.")
+    password1 = forms.CharField(label=_('Пароль', widget=forms.PasswordInput(
+                                attrs={'class': 'form-control', 'placeholder': _('Пароль')})))
+    password2 = forms.CharField(label=_('Подтверждение пароля'), widget=forms.PasswordInput(
+                                attrs={'class': 'form-control', 'placeholder': _('Подтверждение пароля')}))
 
     class Meta:
         model = User
@@ -95,7 +95,7 @@ class UpdateForm(UserChangeForm):
                                                      })
         self.fields['username'].validators = [MaxLengthValidator]
         self.fields['username'].label = _('Имя пользователя')
-        self.fields['username'].help_text = self.username_help_text
+        # self.fields['username'].help_text = self.username_help_text
 
         self.fields['password1'].widget.attrs.update({"class": 'form-control',
                                                       "placeholder": _('Пароль'),
