@@ -36,9 +36,13 @@ class CreateTasksView(View):
         if request.user.is_authenticated:
             form = CreateTaskForm(request.POST or None)
             if form.is_valid():
+                tag = request.POST['tags']
                 task = form.save(commit=False)
                 task.creator = request.user
                 task.save()
+                task.tags.add(tag)
+                task.save()
+
                 messages.success(request, _('Задача успешно создана'))
                 return redirect('tasks')
             return render(request, 'tasks/create.html', {'form': form}, status=400)

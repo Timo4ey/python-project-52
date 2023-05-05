@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
     {% load i18n %}
     {% block content %}
-        <h1 class="my-4">{% trans 'Просмотр задачи ' %}</h1>
+        <h1 class="my-4">{% trans 'Просмотр задачи' %}</h1>
         <div class="card">
   <div class="card-header bg-secondary text-white">
     <h2>{{ task.name }}</h2>
@@ -30,8 +30,10 @@
         <div class="col">
           <h6>{% trans 'Метки:' %}</h6>
           <ul>
-              <li>{{ task.tags }}</li>
-          </ul>
+          {% for tag in task.tags.values %}
+          <li>{{ tag.name }}</li>
+          {% endfor %}
+            </ul>
         </div>
       </div>
       <div class="row p-1">
