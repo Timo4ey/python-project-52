@@ -23,9 +23,7 @@ class UserFormCreateView(View):
     def post(self, request, *args, **kwargs):
         form = SignUpForm(request.POST)
         if form.is_valid():
-            user = form.save(commit=False)
-            user.user = request.user
-            user.save()
+            form.save()
             messages.success(request, message=_('Пользователь успешно зарегистрирован'))
             return redirect('login')
         return render(request, 'users/create.html', {'form': form}, status=400)
@@ -42,7 +40,7 @@ class UserUpdateView(View):
 
         if user.id == kwargs.get('id'):
             current_user = User.objects.get(id=user.id)
-            form = UpdateForm(instance=current_user)
+            form = SignUpForm(instance=current_user)
             return render(request, 'users/update.html', {'form': form})
 
         messages.error(request, _('У вас нет прав для изменения другого пользователя.'))

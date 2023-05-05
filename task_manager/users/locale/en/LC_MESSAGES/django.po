@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-05 15:27+0300\n"
+"POT-Creation-Date: 2023-05-05 14:55+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,45 +19,45 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: task_manager/users/forms.py:12 task_manager/users/forms.py:14
-#: task_manager/users/forms.py:69 task_manager/users/forms.py:71
+#: task_manager/users/forms.py:68 task_manager/users/forms.py:70
 msgid "Имя"
 msgstr "Name"
 
 #: task_manager/users/forms.py:16 task_manager/users/forms.py:18
-#: task_manager/users/forms.py:73 task_manager/users/forms.py:75
+#: task_manager/users/forms.py:72 task_manager/users/forms.py:74
 msgid "Фамилия"
 msgstr "Last name"
 
 #: task_manager/users/forms.py:29 task_manager/users/forms.py:30
-#: task_manager/users/forms.py:33 task_manager/users/forms.py:91
-#: task_manager/users/forms.py:92 task_manager/users/forms.py:96
+#: task_manager/users/forms.py:33 task_manager/users/forms.py:92
+#: task_manager/users/forms.py:93 task_manager/users/forms.py:97
 #: task_manager/users/templates/users/users.html:9
 msgid "Имя пользователя"
 msgstr "Username"
 
 #: task_manager/users/forms.py:36 task_manager/users/forms.py:37
 #: task_manager/users/forms.py:41 task_manager/users/forms.py:46
-#: task_manager/users/forms.py:79 task_manager/users/forms.py:80
-#: task_manager/users/forms.py:99 task_manager/users/forms.py:100
-#: task_manager/users/forms.py:104 task_manager/users/forms.py:109
+#: task_manager/users/forms.py:78 task_manager/users/forms.py:79
+#: task_manager/users/forms.py:100 task_manager/users/forms.py:101
+#: task_manager/users/forms.py:105 task_manager/users/forms.py:110
 msgid "Пароль"
 msgstr "Password"
 
 #: task_manager/users/forms.py:45 task_manager/users/forms.py:48
-#: task_manager/users/forms.py:81 task_manager/users/forms.py:82
-#: task_manager/users/forms.py:108 task_manager/users/forms.py:111
+#: task_manager/users/forms.py:80 task_manager/users/forms.py:81
+#: task_manager/users/forms.py:109 task_manager/users/forms.py:112
 msgid "Подтверждение пароля"
 msgstr "Password confirmation"
 
-#: task_manager/users/forms.py:49 task_manager/users/forms.py:112
+#: task_manager/users/forms.py:49 task_manager/users/forms.py:113
 msgid "Для подтверждения введите, пожалуйста, пароль ещё раз."
 msgstr "Please input the password again for confirmation."
 
-#: task_manager/users/forms.py:55 task_manager/users/forms.py:118
+#: task_manager/users/forms.py:55 task_manager/users/forms.py:119
 msgid "Введенные пароли не совпадают."
 msgstr "Password mismatch"
 
-#: task_manager/users/forms.py:57 task_manager/users/forms.py:120
+#: task_manager/users/forms.py:57 task_manager/users/forms.py:121
 msgid ""
 "Введённый пароль слишком короткий.             Он должен содержать как "
 "минимум 3 символа."
@@ -67,13 +67,22 @@ msgstr ""
 msgid "Пользователь с таким именем уже существует."
 msgstr "A user with that username already exists."
 
+#: task_manager/users/forms.py:76
+msgid ""
+"Обязательное поле. Не более 150 символов.                            Только "
+"буквы, цифры и символы @/./+/-/_."
+msgstr ""
+
 #: task_manager/users/templates/users/create.html:5
-msgid "Регистрация"
+#, fuzzy
+#| msgid "Регистрация"
+msgid "Регистрация "
 msgstr "Registration"
 
-#: task_manager/users/templates/users/create.html:101
-msgid "Зарегистрировать"
-msgstr "Registrate"
+#: task_manager/users/templates/users/create.html:33
+#: task_manager/users/templates/users/update.html:36
+msgid "Создать"
+msgstr "Create"
 
 #: task_manager/users/templates/users/delete.html:4
 msgid "Удаление пользователя"
@@ -91,11 +100,6 @@ msgstr "Yes, delete"
 msgid "Изменение пользователя"
 msgstr "Update user"
 
-#: task_manager/users/templates/users/update.html:101
-#: task_manager/users/templates/users/users.html:25
-msgid "Изменить"
-msgstr "Update"
-
 #: task_manager/users/templates/users/users.html:4
 msgid "Пользователи"
 msgstr "Users"
@@ -112,29 +116,36 @@ msgstr "Full name"
 msgid "Дата создания"
 msgstr "Created at"
 
+#: task_manager/users/templates/users/users.html:25
+msgid "Изменить"
+msgstr "Update"
+
 #: task_manager/users/templates/users/users.html:27
 msgid "Удалить"
 msgstr "Delete"
 
-#: task_manager/users/views.py:29
+#: task_manager/users/views.py:27
 msgid "Пользователь успешно зарегистрирован"
 msgstr "User has been registered successfully"
 
-#: task_manager/users/views.py:40 task_manager/users/views.py:76
+#: task_manager/users/views.py:38 task_manager/users/views.py:74
 msgid "Вы не авторизованы! Пожалуйста, выполните вход."
 msgstr "You aren't authorized! Please, login."
 
-#: task_manager/users/views.py:48 task_manager/users/views.py:78
+#: task_manager/users/views.py:46 task_manager/users/views.py:76
 msgid "У вас нет прав для изменения другого пользователя."
 msgstr "You don't have rights to change another user."
 
-#: task_manager/users/views.py:58
+#: task_manager/users/views.py:56
 msgid "Пользователь успешно изменён"
 msgstr "User has been changed successfully"
 
-#: task_manager/users/views.py:73
+#: task_manager/users/views.py:71
 msgid "Невозможно удалить пользователя, потому что он используется"
-msgstr ""
+msgstr "Unable to delete user because it used"
 
-#~ msgid "Ваш пароль должен содержать как минимум 3 символа."
-#~ msgstr "Passport must contain at least 3 characters."
+#~ msgid "Зарегистрировать"
+#~ msgstr "Registrate"
+
+msgid "Ваш пароль должен содержать как минимум 3 символа."
+msgstr "Passport must contain at least 3 characters."

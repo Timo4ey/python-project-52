@@ -1,104 +1,36 @@
 {% extends 'base.html' %}
     {% load i18n %}
-    {% block content %}
     {% load user_extras %}
-    <h1 class="my-4">{% trans "Регистрация" %}</h1>
+    {% block content %}
+        <h1 class="my-4">{% trans "Регистрация " %}</h1>
+    <form action="{% url 'create_user' %}" method="post">
+        {% csrf_token %}
+        <table>
 
-        <form action="{% url 'create_user' %}" method="post">
-
-            <table>
-            {% csrf_token %}
-
-        <!-- first_name -->
+        {% for element in form %}
             <div class="form-group">
-                <label for="{{ form.first_name.auto_id }}">{{ form.first_name.label }}</label>
-                {% if not form.errors %}
-                    {{ form.first_name }}
-                {% elif not form.errors.first_name %}
-                    {{ form.first_name | add_classes:'is-valid'  }}
-                {% else %}
-                    {{ form.first_name | add_classes:'is-invalid'  }}
-                        <div class="invalid-feedback"> {{ form.errors.first_name }} </div>
-                {% endif %}
+            {% if element.errors %}
 
-            </div>
-
-            <!--last_name-->
-         <div class="form-group">
-                <label for="{{ form.last_name.auto_id }}">{{ form.last_name.label }}</label>
-                {% if not form.errors %}
-                    {{ form.last_name }}
-                {% elif not form.errors.last_name %}
-                    {{ form.last_name | add_classes:'is-valid'  }}
-                {% else %}
-                    {{ form.last_name | add_classes:'is-invalid'  }}
-                        <div class="invalid-feedback"> {{ form.errors.last_name }} </div>
-                {% endif %}
-
-            </div>
-            <!--username-->
-
-<!--    form-group is-invalid-->
-
-            <div class="form-group">
-                <label for="{{ form.username.auto_id }}">{{ form.username.label }}</label>
-                {% if not form.errors %}
-                    {{ form.username }}
-                {% elif form.errors.username %}
-                    {{ form.username | add_classes:'is-invalid'}}
-<!--    style="list-style-type: none;"-->
-                <div class="text-danger" >
-                    <small>{{ form.errors.username.as_text }}</small>
+                <label for="element.auto_id"> {{ element.label }}</label>
+                {{ element | add_classes:'is-invalid' }}
+                <div class="text-danger">
+                    <small>{{ element.errors.as_text  }}</small>
                 </div>
-                {% elif not form.errors.username %}
-                    {{ form.username | add_classes:'is-valid'}}
+            {% elif form.errors and not element.errors%}
 
-                {% endif %}
-                <small class="form-text text-muted ::marker">{{ form.username.help_text|escape }}</small>
-            </div>
+                <label for="element.auto_id"> {{ element.label }}</label>
+                {{ element | add_classes:'is-valid' }}
 
-            <!--password1-->
-            <div class="form-group">
-                <label for="{{ form.password1.auto_id }}">{{ form.password1.label }}</label>
-                {% if not form.errors %}
-                    {{ form.password1 }}
-                {% elif form.errors.password1 %}
-                        {{ form.password1| add_classes:'is-invalid'}}
-                    <div class="invalid-feedback"> {{ form.errors.password1 }} </div>
-                {% elif not form.errors.password1 %}
-                    {{ form.password1| add_classes:'is-valid'}}
-                {% endif %}
-                <small class="form-text text-muted ::marker">
-                    <ul>
-                        <li>
-                        {{ form.password1.help_text}}
-                        </li>
-                    </ul>
-                </small>
-            </div>
-            <!--password1-->
-
-            <div class="form-group">
-                <label for="{{ form.password2.auto_id }}">{{ form.password2.label }}</label>
-                {% if not form.errors %}
-                     {{ form.password2 }}
-                {% elif form.errors.password2 %}
-                    {{ form.password2  | add_classes:'is-invalid'}}
-                    <div class="text-danger"> {{ form.errors.password2.as_text}} </div>
-                {% else %}
-                    {{ form.password2 | add_classes:'is-valid'}}
-                {% endif %}
-
-                <small class="form-text text-muted ::marker">
-
-                       <small class="form-text text-muted">{{ form.password2.help_text}}</small>
-
-                </small>
+             {% else%}
+           <label for="element.auto_id"> {{ element.label }}</label>
+                {{ element }}
+            {% endif %}
+        <small class="form-text text-muted ::marker">{{ element.help_text|escape }}</small>
 
             </div>
+        {% endfor %}
 
-
-            <input class="btn btn-primary" type="submit" value="{% trans 'Зарегистрировать' %}">
-         </table>
-        </form>
+            <input class="btn btn-primary" type="submit" value="{% trans 'Создать' %}">
+        </table>
+    </form>
     {% endblock %}
