@@ -7,7 +7,7 @@ prod:migrate
 	poetry run gunicorn -w 5 task_manager.wsgi
 
 test-django:lint
-	 poetry run python manage.py test task_manager/tests
+	 @$(MANAGE)  test task_manager.tests
 
 lint:
 	poetry run flake8 task_manager
@@ -41,5 +41,8 @@ setup: db-clean install migrate
 .PHONY: db-clean
 db-clean:
 	@rm db.sqlite3 || true
+
+syncdb:
+	@$(MANAGE) migrate --run-syncdb
 
 

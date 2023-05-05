@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-04 12:50+0000\n"
+"POT-Creation-Date: 2023-05-05 15:27+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,11 +18,11 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: task_manager/settings.py:131
+#: task_manager/settings.py:133
 msgid "English"
 msgstr ""
 
-#: task_manager/settings.py:132
+#: task_manager/settings.py:134
 msgid "Russian"
 msgstr ""
 
@@ -36,7 +36,7 @@ msgstr "Follow to the main page"
 
 #: task_manager/templates/500.html:5
 msgid "Произошла ошибка"
-msgstr ""
+msgstr "Error"
 
 #: task_manager/templates/base.html:12
 #, fuzzy
@@ -86,7 +86,7 @@ msgstr "Tags"
 
 #: task_manager/templates/navbar.html:23
 msgid "Задачи"
-msgstr "Taks"
+msgstr "Tasks"
 
 #: task_manager/templates/navbar.html:33
 msgid "Выход"
@@ -95,6 +95,50 @@ msgstr "Logout"
 #: task_manager/templates/navbar.html:40
 msgid "Регистрация"
 msgstr "Registration"
+
+#~ msgid "Имя"
+#~ msgstr "Name"
+
+#~ msgid "Описание"
+#~ msgstr "Description"
+
+#, fuzzy
+#~| msgid "Статусы"
+#~ msgid "Статус"
+#~ msgstr "Status"
+
+#~ msgid "Исполнитель"
+#~ msgstr "Performer"
+
+#, fuzzy
+#~| msgid "Менеджер задач"
+#~ msgid "Создать задачу "
+#~ msgstr "Task Manger"
+
+#~ msgid "Создать"
+#~ msgstr "Create"
+
+#, fuzzy
+#~| msgid "Менеджер задач"
+#~ msgid "Создать задачу"
+#~ msgstr "Task Manger"
+
+#~ msgid "Автор"
+#~ msgstr "Author"
+
+#~ msgid "Дата создания"
+#~ msgstr "Crated at"
+
+#~ msgid "Изменить"
+#~ msgstr "Update"
+
+#~ msgid "Удалить"
+#~ msgstr "Delete"
+
+#, fuzzy
+#~| msgid "Менеджер задач"
+#~ msgid "Изменить задачу "
+#~ msgstr "Task Manger"
 
 #~ msgid "Пароль"
 #~ msgstr "Password"

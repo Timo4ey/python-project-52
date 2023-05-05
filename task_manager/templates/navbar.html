@@ -17,10 +17,10 @@
               <a class="nav-link" href="{% url 'statuses' %}">{% trans "Статусы" %}</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="">{% trans "Метки" %}</a>
+              <a class="nav-link" href="{% url 'tags' %}">{% trans "Метки" %}</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="">{% trans "Задачи" %}</a>
+              <a class="nav-link" href="{% url 'tasks' %}">{% trans "Задачи" %}</a>
             </li>
              <li class="nav-item">
           </li>
@@ -37,7 +37,7 @@
               <a class="nav-link" href="{% url 'login' %}">{% trans "Вход" %}</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="{% url 'create' %}">{% trans "Регистрация" %}</a>
+              <a class="nav-link" href="{% url 'create_user' %}">{% trans "Регистрация" %}</a>
             </li>
            {% endif %}
         </ul>

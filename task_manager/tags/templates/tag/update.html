@@ -2,8 +2,8 @@
     {% load i18n %}
     {% block content %}
     {% load user_extras %}
-    <h1 class="my-4">{% trans 'Изменение статуса ' %}</h1>
-    <form action="{% url 'update_status' id=id %}" method="post">
+    <h1 class="my-4">{% trans 'Изменение метку ' %}</h1>
+    <form action="{% url 'update_tag' id=id %}" method="post">
         {% csrf_token %}
         <div class="form-group">
             {% if form %}

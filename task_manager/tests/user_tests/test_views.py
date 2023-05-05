@@ -61,7 +61,7 @@ class Registration(TestCase):
 
     def setUp(self):
         self.client = Client()
-        self.main_url = reverse('create')
+        self.main_url = reverse('create_user')
 
     def test_main_page_status(self):
         response = self.client.get(self.main_url)
