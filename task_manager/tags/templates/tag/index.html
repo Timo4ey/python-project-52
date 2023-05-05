@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+    {% load i18n %}
+    {% block content %}
+        <h1 class="my-4">{% trans  'Метки' %}</h1>
+        <a class="nav-link" href="{% url 'create_tag' %}">{% trans 'Создать метку' %}</a>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                  <th>{% trans "ID" %}</th>
+                  <th>{% trans "Имя" %}</th>
+                  <th>{% trans "Дата создания" %}</th>
+                  <th></th>
+                </tr>
+            </thead>
+        <tbody>
+
+        {% if tags %}
+            {% for tag in tags %}
+         <tr>
+                <td>{{ tag.id }}</td>
+                <td>{{ tag.name }}</td>
+                <td>{{ tag.created_at|date:'d.m.Y H:m' }}</td>
+                <td>
+                    <a href="{% url 'update_tag' tag.id  %}">{% trans 'Изменить' %}</a>
+                    <br>
+                    <a href="{% url 'delete_tag' tag.id  %}">{% trans 'Удалить' %}</a>
+                </td>
+              </tr>
+                    {% endfor %}
+        {% endif %}
+            </tbody>
+        </table>
+
+    {% endblock %}

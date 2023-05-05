@@ -1,9 +1,9 @@
 {% extends 'base.html' %}
     {% load i18n %}
     {% block content %}
-        <h1 class="my-4">{% trans 'Удаление статуса' %}</h1>
+        <h1 class="my-4">{% trans 'Удаление метку' %}</h1>
         <p>{% trans 'Вы уверены, что хотите удалить' %} {{ name }}?</p>
-    <form action="{% url 'delete_status' id=status_id %}" method="POST">
+    <form action="{% url 'delete_tag' id=status_id %}" method="POST">
         {% csrf_token %}
         <input  class="btn btn-danger" type="submit" value="{% trans 'Да, удалить' %}">
     </form>

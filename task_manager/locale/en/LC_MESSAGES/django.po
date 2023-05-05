@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-04 12:50+0000\n"
+"POT-Creation-Date: 2023-05-05 08:45+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,13 +18,91 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: task_manager/settings.py:131
+#: task_manager/settings.py:133
 msgid "English"
 msgstr ""
 
-#: task_manager/settings.py:132
+#: task_manager/settings.py:134
 msgid "Russian"
 msgstr ""
+
+#: task_manager/tasks/forms.py:15
+#: task_manager/tasks/templates/tasks/index.html:11
+msgid "Имя"
+msgstr "Name"
+
+#: task_manager/tasks/forms.py:16
+msgid "Описание"
+msgstr "Description"
+
+#: task_manager/tasks/forms.py:17
+#: task_manager/tasks/templates/tasks/index.html:12
+#, fuzzy
+#| msgid "Статусы"
+msgid "Статус"
+msgstr "Status"
+
+#: task_manager/tasks/forms.py:18
+#: task_manager/tasks/templates/tasks/index.html:14
+msgid "Исполнитель"
+msgstr "Performer"
+
+#: task_manager/tasks/forms.py:19 task_manager/templates/navbar.html:20
+msgid "Метки"
+msgstr "Tags"
+
+#: task_manager/tasks/templates/tasks/create.html:5
+#, fuzzy
+#| msgid "Менеджер задач"
+msgid "Создать задачу "
+msgstr "Task Manger"
+
+#: task_manager/tasks/templates/tasks/create.html:32
+#: task_manager/tasks/templates/tasks/update.html:32
+msgid "Создать"
+msgstr "Create"
+
+#: task_manager/tasks/templates/tasks/index.html:4
+#: task_manager/templates/navbar.html:23
+msgid "Задачи"
+msgstr "Tasks"
+
+#: task_manager/tasks/templates/tasks/index.html:5
+#, fuzzy
+#| msgid "Менеджер задач"
+msgid "Создать задачу"
+msgstr "Task Manger"
+
+#: task_manager/tasks/templates/tasks/index.html:10
+msgid "ID"
+msgstr ""
+
+#: task_manager/tasks/templates/tasks/index.html:13
+msgid "Автор"
+msgstr "Author"
+
+#: task_manager/tasks/templates/tasks/index.html:15
+msgid "Дата создания"
+msgstr "Crated at"
+
+#: task_manager/tasks/templates/tasks/index.html:31
+msgid "Изменить"
+msgstr "Update"
+
+#: task_manager/tasks/templates/tasks/index.html:33
+msgid "Удалить"
+msgstr "Delete"
+
+#: task_manager/tasks/templates/tasks/update.html:5
+#, fuzzy
+#| msgid "Менеджер задач"
+msgid "Изменить задачу "
+msgstr "Task Manger"
+
+#: task_manager/tasks/views.py:22 task_manager/tasks/views.py:44
+msgid "Вы не авторизованы! Пожалуйста, выполните вход."
+msgstr ""
+
 
 #: task_manager/templates/404.html:5
 msgid "Страница не найдена"
@@ -36,7 +114,7 @@ msgstr "Follow to the main page"
 
 #: task_manager/templates/500.html:5
 msgid "Произошла ошибка"
-msgstr ""
+msgstr "Error"
 
 #: task_manager/templates/base.html:12
 #, fuzzy
@@ -79,14 +157,6 @@ msgstr "Users"
 #: task_manager/templates/navbar.html:17
 msgid "Статусы"
 msgstr "Statuses"
-
-#: task_manager/templates/navbar.html:20
-msgid "Метки"
-msgstr "Tags"
-
-#: task_manager/templates/navbar.html:23
-msgid "Задачи"
-msgstr "Taks"
 
 #: task_manager/templates/navbar.html:33
 msgid "Выход"

@@ -31,7 +31,6 @@ class SignUpForm(UserCreationForm):
 
                                                      })
         self.fields['username'].label = _('Имя пользователя')
-        # self.fields['username'].help_text = self.username_help_text
 
         self.fields['password1'].widget.attrs.update({"class": 'form-control',
                                                       "placeholder": _('Пароль'),
@@ -77,14 +76,14 @@ class UpdateForm(UserChangeForm):
 
     # username_help_text = _("Обязательное поле. Не более 150 символов.\
     #                         Только буквы, цифры и символы @/./+/-/_.")
-    password1 = forms.CharField(label=_('Пароль', widget=forms.PasswordInput(
-                                attrs={'class': 'form-control', 'placeholder': _('Пароль')})))
+    password1 = forms.CharField(label=_('Пароль'), widget=forms.PasswordInput(
+                                attrs={'class': 'form-control', 'placeholder': _('Пароль')}))
     password2 = forms.CharField(label=_('Подтверждение пароля'), widget=forms.PasswordInput(
                                 attrs={'class': 'form-control', 'placeholder': _('Подтверждение пароля')}))
 
     class Meta:
         model = User
-        fields = ('first_name', 'last_name', 'username', 'password1', 'password2')  #
+        fields = ('first_name', 'last_name', 'username', 'password1', 'password2')
 
     def __init__(self, *args, **kwargs):
         super(UpdateForm, self).__init__(*args, **kwargs)
@@ -95,7 +94,6 @@ class UpdateForm(UserChangeForm):
                                                      })
         self.fields['username'].validators = [MaxLengthValidator]
         self.fields['username'].label = _('Имя пользователя')
-        # self.fields['username'].help_text = self.username_help_text
 
         self.fields['password1'].widget.attrs.update({"class": 'form-control',
                                                       "placeholder": _('Пароль'),

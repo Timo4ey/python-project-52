@@ -42,4 +42,7 @@ setup: db-clean install migrate
 db-clean:
 	@rm db.sqlite3 || true
 
+syncdb:
+	@$(MANAGE) migrate --run-syncdb
+
 

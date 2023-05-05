@@ -1,0 +1,111 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-05-05 14:14+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+#: forms.py:15 templates/tasks/index.html:11
+msgid "Имя"
+msgstr "Name"
+
+#: forms.py:16
+msgid "Описание"
+msgstr "Description"
+
+#: forms.py:17 templates/tasks/index.html:12
+msgid "Статус"
+msgstr "Status"
+
+#: forms.py:18 templates/tasks/index.html:14
+msgid "Исполнитель"
+msgstr "Performer"
+
+#: forms.py:19
+msgid "Метки"
+msgstr "Tags"
+
+#: templates/tasks/create.html:5
+msgid "Создать задачу "
+msgstr "Create a task"
+
+#: templates/tasks/create.html:32 templates/tasks/update.html:32
+msgid "Создать"
+msgstr "Creator"
+
+#: templates/tasks/delete.html:4
+msgid "Удаление Задачи"
+msgstr "Delete the task"
+
+#: templates/tasks/delete.html:5
+msgid "Вы уверены, что хотите удалить"
+msgstr "A you sure, that you want to delete"
+
+#: templates/tasks/delete.html:8
+msgid "Да, удалить"
+msgstr "Yes, delete"
+
+#: templates/tasks/index.html:4
+msgid "Задачи"
+msgstr "Tasks"
+
+#: templates/tasks/index.html:5
+msgid "Создать задачу"
+msgstr "Create a task"
+
+#: templates/tasks/index.html:10
+msgid "ID"
+msgstr ""
+
+#: templates/tasks/index.html:13
+msgid "Автор"
+msgstr "Author"
+
+#: templates/tasks/index.html:15
+msgid "Дата создания"
+msgstr "Created at"
+
+#: templates/tasks/index.html:31
+msgid "Изменить"
+msgstr "Update"
+
+#: templates/tasks/index.html:33
+msgid "Удалить"
+msgstr "Delete"
+
+#: templates/tasks/update.html:5
+msgid "Изменить задачу"
+msgstr "Update the task"
+
+#: views.py:23 views.py:45 views.py:75 views.py:89
+msgid "Вы не авторизованы! Пожалуйста, выполните вход."
+msgstr "You aren't authorized! Please, log in"
+
+#: views.py:33 views.py:57
+msgid "Задача успешно создана"
+msgstr "The task has been added successfully"
+
+#: views.py:55
+msgid "Задача успешно изменена"
+msgstr "The task has been changed"
+
+#: views.py:73 views.py:85
+msgid "Задачу может удалить только её автор"
+msgstr "The task can delete only its author"
+
+#: views.py:83
+msgid "Задача успешно удалена"
+msgstr "The task has been deleted"
+

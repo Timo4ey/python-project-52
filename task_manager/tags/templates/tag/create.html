@@ -3,8 +3,8 @@
     {% block content %}
     {% load user_extras %}
 
-    <h1 class="my-4">{% trans 'Создать статус' %}</h1>
-    <form action="{% url 'create_status' %}" method="post">
+    <h1 class="my-4">{% trans 'Создать Метку' %}</h1>
+    <form action="{% url 'create_tag' %}" method="post">
         {% csrf_token %}
         <div class="form-group">
             {% if form %}
