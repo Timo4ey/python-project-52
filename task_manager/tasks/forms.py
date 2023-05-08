@@ -36,7 +36,7 @@ class CreateTaskForm(forms.ModelForm):
             'placeholder': self.display_status,
         })
 
-        self.fields['performer'].label = self.performer
+        self.fields['performer'].label = self.display_performer
         self.fields['performer'].widget.attrs.update({
             'class': 'form-control',
             'placeholder': self.display_performer,
