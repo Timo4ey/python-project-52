@@ -7,8 +7,8 @@
      <h1 class="my-4">{% trans "Вы уже вошли, " %}{{ user }}!</h1>
         {% else %}
         <h1 class="my-4">{% trans "Вход" %}</h1>
-            <form action="{% url 'login' %}" method="post">
-            {% csrf_token %}
+{% csrf_token %}
+<form action="{% url 'login' %}" method="post">
                <div class="form-group">
                 <label for="{{ form.username.auto_id }}">{{ form.username.label }}</label>
                 {{ form.username | add_classes:'form-control' }}
