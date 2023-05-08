@@ -32,7 +32,8 @@ DEBUG = False
 
 ALLOWED_HOSTS = ["127.0.0.1", "webserver", ".railway.app", "*"]
 CSRF_TRUSTED_ORIGINS = [
-     ".railway.app",
+     "https://python-project-52-production-4e67.up.railway.app",
+     "http://127.0.0.1:8000/"
 ]
 # Application definition
 
@@ -57,9 +58,11 @@ INSTALLED_APPS = [
     'task_manager.labels',
     'django_filters',
 
+
 ]
 
 MIDDLEWARE = [
+    'rollbar.contrib.django.middleware.RollbarNotifierMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -70,7 +73,7 @@ MIDDLEWARE = [
     'django.middleware.locale.LocaleMiddleware',
     'django.middleware.locale.LocaleMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
-
+    'task_manager.rollbar_middleware.CustomRollbarNotifierMiddleware',
 
 ]
 
@@ -172,3 +175,10 @@ MESSAGE_TAGS = {message_constants.DEBUG: "debug",
                 message_constants.WARNING: "warning",
                 message_constants.ERROR: "danger",
                 }
+
+ROLLBAR = {
+    'access_token': os.getenv('ROLLBAR_TOKEN'),
+    'environment': 'development' if DEBUG else 'production',
+    'code_version': '1.0',
+    'root': BASE_DIR,
+}
