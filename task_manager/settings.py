@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    ,'django.middleware.csrf.CsrfViewMiddlewarez'
     'bootstrap4',
     'whitenoise.runserver_nostatic',
     'task_manager',
