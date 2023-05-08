@@ -5,13 +5,18 @@ from django.contrib import messages
 from django.utils.translation import gettext_lazy as _
 
 from task_manager.tasks.models import Tasks
+from .filters import F
 
 
 class TasksIndexView(View):
     def get(self, request, *args, **kwargs):
         if request.user.is_authenticated:
             tasks = Tasks.objects.all()
-            return render(request, 'tasks/index.html', {'tasks': tasks})
+            tasks_filter = F(request.GET, request=request, queryset=tasks)
+            return render(request, 'tasks/index.html', {
+                'tasks': tasks,
+                'filter': tasks_filter,
+            })
         return redirect('login')
 
 

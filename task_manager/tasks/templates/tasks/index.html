@@ -1,10 +1,35 @@
 {% extends 'base.html' %}
         {% load i18n %}
+    {% load user_extras %}
+
     {% block content %}
         <h1 class="my-4">{% trans "Задачи" %}</h1>
         <a class="nav-link" href="{% url 'create_task' %}">{% trans 'Создать задачу' %}</a>
+        {% if filter %}
+    <div class="card mb-3">
+        <div class="card-body bg-light">
+            <form class="form-inline center"  method="get">
+                {% for f in filter.form %}
+                <div class="form-group">
+                    <label for="{{ f.auto_id }}">{{ f.label }}</label>
+                    <div class="ml-2 mr-3">
+                        {% if f.value %}
+                            {{ f|add_classes:"form-control is-valid" }}
+                        {% else %}
+                            {{ f|add_classes:"form-control" }}
+                        {% endif %}
+                    </div>
+                </div>
+                {% endfor %}
+                <div class="form-group">
+                    <input type="submit" value="{% trans 'Показать' %}">
+                </div>
+            </form>
 
-        <table class="table table-striped">
+
+        </div>
+    </div>
+      <table class="table table-striped">
             <thead>
                 <tr>
                   <th>{% trans "ID" %}</th>
@@ -18,26 +43,28 @@
             </thead>
         <tbody>
 
-        {% if tasks %}
-            {% for task in tasks %}
-         <tr>
-                <td>{{ task.id }}</td>
-                <td><a href="{% url 'page_task' id=task.id  %}">{{ task.name }}</a></td>
 
-                <td>{{ task.status }}</td>
-                <td>{{ task.creator.first_name|default_if_none:'' }} {{ task.creator.last_name|default_if_none:'' }}</td>
-                <td>{{ task.performer|default_if_none:'' }}</td>
-             <td>{{ task.created_at|date:'d.m.Y H:m' }}</td>
+            {% for obj in filter.qs %}
+
+         <tr>
+                <td>{{ obj.id }}</td>
+                <td><a href="{% url 'page_task' id=obj.id  %}">{{ task.name }}</a></td>
+
+                <td>{{ obj.status }}</td>
+                <td>{{ obj.creator.first_name|default_if_none:'' }} {{ obj.creator.last_name|default_if_none:'' }}</td>
+                <td>{{ obj.performer|default_if_none:'' }}</td>
+             <td>{{ obj.created_at|date:'d.m.Y H:m' }}</td>
                 <td>
-                    <a href="{% url 'update_task'  id=task.id %}">{% trans 'Изменить' %} </a>
+                    <a href="{% url 'update_task'  id=obj.id %}">{% trans 'Изменить' %} </a>
                     <br>
-                    <a href="{% url 'delete_task' id=task.id %}">{% trans 'Удалить' %} </a>
+                    <a href="{% url 'delete_task' id=obj.id %}">{% trans 'Удалить' %} </a>
 
                 </td>
               </tr>
             {% endfor %}
-        {% endif %}
+
 
         </tbody>
         </table>
+{% endif %}
     {% endblock %}
