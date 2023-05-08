@@ -45,4 +45,8 @@ db-clean:
 syncdb:
 	@$(MANAGE) migrate --run-syncdb
 
+build:
+	poetry build
 
+publish:
+	poetry publish --dry-run
