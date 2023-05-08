@@ -16,13 +16,7 @@ class CreateTaskForm(forms.ModelForm):
         self.display_description = _('Описание')
         self.display_status = _('Статус')
         self.display_performer = _('Исполнитель')
-        self.display_tags = _('Метки')
-
-        # self.fields['creator'].label = 'Создатель'
-        # self.fields['creator'].widget = self.fields['creator'].hidden_widget()
-        # self.fields['creator'].widget.attrs.update({
-        #     'class': 'form-control',
-        # })
+        self.display_label = _('Метки')
 
         self.fields['name'].label = self.display_name
         self.fields['name'].widget.attrs.update({
@@ -30,26 +24,26 @@ class CreateTaskForm(forms.ModelForm):
             'placeholder': self.display_name
         })
 
+        self.fields['description'].label = self.display_description
         self.fields['description'].widget.attrs.update({
             'class': 'form-control',
             'placeholder': self.display_description,
-            'label':  self.display_description,
         })
 
+        self.fields['status'].label = self.display_status
         self.fields['status'].widget.attrs.update({
             'class': 'form-control',
             'placeholder': self.display_status,
-            'label': self.display_status,
         })
 
+        self.fields['performer'].label = self.performer
         self.fields['performer'].widget.attrs.update({
             'class': 'form-control',
             'placeholder': self.display_performer,
-            'label': self.display_performer,
         })
 
+        self.fields['labels'].label = self.display_label
         self.fields['labels'].widget.attrs.update({
             'class': 'form-control',
-            'placeholder': self.display_tags,
-            'label': self.display_tags,
+            'placeholder': self.display_label,
         })
