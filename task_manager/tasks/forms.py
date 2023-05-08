@@ -7,7 +7,7 @@ class CreateTaskForm(forms.ModelForm):
     class Meta:
         model = Tasks
         fields = ['name', 'description',
-                  'status', 'performer', 'tags']
+                  'status', 'performer', 'labels']
         exclude = ('creator',)
 
     def __init__(self, *args, **kwargs):
@@ -48,7 +48,7 @@ class CreateTaskForm(forms.ModelForm):
             'label': self.display_performer,
         })
 
-        self.fields['tags'].widget.attrs.update({
+        self.fields['labels'].widget.attrs.update({
             'class': 'form-control',
             'placeholder': self.display_tags,
             'label': self.display_tags,

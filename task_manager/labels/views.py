@@ -4,6 +4,9 @@ from django.views import View
 from .models import Tags
 from django.utils.translation import gettext_lazy as _
 from .forms import FormTag
+from ..tasks.models import Tasks
+
+
 # Create your views here.
 
 
@@ -70,6 +73,11 @@ class TagDeleteView(View):
     def get(self, request, *args, **kwargs):
         status_id = kwargs.get('id')
         if request.user.is_authenticated:
+            label = get_object_or_404(Tags, id=status_id)
+            tasks = Tasks.objects.filter(tags=label).exists()
+            if tasks:
+                messages.error(request, _('Невозможно удалить метку, потому что она используется'))
+                return redirect('tags')
             name = get_object_or_404(Tags, id=status_id)
             return render(request, 'tag/delete.html', {
                 'name': name.name,
@@ -79,6 +87,12 @@ class TagDeleteView(View):
 
     def post(self, request, *args, **kwargs):
         if request.user.is_authenticated:
+            status_id = kwargs.get('id')
+            label = get_object_or_404(Tags, id=status_id)
+            tasks = Tasks.objects.filter(tags=label).exists()
+            if tasks:
+                messages.error(request, _('Невозможно удалить метку, потому что она используется'))
+                return redirect('tags')
             status_id = kwargs.get('id')
             status = get_object_or_404(Tags, id=status_id)
             status.delete()

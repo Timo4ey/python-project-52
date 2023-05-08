@@ -2,7 +2,7 @@ from django.contrib.auth.models import User
 from django.db import models
 from django.db.models.signals import post_save
 
-from task_manager.tags.models import Tags
+from task_manager.labels.models import Label
 from task_manager.task_status.models import TaskStatus
 
 
@@ -17,7 +17,7 @@ class Tasks(models.Model):
                                   related_name='chosen_performer',
                                   null=True,
                                   blank=True)
-    tags = models.ManyToManyField(Tags, related_name='chosen_tag', symmetrical=False, blank=True)
+    labels = models.ManyToManyField(Label, related_name='chosen_tag', symmetrical=False, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):

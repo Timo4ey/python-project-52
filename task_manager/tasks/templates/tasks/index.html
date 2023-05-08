@@ -48,7 +48,7 @@
 
          <tr>
                 <td>{{ obj.id }}</td>
-                <td><a href="{% url 'page_task' id=obj.id  %}">{{ task.name }}</a></td>
+                <td><a href="{% url 'page_task' id=obj.id  %}">{{ obj.name }}</a></td>
 
                 <td>{{ obj.status }}</td>
                 <td>{{ obj.creator.first_name|default_if_none:'' }} {{ obj.creator.last_name|default_if_none:'' }}</td>
