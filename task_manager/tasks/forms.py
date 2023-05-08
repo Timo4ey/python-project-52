@@ -40,7 +40,7 @@ class CreateTaskForm(forms.ModelForm):
         self.fields['executor'].widget.attrs.update({
             'class': 'form-control',
             'placeholder': self.display_executor.lower(),
-
+            'title': ''
         })
 
         self.fields['labels'].label = self.display_label
