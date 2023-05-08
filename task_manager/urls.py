@@ -16,8 +16,6 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-# import task_manager.views as views
-# from django.conf.urls.i18n import i18n_patterns
 
 
 urlpatterns = [
@@ -25,12 +23,6 @@ urlpatterns = [
     path('', include('task_manager.main.urls'), name='main'),
     path('users/', include('task_manager.users.urls'), name='users'),
     path('statuses/', include('task_manager.task_status.urls'), name='statuses'),
-    path('tags/', include('task_manager.tags.urls'), name='tags'),
+    path('labels/', include('task_manager.labels.urls'), name='tags'),
     path('tasks/', include('task_manager.tasks.urls'), name='tasks'),
-
-    # path('i18n/', include('django.conf.urls.i18n')),
 ]
-
-# urlpatterns += i18n_patterns(
-#     path('', views.IndexViews.as_view(), name='index'),
-# )

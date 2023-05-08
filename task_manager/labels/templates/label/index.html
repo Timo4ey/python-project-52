@@ -2,7 +2,7 @@
     {% load i18n %}
     {% block content %}
         <h1 class="my-4">{% trans  'Метки' %}</h1>
-        <a class="nav-link" href="{% url 'create_tag' %}">{% trans 'Создать метку' %}</a>
+        <a class="nav-link" href="{% url 'create_label' %}">{% trans 'Создать метку' %}</a>
         <table class="table table-striped">
             <thead>
                 <tr>
@@ -14,16 +14,16 @@
             </thead>
         <tbody>
 
-        {% if tags %}
-            {% for tag in tags %}
+        {% if labels %}
+            {% for label in labels %}
          <tr>
-                <td>{{ tag.id }}</td>
-                <td>{{ tag.name }}</td>
-                <td>{{ tag.created_at|date:'d.m.Y H:m' }}</td>
+                <td>{{ label.id }}</td>
+                <td>{{ label.name }}</td>
+                <td>{{ label.created_at|date:'d.m.Y H:m' }}</td>
                 <td>
-                    <a href="{% url 'update_tag' tag.id  %}">{% trans 'Изменить' %}</a>
+                    <a href="{% url 'update_label' label.id  %}">{% trans 'Изменить' %}</a>
                     <br>
-                    <a href="{% url 'delete_tag' tag.id  %}">{% trans 'Удалить' %}</a>
+                    <a href="{% url 'delete_label' label.id  %}">{% trans 'Удалить' %}</a>
                 </td>
               </tr>
                     {% endfor %}

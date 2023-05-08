@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-05 15:27+0300\n"
+"POT-Creation-Date: 2023-05-08 07:21+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,11 +18,11 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: task_manager/settings.py:133
+#: task_manager/settings.py:134
 msgid "English"
 msgstr ""
 
-#: task_manager/settings.py:134
+#: task_manager/settings.py:135
 msgid "Russian"
 msgstr ""
 
@@ -36,7 +36,7 @@ msgstr "Follow to the main page"
 
 #: task_manager/templates/500.html:5
 msgid "Произошла ошибка"
-msgstr "Error"
+msgstr "Something went wrong"
 
 #: task_manager/templates/base.html:12
 #, fuzzy

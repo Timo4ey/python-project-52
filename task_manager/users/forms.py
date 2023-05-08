@@ -17,8 +17,6 @@ class SignUpForm(UserCreationForm):
                                 widget=forms.TextInput(
                                 attrs={'class': 'form-control', 'placeholder': _('Фамилия')}))
 
-    # username_help_text = _("Обязательное поле. Не более 150 символов. Только буквы, цифры и символы @/./+/-/_.")
-
     class Meta:
         model = User
         fields = ('first_name', 'last_name', 'username', 'password1', 'password2')
@@ -65,7 +63,6 @@ class SignUpForm(UserCreationForm):
 
 
 class UpdateForm(UserChangeForm):
-    # form =
     first_name = forms.CharField(label=_('Имя'), max_length=150,
                                  widget=forms.TextInput(
                                  attrs={'class': 'form-control', 'placeholder': _('Имя')}))
@@ -74,16 +71,18 @@ class UpdateForm(UserChangeForm):
                                 widget=forms.TextInput(
                                 attrs={'class': 'form-control', 'placeholder': _('Фамилия')}))
 
-    # username_help_text = _("Обязательное поле. Не более 150 символов.\
-    #                         Только буквы, цифры и символы @/./+/-/_.")
+    username_help_text = _("Обязательное поле. Не более 150 символов.\
+                            Только буквы, цифры и символы @/./+/-/_.")
     password1 = forms.CharField(label=_('Пароль'), widget=forms.PasswordInput(
                                 attrs={'class': 'form-control', 'placeholder': _('Пароль')}))
     password2 = forms.CharField(label=_('Подтверждение пароля'), widget=forms.PasswordInput(
                                 attrs={'class': 'form-control', 'placeholder': _('Подтверждение пароля')}))
+    password = forms.CharField(label='', widget=forms.HiddenInput(), required=False)
 
     class Meta:
         model = User
-        fields = ('first_name', 'last_name', 'username', 'password1', 'password2')
+        fields = ('first_name', 'last_name', 'username', 'password1', 'password2',)
+        exclude = ('password',)
 
     def __init__(self, *args, **kwargs):
         super(UpdateForm, self).__init__(*args, **kwargs)

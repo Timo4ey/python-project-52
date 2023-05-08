@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-05 16:48+0300\n"
+"POT-Creation-Date: 2023-05-08 07:26+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,8 +18,21 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
+
+msgid "Только свои задачи"
+msgstr "Only my tasks"
+
+#: task_manager/tasks/filters.py:17 task_manager/tasks/forms.py:17
+#: task_manager/tasks/templates/tasks/index.html:37
+#: task_manager/tasks/templates/tasks/task_page.html:22
+msgid "Статус"
+msgstr "Status"
+
+msgid "Метка"
+msgstr "Tag"
+
 #: task_manager/tasks/forms.py:15
-#: task_manager/tasks/templates/tasks/index.html:11
+#: task_manager/tasks/templates/tasks/index.html:36
 msgid "Имя"
 msgstr "Name"
 
@@ -27,14 +40,8 @@ msgstr "Name"
 msgid "Описание"
 msgstr "Description"
 
-#: task_manager/tasks/forms.py:17
-#: task_manager/tasks/templates/tasks/index.html:12
-#: task_manager/tasks/templates/tasks/task_page.html:22
-msgid "Статус"
-msgstr "Status"
-
 #: task_manager/tasks/forms.py:18
-#: task_manager/tasks/templates/tasks/index.html:14
+#: task_manager/tasks/templates/tasks/index.html:39
 #: task_manager/tasks/templates/tasks/task_page.html:18
 msgid "Исполнитель"
 msgstr "Performer"
@@ -63,35 +70,39 @@ msgstr "A you sure, that you want to delete"
 msgid "Да, удалить"
 msgstr "Yes, delete"
 
-#: task_manager/tasks/templates/tasks/index.html:4
+#: task_manager/tasks/templates/tasks/index.html:6
 msgid "Задачи"
 msgstr "Tasks"
 
-#: task_manager/tasks/templates/tasks/index.html:5
+#: task_manager/tasks/templates/tasks/index.html:7
 msgid "Создать задачу"
 msgstr "Create a task"
 
-#: task_manager/tasks/templates/tasks/index.html:10
+#: task_manager/tasks/templates/tasks/index.html:25
+msgid "Показать"
+msgstr "Show"
+
+#: task_manager/tasks/templates/tasks/index.html:35
 msgid "ID"
 msgstr ""
 
-#: task_manager/tasks/templates/tasks/index.html:13
+#: task_manager/tasks/templates/tasks/index.html:38
 #: task_manager/tasks/templates/tasks/task_page.html:14
 msgid "Автор"
 msgstr "Author"
 
-#: task_manager/tasks/templates/tasks/index.html:15
+#: task_manager/tasks/templates/tasks/index.html:40
 #: task_manager/tasks/templates/tasks/task_page.html:26
 msgid "Дата создания"
 msgstr "Created at"
 
-#: task_manager/tasks/templates/tasks/index.html:32
+#: task_manager/tasks/templates/tasks/index.html:58
 #: task_manager/tasks/templates/tasks/task_page.html:41
 #: task_manager/tasks/templates/tasks/update.html:32
 msgid "Изменить"
 msgstr "Update"
 
-#: task_manager/tasks/templates/tasks/index.html:34
+#: task_manager/tasks/templates/tasks/index.html:60
 #: task_manager/tasks/templates/tasks/task_page.html:43
 msgid "Удалить"
 msgstr "Delete"
@@ -101,6 +112,8 @@ msgid "Просмотр задачи"
 msgstr "Create a task"
 
 #: task_manager/tasks/templates/tasks/task_page.html:31
+#, fuzzy
+#| msgid "Метки"
 msgid "Метки:"
 msgstr "Tags"
 
@@ -108,23 +121,26 @@ msgstr "Tags"
 msgid "Изменить задачу"
 msgstr "Update the task"
 
-#: task_manager/tasks/views.py:32 task_manager/tasks/views.py:58
-#: task_manager/tasks/views.py:86 task_manager/tasks/views.py:100
+#: task_manager/tasks/views.py:37 task_manager/tasks/views.py:65
+#: task_manager/tasks/views.py:93 task_manager/tasks/views.py:107
 msgid "Вы не авторизованы! Пожалуйста, выполните вход."
 msgstr "You aren't authorized! Please, log in"
 
-#: task_manager/tasks/views.py:46
+#: task_manager/tasks/views.py:53
 msgid "Задача успешно создана"
 msgstr "The task has been added successfully"
 
-#: task_manager/tasks/views.py:68
+#: task_manager/tasks/views.py:75
 msgid "Задача успешно изменена"
 msgstr "The task has been changed"
 
-#: task_manager/tasks/views.py:84 task_manager/tasks/views.py:98
+#: task_manager/tasks/views.py:91 task_manager/tasks/views.py:105
 msgid "Задачу может удалить только её автор"
 msgstr "The task can delete only its author"
 
-#: task_manager/tasks/views.py:96
+#: task_manager/tasks/views.py:103
 msgid "Задача успешно удалена"
 msgstr "The task has been deleted"
+
+msgid "Метка:"
+msgstr "Tags"

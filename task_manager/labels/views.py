@@ -1,9 +1,12 @@
 from django.contrib import messages
 from django.shortcuts import render, reverse, redirect, get_object_or_404
 from django.views import View
-from .models import Tags
+from .models import Label
 from django.utils.translation import gettext_lazy as _
-from .forms import FormTag
+from .forms import FormLabel
+from ..tasks.models import Tasks
+
+
 # Create your views here.
 
 
@@ -11,76 +14,87 @@ class IndexViews(View):
 
     def get(self, request, *args, **kwargs):
         if request.user.is_authenticated:
-            tags = Tags.objects.all()
-            return render(request, 'tag/index.html', {'tags': tags})
+            labels = Label.objects.all()
+            return render(request, 'label/index.html', {'labels': labels})
         messages.error(request, _('Вы не авторизованы! Пожалуйста, выполните вход.'))
         return redirect(reverse('login'))
 
 
-class TagCreateView(View):
+class LabelCreateView(View):
 
     def get(self, request, *args, **kwargs):
         if request.user.is_authenticated:
-            form = FormTag()
-            return render(request, 'tag/create.html', {'form': form})
+            form = FormLabel()
+            return render(request, 'label/create.html', {'form': form})
         messages.error(request, _('Вы не авторизованы! Пожалуйста, выполните вход.'))
         return redirect(reverse('login'))
 
     def post(self, request, *args, **kwargs):
         if request.user.is_authenticated:
-            form = FormTag(request.POST)
+            form = FormLabel(request.POST)
             if form.is_valid():
                 form.save()
                 messages.success(request, message=_('Тег успешно создан'))
-                return redirect('tags')
-            return render(request, 'tag/update.html', {'form': form})
+                return redirect('labels')
+            return render(request, 'label/update.html', {'form': form})
         messages.error(request, _('Вы не авторизованы! Пожалуйста, выполните вход.'))
         return redirect(reverse('login'))
 
 
-class TagUpdateView(View):
+class LabelUpdateView(View):
     def get(self, request, *args, **kwargs):
         if request.user.is_authenticated:
             print(request.user.id)
-            instance = Tags.objects.get(id=kwargs.get('id'))
-            form = FormTag(instance=instance)
-            return render(request, 'tag/update.html', {'form': form,
-                                                       'id': kwargs.get('id')})
+            instance = Label.objects.get(id=kwargs.get('id'))
+            form = FormLabel(instance=instance)
+            return render(request, 'label/update.html', {'form': form,
+                                                         'id': kwargs.get('id')})
         messages.error(request, _('Вы не авторизованы! Пожалуйста, выполните вход.'))
         return redirect(reverse('login'))
 
     def post(self, request, *args, **kwargs):
-        status_id = kwargs.get('id')
+        label_id = kwargs.get('id')
         if request.user.is_authenticated:
-            instance = Tags.objects.get(id=status_id)
-            form = FormTag(request.POST, instance=instance)
+            instance = Label.objects.get(id=label_id)
+            form = FormLabel(request.POST, instance=instance)
             new_name = request.POST.get('name')
 
-            if instance.name != new_name and Tags.objects.filter(name=new_name):
-                return render(request, 'tag/update.html', {'form': form, 'id': status_id})
+            if instance.name != new_name and Label.objects.filter(name=new_name):
+                return render(request, 'label/update.html', {'form': form, 'id': label_id})
             if form.is_valid():
                 form.save()
                 messages.success(request, message=_('Тег успешно изменён'))
-                return redirect('tags')
+                return redirect('labels')
         messages.error(request, _('Вы не авторизованы! Пожалуйста, выполните вход.'))
         return redirect(reverse('login'))
 
 
-class TagDeleteView(View):
+class LabelDeleteView(View):
     def get(self, request, *args, **kwargs):
-        status_id = kwargs.get('id')
+        label_id = kwargs.get('id')
         if request.user.is_authenticated:
-            name = get_object_or_404(Tags, id=status_id)
-            return render(request, 'tag/delete.html', {
+            label = get_object_or_404(Label, id=label_id)
+            tasks = Tasks.objects.filter(labels=label).exists()
+            if tasks:
+                messages.error(request, _('Невозможно удалить метку, потому что она используется'))
+                return redirect('labels')
+            name = get_object_or_404(Label, id=label_id)
+            return render(request, 'label/delete.html', {
                 'name': name.name,
-                'status_id': status_id
+                'label_id': label_id
             }
                           )
 
     def post(self, request, *args, **kwargs):
         if request.user.is_authenticated:
-            status_id = kwargs.get('id')
-            status = get_object_or_404(Tags, id=status_id)
-            status.delete()
+            label_id = kwargs.get('id')
+            label = get_object_or_404(Label, id=label_id)
+            tasks = Tasks.objects.filter(labels=label).exists()
+            if tasks:
+                messages.error(request, _('Невозможно удалить метку, потому что она используется'))
+                return redirect('labes')
+            label_id = kwargs.get('id')
+            label = get_object_or_404(Label, id=label_id)
+            label.delete()
         messages.success(request, message=_('Тег успешно удалён'))
-        return redirect('tags')
+        return redirect('labels')

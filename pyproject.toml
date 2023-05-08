@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "hexlet-code"
-version = "2.0.0"
+version = "3.0.0"
 description = "Task Manager - a system for managing tasks"
 authors = ["Timofey Yakovishin <yakovishintimofey@gmail.com>"]
 license = "Proprietary"
@@ -21,6 +21,7 @@ django-extensions = "^3.2.1"
 ipython = "^8.13.1"
 selenium = "^4.9.0"
 webdriver-manager = "^3.8.6"
+django-filter = "^23.2"
 
 [tool.poetry.group.dev.dependencies]
 flake8 = "^6.0.0"

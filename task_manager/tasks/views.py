@@ -5,13 +5,18 @@ from django.contrib import messages
 from django.utils.translation import gettext_lazy as _
 
 from task_manager.tasks.models import Tasks
+from .filters import F
 
 
 class TasksIndexView(View):
     def get(self, request, *args, **kwargs):
         if request.user.is_authenticated:
             tasks = Tasks.objects.all()
-            return render(request, 'tasks/index.html', {'tasks': tasks})
+            tasks_filter = F(request.GET, request=request, queryset=tasks)
+            return render(request, 'tasks/index.html', {
+                'tasks': tasks,
+                'filter': tasks_filter,
+            })
         return redirect('login')
 
 
@@ -36,13 +41,15 @@ class CreateTasksView(View):
         if request.user.is_authenticated:
             form = CreateTaskForm(request.POST or None)
             if form.is_valid():
-                tag = request.POST['tags']
+                label = request.POST.get('labels')
                 task = form.save(commit=False)
                 task.creator = request.user
                 task.save()
-                task.tags.add(tag)
-                task.save()
-
+                if label:
+                    task.labels.add(label)
+                    task.save()
+                else:
+                    task.save()
                 messages.success(request, _('Задача успешно создана'))
                 return redirect('tasks')
             return render(request, 'tasks/create.html', {'form': form}, status=400)

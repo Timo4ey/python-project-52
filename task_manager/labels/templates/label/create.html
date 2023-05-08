@@ -4,7 +4,7 @@
     {% load user_extras %}
 
     <h1 class="my-4">{% trans 'Создать Метку' %}</h1>
-    <form action="{% url 'create_tag' %}" method="post">
+    <form action="{% url 'create_label' %}" method="post">
         {% csrf_token %}
         <div class="form-group">
             {% if form %}
