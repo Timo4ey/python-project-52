@@ -3,6 +3,7 @@ from .models import Tasks
 from task_manager.task_status.models import TaskStatus
 from task_manager.labels.models import Label
 from django import forms
+from django.utils.translation import gettext_lazy as _
 
 
 class F(django_filters.FilterSet):
@@ -10,11 +11,11 @@ class F(django_filters.FilterSet):
     PERFORMER_CHOICE = [(x.id, x.username) for x in Tasks.performer.get_queryset()]
     STATUSES_TAGS = Label.objects.all().values_list('id', 'name')
 
-    creator = django_filters.BooleanFilter(label="Только свои задачи", method='my_custom_filter',
+    creator = django_filters.BooleanFilter(label=_("Только свои задачи"), method='my_custom_filter',
                                            widget=forms.CheckboxInput)
 
-    status = django_filters.ChoiceFilter(label="Статус", choices=STATUSES_CHOICE)
-    labels = django_filters.ChoiceFilter(label="Метка", choices=STATUSES_TAGS)
+    status = django_filters.ChoiceFilter(label=_("Статус"), choices=STATUSES_CHOICE)
+    labels = django_filters.ChoiceFilter(label=_("Метка"), choices=STATUSES_TAGS)
 
     class Meta:
         model = Tasks
