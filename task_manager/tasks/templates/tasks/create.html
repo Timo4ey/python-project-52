@@ -12,14 +12,14 @@
             {% if element.errors %}
 
                 <label for="{{ element.auto_id }}">{{ element.label }}</label>
-                {{ element | add_classes:'is-invalid' }}
+                {{ element | add_classes:'is-invalid' | delete_id }}
                 <div class="text-danger">
                     <small>{{ element.errors.as_text }}</small>
                 </div>
             {% elif form.errors and not element.errors%}
 
                 <label for="{{ element.auto_id }}">{{ element.label }}</label>
-                {{ element | add_classes:'is-valid' }}
+                {{ element | add_classes:'is-valid'| delete_id  }}
 
              {% else%}
            <label for="{{ element.auto_id }}">{{ element.label }}</label>
