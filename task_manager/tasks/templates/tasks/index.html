@@ -55,9 +55,9 @@
                 <td>{{ obj.performer|default_if_none:'' }}</td>
              <td>{{ obj.created_at|date:'d.m.Y H:m' }}</td>
                 <td>
-                    <a href="{% url 'update_task'  id=obj.id %}">{% trans 'Изменить' %} </a>
+                    <a href="{% url 'update_task'  id=obj.id %}">{% trans 'Изменить' %}</a>
                     <br>
-                    <a href="{% url 'delete_task' id=obj.id %}">{% trans 'Удалить' %} </a>
+                    <a href="{% url 'delete_task' id=obj.id %}">{% trans 'Удалить' %}</a>
 
                 </td>
               </tr>

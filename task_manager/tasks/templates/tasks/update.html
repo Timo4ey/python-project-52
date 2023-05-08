@@ -11,10 +11,10 @@
             <div class="form-group">
             {% if element.errors %}
 
-                <label for="element.auto_id"> {{ element.label }}</label>
+                <label for="element.auto_id">{{ element.label }}</label>
                 {{ element | add_classes:'is-invalid' }}
                 <div class="text-danger">
-                    <small>{{ element.errors.as_text  }}</small>
+                    <small>{{ element.errors.as_text }}</small>
                 </div>
             {% elif form.errors and not element.errors%}
 
