@@ -17,8 +17,6 @@ class SignUpForm(UserCreationForm):
                                 widget=forms.TextInput(
                                 attrs={'class': 'form-control', 'placeholder': _('Фамилия')}))
 
-    # username_help_text = _("Обязательное поле. Не более 150 символов. Только буквы, цифры и символы @/./+/-/_.")
-
     class Meta:
         model = User
         fields = ('first_name', 'last_name', 'username', 'password1', 'password2')
@@ -83,7 +81,7 @@ class UpdateForm(UserChangeForm):
 
     class Meta:
         model = User
-        fields = ('first_name', 'last_name', 'username', 'password1', 'password2')
+        fields = ('first_name', 'last_name', 'username', 'password1', 'password2',)
         exclude = ('password',)
 
     def __init__(self, *args, **kwargs):
