@@ -35,9 +35,9 @@ ALLOWED_HOSTS = ["127.0.0.1", "webserver", ".railway.app"]
 # Application definition
 
 INSTALLED_APPS = [
-    'django_extensions',
     'django.contrib.admin',
     'django.contrib.auth',
+    'django_extensions',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
@@ -50,7 +50,8 @@ INSTALLED_APPS = [
     'task_manager.main.templatetags',
     'task_manager.task_status',
     'task_manager.tasks',
-    'task_manager.tags',
+    'task_manager.labels',
+    'django_filters',
 
 ]
 
