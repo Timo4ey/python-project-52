@@ -20,7 +20,7 @@ class TaskStatusAdmin(admin.ModelAdmin):
 @admin.register(Tasks)
 class TasksAdmin(admin.ModelAdmin):
     list_display = ['creator', 'name', 'description',
-                    'status', 'performer']
+                    'status', 'executor']
 
 
 class UserAdmin(admin.ModelAdmin):

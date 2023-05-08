@@ -13,10 +13,10 @@ class Tasks(models.Model):
     description = models.TextField(null=True, blank=True)
     status = models.ForeignKey(TaskStatus, on_delete=models.CASCADE,
                                related_name='chosen_status')
-    performer = models.ForeignKey(User, on_delete=models.CASCADE,
-                                  related_name='chosen_performer',
-                                  null=True,
-                                  blank=True)
+    executor = models.ForeignKey(User, on_delete=models.CASCADE,
+                                 related_name='chosen_performer',
+                                 null=True,
+                                 blank=True)
     labels = models.ManyToManyField(Label, related_name='chosen_tag', symmetrical=False, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
 

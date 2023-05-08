@@ -45,7 +45,7 @@ msgstr "Description"
 #: task_manager/tasks/templates/tasks/index.html:39
 #: task_manager/tasks/templates/tasks/task_page.html:18
 msgid "Исполнитель"
-msgstr "Performer"
+msgstr "Executor"
 
 #: task_manager/tasks/forms.py:19
 msgid "Метки"

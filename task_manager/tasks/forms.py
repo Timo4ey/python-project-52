@@ -7,7 +7,7 @@ class CreateTaskForm(forms.ModelForm):
     class Meta:
         model = Tasks
         fields = ['name', 'description',
-                  'status', 'performer', 'labels']
+                  'status', 'executor', 'labels']
         exclude = ('creator',)
 
     def __init__(self, *args, **kwargs):
@@ -15,7 +15,7 @@ class CreateTaskForm(forms.ModelForm):
         self.display_name = _('Имя')
         self.display_description = _('Описание')
         self.display_status = _('Статус')
-        self.display_performer = _('Исполнитель')
+        self.display_executor = _('Исполнитель')
         self.display_label = _('Метки')
 
         self.fields['name'].label = self.display_name
@@ -36,10 +36,10 @@ class CreateTaskForm(forms.ModelForm):
             'placeholder': self.display_status,
         })
 
-        self.fields['performer'].label = self.display_performer
-        self.fields['performer'].widget.attrs.update({
+        self.fields['executor'].label = self.display_executor
+        self.fields['executor'].widget.attrs.update({
             'class': 'form-control',
-            'placeholder': self.display_performer,
+            'placeholder': self.display_executor,
         })
 
         self.fields['labels'].label = self.display_label
