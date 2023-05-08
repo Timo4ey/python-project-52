@@ -1,7 +1,6 @@
 <!doctype html>
 {% load bootstrap4 %}
 {% bootstrap_css %}
-{% bootstrap_javascript jquery='full' %}
 {% load i18n %}
 <html lang="en">
 <head>
@@ -10,6 +9,9 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>{% trans 'Менеджер задач Hexlet' %}</title>
+    {% bootstrap_javascript jquery='full' %}
+{% bootstrap_css %}
+
 </head>
 <body class="d-flex flex-column min-vh-100">
     {% include 'navbar.html' %}
