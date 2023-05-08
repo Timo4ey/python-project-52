@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-08 10:54+0000\n"
+"POT-Creation-Date: 2023-05-08 12:11+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,27 +17,22 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-
 #: task_manager/labels/forms.py:11
 #: task_manager/labels/templates/label/index.html:10
 msgid "Имя"
 msgstr "Name"
 
 #: task_manager/labels/templates/label/create.html:6
-#, fuzzy
-#| msgid "Создать статус"
 msgid "Создать Метку"
-msgstr "Create a status"
+msgstr "Create a label"
 
-#: task_manager/labels/templates/label/create.html:20
+#: task_manager/labels/templates/label/create.html:21
 msgid "Создать"
 msgstr "Create"
 
 #: task_manager/labels/templates/label/delete.html:4
-#, fuzzy
-#| msgid "Удаление статуса"
-msgid "Удаление метку"
-msgstr "Delete this status"
+msgid "Удаление метки"
+msgstr "Delete label"
 
 #: task_manager/labels/templates/label/delete.html:5
 msgid "Вы уверены, что хотите удалить"
@@ -49,13 +44,11 @@ msgstr "Yes, delete"
 
 #: task_manager/labels/templates/label/index.html:4
 msgid "Метки"
-msgstr ""
+msgstr "Labels"
 
 #: task_manager/labels/templates/label/index.html:5
-#, fuzzy
-#| msgid "Создать статус"
 msgid "Создать метку"
-msgstr "Create a status"
+msgstr "Create label"
 
 #: task_manager/labels/templates/label/index.html:9
 msgid "ID"
@@ -66,7 +59,7 @@ msgid "Дата создания"
 msgstr "Created at"
 
 #: task_manager/labels/templates/label/index.html:24
-#: task_manager/labels/templates/label/update.html:22
+#: task_manager/labels/templates/label/update.html:23
 msgid "Изменить"
 msgstr "Update"
 
@@ -75,38 +68,27 @@ msgid "Удалить"
 msgstr "Delete"
 
 #: task_manager/labels/templates/label/update.html:5
-#, fuzzy
-#| msgid "Изменение статуса "
 msgid "Изменение метку "
-msgstr "Update status"
+msgstr "Change this label "
 
 #: task_manager/labels/views.py:19 task_manager/labels/views.py:29
 #: task_manager/labels/views.py:40 task_manager/labels/views.py:52
 #: task_manager/labels/views.py:68
 msgid "Вы не авторизованы! Пожалуйста, выполните вход."
-msgstr "You aren't authorized! Please, login."
+msgstr "You aren't authorized! Please, login"
 
 #: task_manager/labels/views.py:37
-#, fuzzy
-#| msgid "Статус успешно создан"
-msgid "Тег успешно создан"
-msgstr "Status has been created successfully"
+msgid "Метка успешно создана"
+msgstr "Label has been created successfully"
 
 #: task_manager/labels/views.py:66
-#, fuzzy
-#| msgid "Статус успешно изменён"
-msgid "Тег успешно изменён"
-msgstr "Status has been updated successfully"
+msgid "Метка успешно изменена"
+msgstr "Label has been updated successfully"
 
 #: task_manager/labels/views.py:89
 msgid "Невозможно удалить метку, потому что она используется"
-msgstr ""
+msgstr "It's imposable to delete this label, because it is using"
 
 #: task_manager/labels/views.py:92
-#, fuzzy
-#| msgid "Статус успешно удалён"
-msgid "Тег успешно удалён"
-msgstr "Status has been deleted successfully"
-
-#~ msgid "Статусы"
-#~ msgstr "Statuses"
+msgid "Метка успешно удалена"
+msgstr "Label has been deleted successfully"

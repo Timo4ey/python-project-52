@@ -86,7 +86,7 @@ class StatusDeleteView(View):
             status = get_object_or_404(TaskStatus, id=status_id)
             tasks = Tasks.objects.filter(status=status).exists()
             if tasks:
-                messages.error(request, _('Невозможно удалить метку, потому что она используется'))
+                messages.error(request, _('Невозможно удалить статус, потому что он используется'))
                 return redirect('statuses')
             status.delete()
         messages.success(request, message=_('Статус успешно удалён'))

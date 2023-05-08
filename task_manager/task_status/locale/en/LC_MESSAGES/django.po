@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-08 10:54+0000\n"
+"POT-Creation-Date: 2023-05-08 12:17+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -28,7 +28,7 @@ msgstr "Name"
 msgid "Создать статус"
 msgstr "Create a status"
 
-#: task_manager/task_status/templates/status/create.html:20
+#: task_manager/task_status/templates/status/create.html:21
 msgid "Создать"
 msgstr "Create"
 
@@ -57,7 +57,7 @@ msgid "Дата создания"
 msgstr "Created at"
 
 #: task_manager/task_status/templates/status/index.html:24
-#: task_manager/task_status/templates/status/update.html:22
+#: task_manager/task_status/templates/status/update.html:23
 msgid "Изменить"
 msgstr "Update"
 
@@ -84,8 +84,8 @@ msgid "Статус успешно изменён"
 msgstr "Status has been updated successfully"
 
 #: task_manager/task_status/views.py:89
-msgid "Невозможно удалить метку, потому что она используется"
-msgstr ""
+msgid "Невозможно удалить статус, потому что он используется"
+msgstr "It's imposable to delete this status, because it is using"
 
 #: task_manager/task_status/views.py:92
 msgid "Статус успешно удалён"

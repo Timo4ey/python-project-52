@@ -82,7 +82,7 @@ msgstr "Statuses"
 
 #: task_manager/templates/navbar.html:20
 msgid "Метки"
-msgstr "Tags"
+msgstr "Labels"
 
 #: task_manager/templates/navbar.html:23
 msgid "Задачи"

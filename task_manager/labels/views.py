@@ -34,7 +34,7 @@ class LabelCreateView(View):
             form = FormLabel(request.POST)
             if form.is_valid():
                 form.save()
-                messages.success(request, message=_('Тег успешно создан'))
+                messages.success(request, message=_('Метка успешно создана'))
                 return redirect('labels')
             return render(request, 'label/update.html', {'form': form})
         messages.error(request, _('Вы не авторизованы! Пожалуйста, выполните вход.'))
@@ -63,7 +63,7 @@ class LabelUpdateView(View):
                 return render(request, 'label/update.html', {'form': form, 'id': label_id})
             if form.is_valid():
                 form.save()
-                messages.success(request, message=_('Тег успешно изменён'))
+                messages.success(request, message=_('Метка успешно изменена'))
                 return redirect('labels')
         messages.error(request, _('Вы не авторизованы! Пожалуйста, выполните вход.'))
         return redirect(reverse('login'))
@@ -89,5 +89,5 @@ class LabelDeleteView(View):
                 messages.error(request, _('Невозможно удалить метку, потому что она используется'))
                 return redirect('labels')
             label.delete()
-        messages.success(request, message=_('Тег успешно удалён'))
+        messages.success(request, message=_('Метка успешно удалена'))
         return redirect('labels')

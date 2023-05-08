@@ -30,7 +30,7 @@ msgstr "Status"
 
 #: task_manager/tasks/filters.py:18
 msgid "Метка"
-msgstr "Tag"
+msgstr "Label"
 
 #: task_manager/tasks/forms.py:15
 #: task_manager/tasks/templates/tasks/index.html:36
@@ -49,7 +49,7 @@ msgstr "Performer"
 
 #: task_manager/tasks/forms.py:19
 msgid "Метки"
-msgstr "Tags"
+msgstr "Labels"
 
 #: task_manager/tasks/templates/tasks/create.html:5
 msgid "Создать задачу "
@@ -113,10 +113,8 @@ msgid "Просмотр задачи"
 msgstr "Create a task"
 
 #: task_manager/tasks/templates/tasks/task_page.html:31
-#, fuzzy
-#| msgid "Метки"
 msgid "Метки:"
-msgstr "Tags"
+msgstr "Labels"
 
 #: task_manager/tasks/templates/tasks/update.html:5
 msgid "Изменить задачу"
