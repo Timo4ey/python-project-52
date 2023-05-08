@@ -80,4 +80,5 @@ class UserDeleteView(View):
         if request.user.is_authenticated and request.user.id == kwargs.get('id'):
             user = User.objects.get(id=request.user.id)
             user.delete()
+            messages.success(request, _('Пользователь успешно удалён'))
         return redirect('users')
