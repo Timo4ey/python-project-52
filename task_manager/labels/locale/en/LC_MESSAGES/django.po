@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-08 07:21+0000\n"
+"POT-Creation-Date: 2023-05-08 10:54+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -98,11 +98,11 @@ msgstr "Status has been created successfully"
 msgid "Тег успешно изменён"
 msgstr "Status has been updated successfully"
 
-#: task_manager/labels/views.py:79 task_manager/labels/views.py:94
+#: task_manager/labels/views.py:89
 msgid "Невозможно удалить метку, потому что она используется"
 msgstr ""
 
-#: task_manager/labels/views.py:99
+#: task_manager/labels/views.py:92
 #, fuzzy
 #| msgid "Статус успешно удалён"
 msgid "Тег успешно удалён"

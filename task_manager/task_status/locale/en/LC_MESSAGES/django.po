@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-05 08:45+0000\n"
+"POT-Creation-Date: 2023-05-08 10:54+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -69,20 +69,24 @@ msgstr "Delete"
 msgid "Изменение статуса "
 msgstr "Update status"
 
-#: task_manager/task_status/views.py:16 task_manager/task_status/views.py:26
-#: task_manager/task_status/views.py:37 task_manager/task_status/views.py:49
-#: task_manager/task_status/views.py:65
+#: task_manager/task_status/views.py:19 task_manager/task_status/views.py:29
+#: task_manager/task_status/views.py:40 task_manager/task_status/views.py:52
+#: task_manager/task_status/views.py:68
 msgid "Вы не авторизованы! Пожалуйста, выполните вход."
 msgstr "You aren't authorized! Please, login."
 
-#: task_manager/task_status/views.py:34
+#: task_manager/task_status/views.py:37
 msgid "Статус успешно создан"
 msgstr "Status has been created successfully"
 
-#: task_manager/task_status/views.py:63
+#: task_manager/task_status/views.py:66
 msgid "Статус успешно изменён"
 msgstr "Status has been updated successfully"
 
-#: task_manager/task_status/views.py:85
+#: task_manager/task_status/views.py:89
+msgid "Невозможно удалить метку, потому что она используется"
+msgstr ""
+
+#: task_manager/task_status/views.py:92
 msgid "Статус успешно удалён"
 msgstr "Status has been deleted successfully"

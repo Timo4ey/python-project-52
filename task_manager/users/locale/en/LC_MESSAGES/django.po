@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-08 07:21+0000\n"
+"POT-Creation-Date: 2023-05-08 10:54+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -100,8 +100,9 @@ msgid "Изменение пользователя"
 msgstr "Update user"
 
 #: task_manager/users/templates/users/update.html:36
-msgid "Создать"
-msgstr "Create"
+#: task_manager/users/templates/users/users.html:25
+msgid "Изменить"
+msgstr "Update"
 
 #: task_manager/users/templates/users/users.html:4
 msgid "Пользователи"
@@ -118,10 +119,6 @@ msgstr "Full name"
 #: task_manager/users/templates/users/users.html:11
 msgid "Дата создания"
 msgstr "Created at"
-
-#: task_manager/users/templates/users/users.html:25
-msgid "Изменить"
-msgstr "Update"
 
 #: task_manager/users/templates/users/users.html:27
 msgid "Удалить"
@@ -147,5 +144,8 @@ msgstr "User has been changed successfully"
 msgid "Невозможно удалить пользователя, потому что он используется"
 msgstr "Unable to delete user because it used"
 
-msgid "Ваш пароль должен содержать как минимум 3 символа."
-msgstr "Passport must contain at least 3 characters."
+#~ msgid "Создать"
+#~ msgstr "Create"
+
+#~ msgid "Ваш пароль должен содержать как минимум 3 символа."
+#~ msgstr "Passport must contain at least 3 characters."

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-08 07:26+0000\n"
+"POT-Creation-Date: 2023-05-08 10:54+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-
+#: task_manager/tasks/filters.py:14
 msgid "Только свои задачи"
 msgstr "Only my tasks"
 
@@ -28,6 +28,7 @@ msgstr "Only my tasks"
 msgid "Статус"
 msgstr "Status"
 
+#: task_manager/tasks/filters.py:18
 msgid "Метка"
 msgstr "Tag"
 
@@ -142,5 +143,5 @@ msgstr "The task can delete only its author"
 msgid "Задача успешно удалена"
 msgstr "The task has been deleted"
 
-msgid "Метка:"
-msgstr "Tags"
+#~ msgid "Метка:"
+#~ msgstr "Tags"
