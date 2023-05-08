@@ -3,7 +3,7 @@
     {% block content %}
         <h1 class="my-4">{% trans 'Удаление метку' %}</h1>
         <p>{% trans 'Вы уверены, что хотите удалить' %} {{ name }}?</p>
-    <form action="{% url 'delete_tag' id=status_id %}" method="POST">
+    <form action="{% url 'delete_label' id=label_id %}" method="POST">
         {% csrf_token %}
         <input  class="btn btn-danger" type="submit" value="{% trans 'Да, удалить' %}">
     </form>

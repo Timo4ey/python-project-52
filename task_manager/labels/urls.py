@@ -2,8 +2,8 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-    path('', views.IndexViews.as_view(), name='tags'),
-    path('create/', views.TagCreateView.as_view(), name='create_tag'),
-    path('<int:id>/udpate', views.TagUpdateView.as_view(), name='update_tag'),
-    path('<int:id>/delete', views.TagDeleteView.as_view(), name='delete_tag'),
+    path('', views.IndexViews.as_view(), name='labels'),
+    path('create/', views.LabelCreateView.as_view(), name='create_label'),
+    path('<int:id>/udpate', views.LabelUpdateView.as_view(), name='update_label'),
+    path('<int:id>/delete', views.LabelDeleteView.as_view(), name='delete_label'),
 ]
