@@ -22,29 +22,24 @@ class CreateTaskForm(forms.ModelForm):
         self.fields['name'].widget.attrs.update({
             'class': 'form-control',
             'placeholder': self.display_name,
-            'id': '_'.join(('field_id', self.display_name.lower(
-            ).replace(' ', '_')))
         })
 
         self.fields['description'].label = self.display_description
         self.fields['description'].widget.attrs.update({
             'class': 'form-control',
             'placeholder': self.display_description,
-            'id': '_'.join(('field_id', self.display_description.lower())),
         })
 
         self.fields['status'].label = self.display_status
         self.fields['status'].widget.attrs.update({
             'class': 'form-control',
             'placeholder': self.display_status,
-            'id': '_'.join(('field_id', self.display_status.lower())),
         })
 
         self.fields['executor'].label = self.display_executor
         self.fields['executor'].widget.attrs.update({
             'class': 'form-control',
             'placeholder': self.display_executor.lower(),
-            'id': '_'.join(('field_id', self.display_executor.lower())),
 
         })
 
@@ -52,5 +47,4 @@ class CreateTaskForm(forms.ModelForm):
         self.fields['labels'].widget.attrs.update({
             'class': 'form-control',
             'placeholder': self.display_label,
-            'id': '_'.join(('field_id', self.display_label.lower())),
         })
