@@ -73,11 +73,6 @@ class LabelDeleteView(View):
     def get(self, request, *args, **kwargs):
         label_id = kwargs.get('id')
         if request.user.is_authenticated:
-            label = get_object_or_404(Label, id=label_id)
-            tasks = Tasks.objects.filter(labels=label).exists()
-            if tasks:
-                messages.error(request, _('Невозможно удалить метку, потому что она используется'))
-                return redirect('labels')
             name = get_object_or_404(Label, id=label_id)
             return render(request, 'label/delete.html', {
                 'name': name.name,
@@ -92,9 +87,7 @@ class LabelDeleteView(View):
             tasks = Tasks.objects.filter(labels=label).exists()
             if tasks:
                 messages.error(request, _('Невозможно удалить метку, потому что она используется'))
-                return redirect('labes')
-            label_id = kwargs.get('id')
-            label = get_object_or_404(Label, id=label_id)
+                return redirect('labels')
             label.delete()
         messages.success(request, message=_('Тег успешно удалён'))
         return redirect('labels')

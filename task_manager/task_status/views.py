@@ -4,6 +4,9 @@ from django.views import View
 from .models import TaskStatus
 from django.utils.translation import gettext_lazy as _
 from .forms import FormTaskStatus
+from ..tasks.models import Tasks
+
+
 # Create your views here.
 
 
@@ -81,6 +84,10 @@ class StatusDeleteView(View):
         if request.user.is_authenticated:
             status_id = kwargs.get('id')
             status = get_object_or_404(TaskStatus, id=status_id)
+            tasks = Tasks.objects.filter(status=status).exists()
+            if tasks:
+                messages.error(request, _('Невозможно удалить метку, потому что она используется'))
+                return redirect('statuses')
             status.delete()
         messages.success(request, message=_('Статус успешно удалён'))
         return redirect('statuses')
