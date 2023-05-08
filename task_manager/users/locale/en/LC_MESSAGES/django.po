@@ -147,5 +147,5 @@ msgstr "User has been changed successfully"
 msgid "Невозможно удалить пользователя, потому что он используется"
 msgstr "Unable to delete user because it used"
 
-#~ msgid "Ваш пароль должен содержать как минимум 3 символа."
-#~ msgstr "Passport must contain at least 3 characters."
+msgid "Ваш пароль должен содержать как минимум 3 символа."
+msgstr "Passport must contain at least 3 characters."

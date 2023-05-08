@@ -19,15 +19,15 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 #: task_manager/main/forms.py:16 task_manager/main/forms.py:17
 msgid "Имя пользователя"
-msgstr ""
+msgstr "Username"
 
 #: task_manager/main/forms.py:23 task_manager/main/forms.py:24
 msgid "Пароль"
-msgstr ""
+msgstr "Password"
 
 #: task_manager/main/views.py:32
 msgid "Вы залогинены"
-msgstr ""
+msgstr "You login"
 
 #: task_manager/main/views.py:35
 msgid ""
@@ -38,4 +38,4 @@ msgstr ""
 
 #: task_manager/main/views.py:45
 msgid "Вы разлогинены"
-msgstr ""
+msgstr "You logout"

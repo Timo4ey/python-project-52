@@ -14,7 +14,7 @@ from dotenv import load_dotenv
 from pathlib import Path
 from django.utils.translation import gettext_lazy as _
 from django.contrib.messages import constants as message_constants
-
+import rollbar
 
 load_dotenv()
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -74,6 +74,9 @@ MIDDLEWARE = [
     'django.middleware.locale.LocaleMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
     'task_manager.rollbar_middleware.CustomRollbarNotifierMiddleware',
+    'rollbar.contrib.django.middleware.RollbarNotifierMiddlewareExcluding404',
+    'rollbar.contrib.django.middleware.RollbarNotifierMiddlewareOnly404',
+    'rollbar.contrib.django.middleware.RollbarNotifierMiddlewareOnly404',
 
 ]
 
@@ -182,3 +185,6 @@ ROLLBAR = {
     'code_version': '1.0',
     'root': BASE_DIR,
 }
+
+
+rollbar.init(**ROLLBAR)
