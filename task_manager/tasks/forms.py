@@ -35,17 +35,7 @@ class CreateTaskForm(forms.ModelForm):
         self.fields['status'].widget.attrs.update({
             'class': 'form-control',
         })
-        # print(self.fields)
-        # print(self.fields['executor'].__dict__)
-        # print('\n')
-        # print(self.fields['executor'].__dir__())
-        # print(User.objects.values_list('first_name', 'last_name'))
-        # self.fields['executor']._set_queryset()  #
-        # print([u.get_full_name() for u in User.objects.all()])
-        # print([(u.id, u.get_full_name()) for u in User.objects.all()])
-        # print([(User.objects.get(id=u.id), u.get_full_name()) for u in User.objects.all()])
-        # # self.fields['executor'].choices = executor_fields
-        # self.fields['executor'] = forms.ChoiceField(choices=[(u, u.get_full_name()) for u in User.objects.all()])
+
         self.fields['executor'].label = self.display_executor
         self.fields['executor'].widget.attrs.update({
             'class': 'form-control',

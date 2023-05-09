@@ -41,13 +41,13 @@ class CreateTasksView(View):
         if request.user.is_authenticated:
             form = CreateTaskForm(request.POST or None)
             if form.is_valid():
-                label = request.POST.get('labels')
+                label = request.POST.getlist('labels')
                 task = form.save(commit=False)
                 task.creator = request.user
 
                 task.save()
                 if label:
-                    task.labels.add(label)
+                    [task.labels.add(i) for i in label]
                     task.save()
                 else:
                     task.save()
