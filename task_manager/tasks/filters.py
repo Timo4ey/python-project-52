@@ -10,7 +10,6 @@ from django.utils.translation import gettext_lazy as _
 
 class F(django_filters.FilterSet):
     STATUSES_CHOICE = TaskStatus.objects.all().values_list('id', 'name')
-    # PERFORMER_CHOICE = [(x.id, x.username) for x in Tasks.executor.get_queryset()]
     PERFORMER_CHOICE = User.objects.all()
     STATUSES_TAGS = Label.objects.all().values_list('id', 'name')
 
