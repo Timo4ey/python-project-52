@@ -1,3 +1,4 @@
+# from django.contrib.auth.models import User
 from django.shortcuts import render, redirect, get_object_or_404
 from django.views import View
 from .forms import CreateTaskForm
@@ -44,6 +45,7 @@ class CreateTasksView(View):
                 label = request.POST.get('labels')
                 task = form.save(commit=False)
                 task.creator = request.user
+
                 task.save()
                 if label:
                     task.labels.add(label)

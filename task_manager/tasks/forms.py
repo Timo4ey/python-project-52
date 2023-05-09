@@ -1,5 +1,5 @@
 from django import forms
-from django.contrib.auth.models import User
+# from django.contrib.auth.models import User
 
 from .models import Tasks
 from django.utils.translation import gettext_lazy as _
@@ -40,11 +40,15 @@ class CreateTaskForm(forms.ModelForm):
             'class': 'form-control',
         })
 
+        # print(self.fields['executor'].__dict__)
+        # print('\n')
+        # print(self.fields['executor'].__dir__())
+
+        self.fields['executor']._set_queryset(Tasks.executor.get_queryset())  #
         self.fields['executor'].label = self.display_executor
         self.fields['executor'].widget.attrs.update({
             'class': 'form-control',
             'title': '',
-            'data': User.objects.all().values_list('id', 'username'),
         })
 
         self.fields['labels'].label = self.display_label
