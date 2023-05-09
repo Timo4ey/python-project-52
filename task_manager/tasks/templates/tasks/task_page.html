@@ -30,8 +30,8 @@
         <div class="col">
           <h6>{% trans 'Метки:' %}</h6>
           <ul>
-          {% for tag in task.tags.values %}
-          <li>{{ tag.name }}</li>
+          {% for label in task.labels.values %}
+          <li>{{ label.name }}</li>
           {% endfor %}
             </ul>
         </div>
