@@ -1,3 +1,4 @@
+from time import sleep
 
 from selenium import webdriver
 from django.contrib.staticfiles.testing import StaticLiveServerTestCase
@@ -49,5 +50,5 @@ class TestTask(StaticLiveServerTestCase):
         self.browser.find_element(By.CLASS_NAME, self.registration_form_field_button_class).click()
         self.browser.find_element(By.XPATH, self.navigation_tasks_xpath).click()
         self.browser.find_element(By.CSS_SELECTOR, self.create_task_link_css_selector).click()
-        # sleep(50)
+        sleep(50)
         # self.browser.find_element(By.XPATH, self.navigation_tasks_xpath).click()

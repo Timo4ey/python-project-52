@@ -1,10 +1,13 @@
 from django import forms
+from django.contrib.auth.models import User
+
 from .models import Tasks
 from django.utils.translation import gettext_lazy as _
 
 
 class CreateTaskForm(forms.ModelForm):
-    list_ex = [(x.id, x.username) for x in Tasks.executor.get_queryset()]
+    # list_ex = User.objects.all().values_list('id', 'username')
+    list_ex = Tasks.executor.get_queryset()
 
     class Meta:
         model = Tasks
@@ -40,7 +43,8 @@ class CreateTaskForm(forms.ModelForm):
         self.fields['executor'].label = self.display_executor
         self.fields['executor'].widget.attrs.update({
             'class': 'form-control',
-            'title': ''
+            'title': '',
+            'data': User.objects.all().values_list('id', 'username'),
         })
 
         self.fields['labels'].label = self.display_label
