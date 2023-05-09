@@ -3,6 +3,8 @@
     {% load user_extras %}
     {% block content %}
         <h1 class="my-4">{% trans "Создать задачу " %}</h1>
+<div>Perfs:</div>
+<div>{{ form.list_ex }} </div>
     <form action="{% url 'create_task' %}" method="post">
         {% csrf_token %}
         <table>
@@ -31,6 +33,5 @@
         </table>
     </form>
 
-<div>Perfs:</div>
-<div>{{ form.list_ex }} </div>
+
     {% endblock %}
