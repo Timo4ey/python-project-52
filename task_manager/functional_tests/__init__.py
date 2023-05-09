@@ -1,4 +1,4 @@
-from .test_registration_form import TestTaskManagerRegistration
+from .test_tasks import TestTask
 
 
-__all__ = ['TestTaskManagerRegistration']
+__all__ = ['TestTask']

@@ -17,6 +17,7 @@ class MainTest(TestCase):
 
     def test_ru_content(self):
         response = self.client.get(self.main_url, headers=ru_headers)
+        # self.client.
         self.assertIn("Привет от Хекслета!", str(response._container[0].decode('utf-8')))
         self.assertEquals(response.headers.get("Content-Language"), "ru")
 
