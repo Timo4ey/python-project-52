@@ -40,13 +40,14 @@ INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
     'django_extensions',
+    'bootstrap4',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-
+    "debug_toolbar",
     'django.middleware.csrf',
-    'bootstrap4',
+
     'whitenoise.runserver_nostatic',
     'task_manager',
     'task_manager.main',
@@ -75,7 +76,7 @@ MIDDLEWARE = [
     'task_manager.rollbar_middleware.CustomRollbarNotifierMiddleware',
     'rollbar.contrib.django.middleware.RollbarNotifierMiddlewareExcluding404',
     'rollbar.contrib.django.middleware.RollbarNotifierMiddlewareOnly404',
-
+    "debug_toolbar.middleware.DebugToolbarMiddleware",
 ]
 
 ROOT_URLCONF = 'task_manager.urls'

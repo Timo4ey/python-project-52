@@ -21,6 +21,7 @@ from django.urls import path, include
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('task_manager.main.urls'), name='main'),
+    path('__debug__/', include('debug_toolbar.urls')),
     path('users/', include('task_manager.users.urls'), name='users'),
     path('statuses/', include('task_manager.task_status.urls'), name='statuses'),
     path('labels/', include('task_manager.labels.urls'), name='labels'),

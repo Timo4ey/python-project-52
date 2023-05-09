@@ -30,6 +30,5 @@ class F(django_filters.FilterSet):
 
     def my_custom_filter(self, queryset, field, value, *args, **kwargs):
         if value:
-            print(queryset)
             return queryset.filter(creator_id=self.user_id)
         return queryset
