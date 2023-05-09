@@ -4,6 +4,8 @@ from django.utils.translation import gettext_lazy as _
 
 
 class CreateTaskForm(forms.ModelForm):
+    list_ex = [(x.id, x.username) for x in Tasks.executor.get_queryset()]
+
     class Meta:
         model = Tasks
         fields = ['name', 'description',
