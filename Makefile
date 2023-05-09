@@ -9,6 +9,9 @@ prod:migrate
 test-django:lint
 	 @$(MANAGE)  test task_manager.tests
 
+func-tests:
+	 @$(MANAGE) test task_manager.functional_tests
+
 lint:
 	poetry run flake8 task_manager
 

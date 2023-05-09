@@ -4,6 +4,7 @@ from django.db.models.signals import post_save
 
 from task_manager.labels.models import Label
 from task_manager.task_status.models import TaskStatus
+from django.utils.translation import gettext_lazy as _
 
 
 class Tasks(models.Model):
@@ -11,12 +12,14 @@ class Tasks(models.Model):
                                 related_name='creator_tasks',)
     name = models.CharField(max_length=150, null=False,  unique=True)
     description = models.TextField(null=True, blank=True)
-    status = models.ForeignKey(TaskStatus, on_delete=models.CASCADE,
+    status = models.ForeignKey(TaskStatus, on_delete=models.PROTECT,
                                related_name='chosen_status')
-    executor = models.ForeignKey(User, on_delete=models.CASCADE,
+    executor = models.ForeignKey(User, on_delete=models.PROTECT,
                                  related_name='chosen_performer',
                                  null=True,
-                                 blank=True)
+                                 blank=True,
+                                 verbose_name=_('Executor')
+                                 )
     labels = models.ManyToManyField(Label, related_name='chosen_tag', symmetrical=False, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
 
