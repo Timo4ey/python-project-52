@@ -1,4 +1,6 @@
 import django_filters
+from django.contrib.auth.models import User
+
 from .models import Tasks
 from task_manager.task_status.models import TaskStatus
 from task_manager.labels.models import Label
@@ -8,7 +10,8 @@ from django.utils.translation import gettext_lazy as _
 
 class F(django_filters.FilterSet):
     STATUSES_CHOICE = TaskStatus.objects.all().values_list('id', 'name')
-    PERFORMER_CHOICE = [(x.id, x.username) for x in Tasks.executor.get_queryset()]
+    # PERFORMER_CHOICE = [(x.id, x.username) for x in Tasks.executor.get_queryset()]
+    PERFORMER_CHOICE = User.objects.all().values_list('id', 'username')
     STATUSES_TAGS = Label.objects.all().values_list('id', 'name')
 
     creator = django_filters.BooleanFilter(label=_("Только свои задачи"), method='my_custom_filter',
