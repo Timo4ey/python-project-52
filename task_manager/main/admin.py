@@ -26,6 +26,3 @@ class TasksAdmin(admin.ModelAdmin):
 class UserAdmin(admin.ModelAdmin):
     model = User
     fields = ['username']
-
-
-# admin.site.unregister(User)

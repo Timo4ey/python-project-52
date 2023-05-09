@@ -1,14 +1,10 @@
 from django import forms
-# from django.contrib.auth.models import User
 
 from .models import Tasks
 from django.utils.translation import gettext_lazy as _
 
 
 class CreateTaskForm(forms.ModelForm):
-    # list_ex = User.objects.all().values_list('id', 'username')
-    list_ex = Tasks.executor.get_queryset()
-
     class Meta:
         model = Tasks
         fields = ['name', 'description',
@@ -39,12 +35,17 @@ class CreateTaskForm(forms.ModelForm):
         self.fields['status'].widget.attrs.update({
             'class': 'form-control',
         })
-
+        # print(self.fields)
         # print(self.fields['executor'].__dict__)
         # print('\n')
         # print(self.fields['executor'].__dir__())
-
-        self.fields['executor']._set_queryset(Tasks.executor.get_queryset())  #
+        # print(User.objects.values_list('first_name', 'last_name'))
+        # self.fields['executor']._set_queryset()  #
+        # print([u.get_full_name() for u in User.objects.all()])
+        # print([(u.id, u.get_full_name()) for u in User.objects.all()])
+        # print([(User.objects.get(id=u.id), u.get_full_name()) for u in User.objects.all()])
+        # # self.fields['executor'].choices = executor_fields
+        # self.fields['executor'] = forms.ChoiceField(choices=[(u, u.get_full_name()) for u in User.objects.all()])
         self.fields['executor'].label = self.display_executor
         self.fields['executor'].widget.attrs.update({
             'class': 'form-control',

@@ -4,7 +4,6 @@ from django.db.models.signals import post_save
 
 from task_manager.labels.models import Label
 from task_manager.task_status.models import TaskStatus
-from django.utils.translation import gettext_lazy as _
 
 
 class Tasks(models.Model):
@@ -18,7 +17,6 @@ class Tasks(models.Model):
                                  related_name='chosen_performer',
                                  null=True,
                                  blank=True,
-                                 verbose_name=_('Executor')
                                  )
     labels = models.ManyToManyField(Label, related_name='chosen_tag', symmetrical=False, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
