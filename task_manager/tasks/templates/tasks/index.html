@@ -51,8 +51,8 @@
                 <td><a href="{% url 'page_task' id=obj.id  %}">{{ obj.name }}</a></td>
 
                 <td>{{ obj.status }}</td>
-                <td>{{ obj.creator.first_name|default_if_none:'' }} {{ obj.creator.last_name|default_if_none:'' }}</td>
-                <td>{{ obj.executor|default_if_none:'' }}</td>
+                <td>{{ obj.creator.first_name }} {{ obj.creator.last_name }}</td>
+                <td>{{ obj.executor }}</td>
              <td>{{ obj.created_at|date:'d.m.Y H:m' }}</td>
                 <td>
                     <a href="{% url 'update_task'  id=obj.id %}">{% trans 'Изменить' %}</a>
