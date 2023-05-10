@@ -1,20 +1,30 @@
 import django_filters
+from django.contrib.auth.models import User
+from django.db.models.functions import Concat
 
 from .models import Tasks
 from task_manager.task_status.models import TaskStatus
 from task_manager.labels.models import Label
 from django import forms
 from django.utils.translation import gettext_lazy as _
+from django.db.models import Value
 
 
-class F(django_filters.FilterSet):
+class TaskFilter(django_filters.FilterSet):
     STATUSES_CHOICE = TaskStatus.objects.all().values_list('id', 'name')
-    STATUSES_TAGS = Label.objects.all().values_list('id', 'name')
+    PERFORMER_CHOICE = User.objects.annotate(
+                       full_name=Concat('first_name',
+                                        Value(' '),
+                                        'last_name')).values_list(
+        'id', 'full_name')
+    LABELS_CHOICE = Label.objects.all().values_list('id', 'name')
 
-    creator = django_filters.BooleanFilter(label=_("Только свои задачи"), method='my_custom_filter',
+    creator = django_filters.BooleanFilter(label=_("Только свои задачи"),
+                                           method='my_custom_filter',
                                            widget=forms.CheckboxInput)
     status = django_filters.ChoiceFilter(label=_("Статус"), choices=STATUSES_CHOICE)
-    labels = django_filters.ChoiceFilter(label=_("Метка"), choices=STATUSES_TAGS)
+    labels = django_filters.ChoiceFilter(label=_("Метка"), choices=LABELS_CHOICE)
+    executor = django_filters.ChoiceFilter(label=_("Исполнитель"), choices=PERFORMER_CHOICE)
 
     class Meta:
         model = Tasks
@@ -22,7 +32,7 @@ class F(django_filters.FilterSet):
 
     #
     def __init__(self,  *args, **kwargs):
-        super(F, self).__init__(*args, **kwargs)
+        super(TaskFilter, self).__init__(*args, **kwargs)
         self.user_id = self.request.user.id
 
     def my_custom_filter(self, queryset, field, value, *args, **kwargs):
