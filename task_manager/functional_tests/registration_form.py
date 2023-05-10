@@ -30,9 +30,8 @@ class TestTaskManagerRegistration(StaticLiveServerTestCase):
     def test_find_registration_link(self):
         self.browser.get(self.live_server_url)
         reg = WebDriverWait(
-            self.browser, 12).until(EC.text_to_be_present_in_element(
-             (
-                 By.XPATH, self.registration_link_xpath), text_='Registration'
+            self.browser, 12).until(EC.text_to_be_present_in_element((
+                By.XPATH, self.registration_link_xpath), text_='Registration'
             )
         )
         self.assertTrue(reg)
