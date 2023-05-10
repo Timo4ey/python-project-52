@@ -86,8 +86,7 @@ class LabelDeleteView(View):
             return render(request, 'label/delete.html', {
                 'name': name.name,
                 'label_id': label_id
-            }
-                          )
+            })
 
     def post(self, request, *args, **kwargs):
         if request.user.is_authenticated:

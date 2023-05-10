@@ -31,8 +31,7 @@ class TasksPageView(View):
             return render(request, 'tasks/task_page.html', {
                 'task': task,
                 'id': task_id
-            }
-                          )
+            })
         return redirect('login')
 
 
@@ -64,8 +63,7 @@ class CreateTasksView(View):
                 return redirect('tasks')
             return render(request, 'tasks/create.html', {
                 'form': form
-            }, status=400
-                          )
+            }, status=400)
 
 
 class UpdateTasksView(View):
@@ -92,9 +90,7 @@ class UpdateTasksView(View):
             return render(request, 'tasks/update.html', {
                 'form': form,
                 'id': task_id
-            },
-                          status=400
-                          )
+            }, status=400)
 
 
 class DeleteTasksView(View):
@@ -110,8 +106,7 @@ class DeleteTasksView(View):
                 return render(request, 'tasks/delete.html', {
                     'id': task_id,
                     'name': name
-                }
-                              )
+                })
             messages.error(request, _("Задачу может удалить только её автор"))
             return redirect('tasks')
         messages.error(request,

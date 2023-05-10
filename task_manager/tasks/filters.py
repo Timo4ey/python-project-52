@@ -12,11 +12,10 @@ from django.db.models import Value
 
 class TaskFilter(django_filters.FilterSet):
     STATUSES_CHOICE = TaskStatus.objects.all().values_list('id', 'name')
-    PERFORMER_CHOICE = User.objects.annotate(
-                       full_name=Concat('first_name',
-                                        Value(' '),
-                                        'last_name')).values_list(
-        'id', 'full_name')
+    PERFORMER_CHOICE = User.objects.annotate(ull_name=Concat('first_name',
+                                                             Value(' '),
+                                                             'last_name')
+                                             ).values_list('id', 'full_name')
     LABELS_CHOICE = Label.objects.all().values_list('id', 'name')
 
     creator = django_filters.BooleanFilter(label=_("Только свои задачи"),
@@ -34,7 +33,7 @@ class TaskFilter(django_filters.FilterSet):
         fields = ['status', 'executor', 'labels', 'creator']
 
     #
-    def __init__(self,  *args, **kwargs):
+    def __init__(self, *args, **kwargs):
         super(TaskFilter, self).__init__(*args, **kwargs)
         self.user_id = self.request.user.id
 

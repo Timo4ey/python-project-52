@@ -44,8 +44,7 @@ class SignUpForm(UserCreationForm):
                 "placeholder": _('Пароль'),
                 "label": _('Пароль'),
                 "min_size": 3,
-
-                                                      })
+            })
         self.fields['password1'].label = _('Пароль')
         self.fields['password1'].help_text =\
             f'{_("Ваш пароль должен содержать как минимум 3 символа.")}'

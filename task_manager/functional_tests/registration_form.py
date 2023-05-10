@@ -16,8 +16,8 @@ class TestTaskManagerRegistration(StaticLiveServerTestCase):
     registration_form_field_password1_id = 'id_password1'
     registration_form_field_password2_id = 'id_password2'
     registration_form_field_button_class = 'btn.btn-primary'
-    alter_success_after_registration_class = 'alert.alert-success.\
-    alert-dismissible.fade.show'
+    t = 'alert.alert-success.alert-dismissible.fade.show'
+    alter_success_after_registration_class = t
 
     def setUp(self) -> None:
         self.browser = webdriver.Chrome(ChromeDriverManager().install())
@@ -32,7 +32,7 @@ class TestTaskManagerRegistration(StaticLiveServerTestCase):
         reg = WebDriverWait(
             self.browser, 12).until(EC.text_to_be_present_in_element(
              (
-              By.XPATH, self.registration_link_xpath), text_='Registration'
+                 By.XPATH, self.registration_link_xpath), text_='Registration'
             )
         )
         self.assertTrue(reg)

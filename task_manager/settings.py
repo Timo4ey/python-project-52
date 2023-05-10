@@ -31,8 +31,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = ["127.0.0.1", "webserver", ".railway.app", "*"]
 CSRF_TRUSTED_ORIGINS = [
-     "https://python-project-52-production-4e67.up.railway.app",
-     "http://127.0.0.1:8000/"
+    "https://python-project-52-production-4e67.up.railway.app",
+    "http://127.0.0.1:8000/"
 ]
 # Application definition
 

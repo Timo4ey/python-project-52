@@ -32,7 +32,7 @@ class UserFormCreateView(View):
 
 class UserUpdateView(View):
 
-    def get(self, request,  *args, **kwargs):
+    def get(self, request, *args, **kwargs):
         user = request.user
 
         if not user.is_authenticated:
@@ -77,8 +77,7 @@ class UserDeleteView(View):
                 return render(request, 'users/delete.html', {
                     'full_name':
                         f'{first_name} {last_name}'
-                }
-                              )
+                })
             messages.error(request,
                            m_auth)
             return redirect('users')

@@ -59,8 +59,7 @@ class StatusUpdateView(View):
             return render(request, 'status/update.html', {
                 'form': form,
                 'id': kwargs.get('id')
-            }
-                          )
+            })
         messages.error(request,
                        _('Вы не авторизованы! Пожалуйста, выполните вход.')
                        )
@@ -78,8 +77,7 @@ class StatusUpdateView(View):
                 return render(request, 'status/update.html', {
                     'form': form,
                     'id': status_id
-                }
-                              )
+                })
             if form.is_valid():
                 form.save()
                 messages.success(request, message=_('Статус успешно изменён'))
@@ -99,8 +97,7 @@ class StatusDeleteView(View):
             return render(request, 'status/delete.html', {
                 'name': name.name,
                 'status_id': status_id
-            }
-                          )
+            })
 
     def post(self, request, *args, **kwargs):
         if request.user.is_authenticated:
@@ -110,8 +107,7 @@ class StatusDeleteView(View):
             if tasks:
                 messages.error(request,
                                _('Невозможно удалить статус,\
-                                потому что он используется')
-                               )
+                                потому что он используется'))
                 return redirect('statuses')
             status.delete()
         messages.success(request, message=_('Статус успешно удалён'))
