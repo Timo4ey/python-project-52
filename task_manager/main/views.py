@@ -21,7 +21,8 @@ class UserLoginView(View):
         return render(request, 'login.html', {'form': form})
 
     def post(self, request, *args, **kwargs):
-
+        t1 = _('Пожалуйста, введите правильные имя пользователя и пароль. ')
+        t2 = _('Оба поля могут быть чувствительны к регистру.')
         username = request.POST['username']
         password = request.POST['password']
         user = authenticate(request,
@@ -32,8 +33,7 @@ class UserLoginView(View):
             messages.success(request, _('Вы залогинены'))
             return redirect('main')
         messages.add_message(request, messages.ERROR,
-                             message=_('Пожалуйста, введите правильные имя пользователя и пароль. \
-                             Оба поля могут быть чувствительны к регистру.'))
+                             message=f'{t1}{t2}')
         form = UserLogingForm(request.POST, instance=User)
         return render(request, 'login.html', {'form': form})
 

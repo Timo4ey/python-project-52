@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-08 12:11+0000\n"
+"POT-Creation-Date: 2023-05-10 08:49+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,6 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
 #: task_manager/labels/forms.py:11
 #: task_manager/labels/templates/label/index.html:10
 msgid "Имя"
@@ -71,24 +72,28 @@ msgstr "Delete"
 msgid "Изменение метку "
 msgstr "Change this label "
 
-#: task_manager/labels/views.py:19 task_manager/labels/views.py:29
-#: task_manager/labels/views.py:40 task_manager/labels/views.py:52
-#: task_manager/labels/views.py:68
+#: task_manager/labels/views.py:20 task_manager/labels/views.py:31
+#: task_manager/labels/views.py:43 task_manager/labels/views.py:57
+#: task_manager/labels/views.py:77
 msgid "Вы не авторизованы! Пожалуйста, выполните вход."
 msgstr "You aren't authorized! Please, login"
 
-#: task_manager/labels/views.py:37
+#: task_manager/labels/views.py:39
 msgid "Метка успешно создана"
 msgstr "Label has been created successfully"
 
-#: task_manager/labels/views.py:66
+#: task_manager/labels/views.py:74
 msgid "Метка успешно изменена"
 msgstr "Label has been updated successfully"
 
-#: task_manager/labels/views.py:89
-msgid "Невозможно удалить метку, потому что она используется"
+#: task_manager/labels/views.py:99
+#, fuzzy
+#| msgid "Невозможно удалить метку, потому что она используется"
+msgid ""
+"Невозможно удалить метку,                                потому что она "
+"используется"
 msgstr "It's imposable to delete this label, because it is using"
 
-#: task_manager/labels/views.py:92
+#: task_manager/labels/views.py:104
 msgid "Метка успешно удалена"
 msgstr "Label has been deleted successfully"

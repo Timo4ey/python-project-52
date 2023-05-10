@@ -22,9 +22,12 @@ class TaskFilter(django_filters.FilterSet):
     creator = django_filters.BooleanFilter(label=_("Только свои задачи"),
                                            method='my_custom_filter',
                                            widget=forms.CheckboxInput)
-    status = django_filters.ChoiceFilter(label=_("Статус"), choices=STATUSES_CHOICE)
-    labels = django_filters.ChoiceFilter(label=_("Метка"), choices=LABELS_CHOICE)
-    executor = django_filters.ChoiceFilter(label=_("Исполнитель"), choices=PERFORMER_CHOICE)
+    status = django_filters.ChoiceFilter(label=_("Статус"),
+                                         choices=STATUSES_CHOICE)
+    labels = django_filters.ChoiceFilter(label=_("Метка"),
+                                         choices=LABELS_CHOICE)
+    executor = django_filters.ChoiceFilter(label=_("Исполнитель"),
+                                           choices=PERFORMER_CHOICE)
 
     class Meta:
         model = Tasks

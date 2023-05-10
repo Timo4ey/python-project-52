@@ -12,7 +12,10 @@ class TasksIndexView(View):
     def get(self, request, *args, **kwargs):
         if request.user.is_authenticated:
             tasks = Tasks.objects.all()
-            tasks_filter = TaskFilter(request.GET, request=request, queryset=tasks)
+            tasks_filter = TaskFilter(request.GET,
+                                      request=request,
+                                      queryset=tasks
+                                      )
             return render(request, 'tasks/index.html', {
                 'tasks': tasks,
                 'filter': tasks_filter,
@@ -25,16 +28,22 @@ class TasksPageView(View):
         if request.user.is_authenticated:
             task_id = kwargs.get('id')
             task = get_object_or_404(Tasks, id=task_id)
-            return render(request, 'tasks/task_page.html', {'task': task, 'id': task_id})
+            return render(request, 'tasks/task_page.html', {
+                'task': task,
+                'id': task_id
+            }
+                          )
         return redirect('login')
 
 
 class CreateTasksView(View):
     def get(self, request, *args, **kwargs):
         if request.user.is_authenticated:
-            form = CreateTaskForm(request.POST or None)   # {'creator': request.user}
+            form = CreateTaskForm(request.POST or None)
             return render(request, 'tasks/create.html', {'form': form})
-        messages.error(request, _("Вы не авторизованы! Пожалуйста, выполните вход."))
+        messages.error(request,
+                       _("Вы не авторизованы! Пожалуйста, выполните вход.")
+                       )
         return redirect('login')
 
     def post(self, request, *args, **kwargs):
@@ -53,7 +62,10 @@ class CreateTasksView(View):
                     task.save()
                 messages.success(request, _('Задача успешно создана'))
                 return redirect('tasks')
-            return render(request, 'tasks/create.html', {'form': form}, status=400)
+            return render(request, 'tasks/create.html', {
+                'form': form
+            }, status=400
+                          )
 
 
 class UpdateTasksView(View):
@@ -62,8 +74,10 @@ class UpdateTasksView(View):
             task_id = kwargs.get('id')
             instance = Tasks.objects.get(id=task_id)
             form = CreateTaskForm(request.POST or None, instance=instance)
-            return render(request, 'tasks/update.html', {'form': form, 'id': task_id})
-        messages.error(request, _("Вы не авторизованы! Пожалуйста, выполните вход."))
+            return render(request, 'tasks/update.html', {'form': form,
+                                                         'id': task_id})
+        messages.error(request,
+                       _("Вы не авторизованы! Пожалуйста, выполните вход."))
         return redirect('login')
 
     def post(self, request, *args, **kwargs):
@@ -75,7 +89,12 @@ class UpdateTasksView(View):
                 form.save()
                 messages.success(request, _('Задача успешно изменена'))
                 return redirect('tasks')
-            return render(request, 'tasks/update.html', {'form': form, 'id': task_id}, status=400)
+            return render(request, 'tasks/update.html', {
+                'form': form,
+                'id': task_id
+            },
+                          status=400
+                          )
 
 
 class DeleteTasksView(View):
@@ -88,10 +107,15 @@ class DeleteTasksView(View):
             if task.creator_id == user_id:
                 tasks = Tasks.objects.get(id=task_id)
                 name = tasks.name
-                return render(request, 'tasks/delete.html', {'id': task_id, 'name': name})
+                return render(request, 'tasks/delete.html', {
+                    'id': task_id,
+                    'name': name
+                }
+                              )
             messages.error(request, _("Задачу может удалить только её автор"))
             return redirect('tasks')
-        messages.error(request, _("Вы не авторизованы! Пожалуйста, выполните вход."))
+        messages.error(request,
+                       _("Вы не авторизованы! Пожалуйста, выполните вход."))
         return redirect('login')
 
     def post(self, request, *args, **kwargs):
@@ -105,5 +129,6 @@ class DeleteTasksView(View):
                 return redirect('tasks')
             messages.error(request, _("Задачу может удалить только её автор"))
             return redirect('tasks')
-        messages.error(request, _("Вы не авторизованы! Пожалуйста, выполните вход."))
+        messages.error(request,
+                       _("Вы не авторизованы! Пожалуйста, выполните вход."))
         return redirect('login')

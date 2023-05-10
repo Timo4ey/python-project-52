@@ -12,14 +12,18 @@ class UserLogingForm(forms.ModelForm):
 
     def __init__(self, *args, **kwargs):
         super(UserLogingForm, self).__init__(*args, **kwargs)
-        self.fields['username'].widget.attrs.update({"class": '',
-                                                     "placeholder": _('Имя пользователя'),
-                                                     "label": _('Имя пользователя'),
-
-                                                     })
+        self.fields['username'].widget.attrs.update(
+            {
+                "class": '',
+                "placeholder": _('Имя пользователя'),
+                "label": _('Имя пользователя'),
+            }
+        )
 
         self.fields['password'].widget = forms.PasswordInput()
-        self.fields['password'].widget.attrs.update({"class": '',
-                                                     "placeholder": _('Пароль'),
-                                                     "label": _('Пароль'),
-                                                     })
+        self.fields['password'].widget.attrs.update(
+            {"class": '',
+             "placeholder": _('Пароль'),
+             "label": _('Пароль'),
+             }
+        )

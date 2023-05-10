@@ -18,7 +18,8 @@ class Tasks(models.Model):
                                  null=True,
                                  blank=True,
                                  )
-    labels = models.ManyToManyField(Label, related_name='chosen_tag', symmetrical=False, blank=True)
+    labels = models.ManyToManyField(Label, related_name='chosen_tag',
+                                    symmetrical=False, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-04 12:48+0000\n"
+"POT-Creation-Date: 2023-05-10 10:29+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,24 +17,26 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-#: task_manager/main/forms.py:16 task_manager/main/forms.py:17
+
+#: task_manager/main/forms.py:18 task_manager/main/forms.py:19
 msgid "Имя пользователя"
 msgstr "Username"
 
-#: task_manager/main/forms.py:23 task_manager/main/forms.py:24
+#: task_manager/main/forms.py:26 task_manager/main/forms.py:27
 msgid "Пароль"
 msgstr "Password"
 
-#: task_manager/main/views.py:32
+#: task_manager/main/views.py:24
+msgid "Пожалуйста, введите правильные имя пользователя и пароль. "
+msgstr "Please, input username or password correctly. "
+
+#: task_manager/main/views.py:25
+msgid "Оба поля могут быть чувствительны к регистру."
+msgstr "Both fields can be sensible to the register."
+
+#: task_manager/main/views.py:33
 msgid "Вы залогинены"
 msgstr "You login"
-
-#: task_manager/main/views.py:35
-msgid ""
-"Пожалуйста, введите правильные имя пользователя и "
-"пароль.                              Оба поля могут быть чувствительны к "
-"регистру."
-msgstr ""
 
 #: task_manager/main/views.py:45
 msgid "Вы разлогинены"

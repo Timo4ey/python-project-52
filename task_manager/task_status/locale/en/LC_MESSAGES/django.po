@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-08 12:17+0000\n"
+"POT-Creation-Date: 2023-05-10 08:49+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -69,24 +69,33 @@ msgstr "Delete"
 msgid "Изменение статуса "
 msgstr "Update status"
 
-#: task_manager/task_status/views.py:19 task_manager/task_status/views.py:29
-#: task_manager/task_status/views.py:40 task_manager/task_status/views.py:52
-#: task_manager/task_status/views.py:68
-msgid "Вы не авторизованы! Пожалуйста, выполните вход."
+#: task_manager/task_status/views.py:20 task_manager/task_status/views.py:33
+#: task_manager/task_status/views.py:47 task_manager/task_status/views.py:88
+#, fuzzy
+#| msgid "Вы не авторизованы! Пожалуйста, выполните вход."
+msgid "Вы не авторизованы! Пожалуйста,                        выполните вход."
 msgstr "You aren't authorized! Please, login."
 
-#: task_manager/task_status/views.py:37
+#: task_manager/task_status/views.py:43
 msgid "Статус успешно создан"
 msgstr "Status has been created successfully"
 
-#: task_manager/task_status/views.py:66
+#: task_manager/task_status/views.py:65
+msgid "Вы не авторизованы! Пожалуйста, выполните вход."
+msgstr "You aren't authorized! Please, login."
+
+#: task_manager/task_status/views.py:85
 msgid "Статус успешно изменён"
 msgstr "Status has been updated successfully"
 
-#: task_manager/task_status/views.py:89
-msgid "Невозможно удалить статус, потому что он используется"
+#: task_manager/task_status/views.py:112
+#, fuzzy
+#| msgid "Невозможно удалить статус, потому что он используется"
+msgid ""
+"Невозможно удалить статус,                                потому что он "
+"используется"
 msgstr "It's imposable to delete this status, because it is using"
 
-#: task_manager/task_status/views.py:92
+#: task_manager/task_status/views.py:117
 msgid "Статус успешно удалён"
 msgstr "Status has been deleted successfully"

@@ -16,7 +16,8 @@ class IndexViews(View):
         if request.user.is_authenticated:
             labels = Label.objects.all()
             return render(request, 'label/index.html', {'labels': labels})
-        messages.error(request, _('Вы не авторизованы! Пожалуйста, выполните вход.'))
+        messages.error(request,
+                       _('Вы не авторизованы! Пожалуйста, выполните вход.'))
         return redirect(reverse('login'))
 
 
@@ -26,7 +27,8 @@ class LabelCreateView(View):
         if request.user.is_authenticated:
             form = FormLabel()
             return render(request, 'label/create.html', {'form': form})
-        messages.error(request, _('Вы не авторизованы! Пожалуйста, выполните вход.'))
+        messages.error(request,
+                       _('Вы не авторизованы! Пожалуйста, выполните вход.'))
         return redirect(reverse('login'))
 
     def post(self, request, *args, **kwargs):
@@ -37,7 +39,8 @@ class LabelCreateView(View):
                 messages.success(request, message=_('Метка успешно создана'))
                 return redirect('labels')
             return render(request, 'label/update.html', {'form': form})
-        messages.error(request, _('Вы не авторизованы! Пожалуйста, выполните вход.'))
+        messages.error(request,
+                       _('Вы не авторизованы! Пожалуйста, выполните вход.'))
         return redirect(reverse('login'))
 
 
@@ -47,9 +50,11 @@ class LabelUpdateView(View):
             print(request.user.id)
             instance = Label.objects.get(id=kwargs.get('id'))
             form = FormLabel(instance=instance)
-            return render(request, 'label/update.html', {'form': form,
-                                                         'id': kwargs.get('id')})
-        messages.error(request, _('Вы не авторизованы! Пожалуйста, выполните вход.'))
+            return render(request,
+                          'label/update.html', {'form': form,
+                                                'id': kwargs.get('id')})
+        messages.error(request,
+                       _('Вы не авторизованы! Пожалуйста, выполните вход.'))
         return redirect(reverse('login'))
 
     def post(self, request, *args, **kwargs):
@@ -59,13 +64,17 @@ class LabelUpdateView(View):
             form = FormLabel(request.POST, instance=instance)
             new_name = request.POST.get('name')
 
-            if instance.name != new_name and Label.objects.filter(name=new_name):
-                return render(request, 'label/update.html', {'form': form, 'id': label_id})
+            if instance.name != new_name and\
+                    Label.objects.filter(name=new_name):
+                return render(request,
+                              'label/update.html', {'form': form,
+                                                    'id': label_id})
             if form.is_valid():
                 form.save()
                 messages.success(request, message=_('Метка успешно изменена'))
                 return redirect('labels')
-        messages.error(request, _('Вы не авторизованы! Пожалуйста, выполните вход.'))
+        messages.error(request,
+                       _('Вы не авторизованы! Пожалуйста, выполните вход.'))
         return redirect(reverse('login'))
 
 
@@ -86,7 +95,10 @@ class LabelDeleteView(View):
             label = get_object_or_404(Label, id=label_id)
             tasks = Tasks.objects.filter(labels=label).exists()
             if tasks:
-                messages.error(request, _('Невозможно удалить метку, потому что она используется'))
+                messages.error(request,
+                               _('Невозможно удалить метку,\
+                                потому что она используется')
+                               )
                 return redirect('labels')
             label.delete()
         messages.success(request, message=_('Метка успешно удалена'))

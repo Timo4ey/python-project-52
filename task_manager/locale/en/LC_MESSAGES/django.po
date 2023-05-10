@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-08 10:54+0000\n"
+"POT-Creation-Date: 2023-05-10 10:24+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,11 +18,11 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: task_manager/settings.py:144
+#: task_manager/settings.py:147
 msgid "English"
 msgstr ""
 
-#: task_manager/settings.py:145
+#: task_manager/settings.py:148
 msgid "Russian"
 msgstr ""
 
@@ -38,7 +38,7 @@ msgstr "Follow to the main page"
 msgid "Произошла ошибка"
 msgstr "Something went wrong"
 
-#: task_manager/templates/base.html:12
+#: task_manager/templates/base.html:11
 #, fuzzy
 #| msgid "Менеджер задач"
 msgid "Менеджер задач Hexlet"
@@ -60,7 +60,7 @@ msgstr "Learn more"
 msgid "Вы уже вошли, "
 msgstr "You are already in, "
 
-#: task_manager/templates/login.html:9 task_manager/templates/navbar.html:37
+#: task_manager/templates/login.html:9 task_manager/templates/navbar.html:34
 msgid "Вход"
 msgstr "Login"
 
@@ -68,33 +68,48 @@ msgstr "Login"
 msgid "Войти"
 msgstr "Login"
 
-#: task_manager/templates/navbar.html:7
+#: task_manager/templates/navbar.html:4
 msgid "Менеджер задач"
 msgstr "Task Manger"
 
-#: task_manager/templates/navbar.html:14
+#: task_manager/templates/navbar.html:11
 msgid "Пользователи"
 msgstr "Users"
 
-#: task_manager/templates/navbar.html:17
+#: task_manager/templates/navbar.html:14
 msgid "Статусы"
 msgstr "Statuses"
 
-#: task_manager/templates/navbar.html:20
+#: task_manager/templates/navbar.html:17
 msgid "Метки"
 msgstr "Labels"
 
-#: task_manager/templates/navbar.html:23
+#: task_manager/templates/navbar.html:20
 msgid "Задачи"
 msgstr "Tasks"
 
-#: task_manager/templates/navbar.html:33
+#: task_manager/templates/navbar.html:30
 msgid "Выход"
 msgstr "Logout"
 
-#: task_manager/templates/navbar.html:40
+#: task_manager/templates/navbar.html:37
 msgid "Регистрация"
 msgstr "Registration"
+
+
+#, fuzzy
+#~| msgid "Пользователи"
+#~ msgid "Имя пользователя"
+#~ msgstr "Users"
+
+#~ msgid "Пароль"
+#~ msgstr "Password"
+
+#~ msgid "Вы залогинены"
+#~ msgstr "You are login"
+
+#~ msgid "Вы разлогинены"
+#~ msgstr "You are logout"
 
 #~ msgid "Имя"
 #~ msgstr "Name"
@@ -139,12 +154,3 @@ msgstr "Registration"
 #~| msgid "Менеджер задач"
 #~ msgid "Изменить задачу "
 #~ msgstr "Task Manger"
-
-#~ msgid "Пароль"
-#~ msgstr "Password"
-
-#~ msgid "Вы залогинены"
-#~ msgstr "You are login"
-
-#~ msgid "Вы разлогинены"
-#~ msgstr "You are logout"
