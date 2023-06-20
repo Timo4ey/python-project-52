@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-06-20 09:50+0000\n"
+"POT-Creation-Date: 2023-06-20 11:06+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -73,24 +73,24 @@ msgstr "Delete"
 msgid "Изменение статуса "
 msgstr "Update status"
 
-#: task_manager/task_status/views.py:21 task_manager/task_status/views.py:35
-#: task_manager/task_status/views.py:51 task_manager/task_status/views.py:69
-#: task_manager/task_status/views.py:95
+#: task_manager/task_status/views.py:20 task_manager/task_status/views.py:32
+#: task_manager/task_status/views.py:46 task_manager/task_status/views.py:63
+#: task_manager/task_status/views.py:88
 msgid "Вы не авторизованы! Пожалуйста, выполните вход."
 msgstr "You aren't authorized! Please, login."
 
-#: task_manager/task_status/views.py:45
+#: task_manager/task_status/views.py:41
 msgid "Статус успешно создан"
 msgstr "Status has been created successfully"
 
-#: task_manager/task_status/views.py:90
-msgid "Статус успешно изменён"
+#: task_manager/task_status/views.py:84"
+msgid "Статус успешно изменен"
 msgstr "Status has been updated successfully"
 
-#: task_manager/task_status/views.py:117
+#: task_manager/task_status/views.py:109
 msgid "Невозможно удалить статус, потому что он используется"
 msgstr "It's impossible to delete this status, because it in use"
 
-#: task_manager/task_status/views.py:125
-msgid "Статус успешно удалён"
+#: task_manager/task_status/views.py:117
+msgid "Статус успешно удален"
 msgstr "Status has been deleted successfully"

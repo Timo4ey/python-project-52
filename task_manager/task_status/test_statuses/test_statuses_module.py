@@ -100,7 +100,7 @@ class TestsDeleteStatus(TestStatusSetUp):
         self.assertEqual(response.status_code, 302)
         self.assertRedirects(response, reverse_lazy("statuses"))
         messages = str(list(get_messages(response.wsgi_request))[0])
-        self.assertEqual(messages, "Статус успешно удалён")
+        self.assertEqual(messages, "Статус успешно удален")
 
 
 class TestsUpdateStatus(TestUserSetUp):
@@ -142,4 +142,4 @@ class TestsUpdateStatus(TestUserSetUp):
         self.assertEqual(response.status_code, 302)
         self.assertRedirects(response, reverse_lazy("statuses"))
         messages = str(list(get_messages(response.wsgi_request))[0])
-        self.assertEqual(messages, "Статус успешно изменён")
+        self.assertEqual(messages, "Статус успешно изменен")

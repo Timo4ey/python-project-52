@@ -184,7 +184,7 @@ class TestUserCreation(TestUserSetUp):
         self.assertEqual(len(messages), 0)
 
         self.assertIn(
-            "Введённый пароль слишком короткий.",
+            "Введенный пароль слишком короткий.",
             str(response.context["form"]),
         )
 
@@ -480,7 +480,7 @@ class TestUserDelete(TestUserSetUp):
 
         self.assertEqual(response.status_code, 302)
         self.assertRedirects(response, reverse_lazy("users"))
-        self.assertEqual(messages, "Пользователь успешно удалён")
+        self.assertEqual(messages, "Пользователь успешно удален")
         response2 = self.client.get(reverse_lazy("users"))
         self.assertNotIn(
             data["user"]["username"], response2.content.decode("utf-8")

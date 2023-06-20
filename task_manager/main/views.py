@@ -20,7 +20,7 @@ class UserLoginView(View):
         return render(request, "login.html", {"form": form})
 
     def post(self, request, *args, **kwargs):
-        t1 = _("Пожалуйста, введите правильные имя пользователя и пароль. ")
+        t1 = _("Пожалуйста, введите правильные имя пользователя и пароль.")
         t2 = _("Оба поля могут быть чувствительны к регистру.")
         username = request.POST["username"]
         password = request.POST["password"]

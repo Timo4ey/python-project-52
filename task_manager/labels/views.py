@@ -84,8 +84,7 @@ class LabelUpdateView(View):
         messages.error(
             request,
             _(
-                "Вы не авторизованы! Пожалуйста,\
-                        выполните вход."
+                "Вы не авторизованы! Пожалуйста, выполните вход."
             ),
         )
         return redirect(reverse("login"))
@@ -111,8 +110,7 @@ class LabelDeleteView(View):
                 messages.error(
                     request,
                     _(
-                        "Невозможно удалить метку,\
-                                потому что она используется"
+                        "Невозможно удалить метку, потому что она используется"
                     ),
                 )
                 return redirect("labels")

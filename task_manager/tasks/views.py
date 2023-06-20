@@ -112,7 +112,7 @@ class DeleteTasksView(View):
                 return render(
                     request, "tasks/delete.html", {"id": task_id, "name": name}
                 )
-            messages.error(request, _("Задачу может удалить только её автор"))
+            messages.error(request, _("Задачу может удалить только ее автор"))
             return redirect("tasks")
         messages.error(
             request, _("Вы не авторизованы! Пожалуйста, выполните вход.")
@@ -127,7 +127,7 @@ class DeleteTasksView(View):
                 task.delete()
                 messages.success(request, _("Задача успешно удалена"))
                 return redirect("tasks")
-            messages.error(request, _("Задачу может удалить только её автор"))
+            messages.error(request, _("Задачу может удалить только ее автор"))
             return redirect("tasks")
         messages.error(
             request, _("Вы не авторизованы! Пожалуйста, выполните вход.")

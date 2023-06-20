@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-06-20 07:16+0000\n"
+"POT-Creation-Date: 2023-06-20 11:06+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -131,7 +131,7 @@ msgid "Задача успешно изменена"
 msgstr "The task has been changed"
 
 #: task_manager/tasks/views.py:115 task_manager/tasks/views.py:130
-msgid "Задачу может удалить только её автор"
+msgid "Задачу может удалить только ее автор"
 msgstr "The task can delete only its author"
 
 #: task_manager/tasks/views.py:128

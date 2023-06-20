@@ -68,7 +68,7 @@ class SignUpForm(UserCreationForm):
         )
         self.fields["password2"].label = _("Подтверждение пароля")
         self.fields["password2"].help_text = _(
-            "Для подтверждения введите, пожалуйста, пароль ещё раз."
+            "Для подтверждения введите, пожалуйста, пароль еще раз."
         )
 
     def clean_password2(self):
@@ -79,7 +79,7 @@ class SignUpForm(UserCreationForm):
         if len(password2) < 3:
             raise ValidationError(
                 _(
-                    "Введённый пароль слишком короткий.\
+                    "Введенный пароль слишком короткий.\
              Он должен содержать как минимум 3 символа."
                 )
             )
@@ -181,7 +181,7 @@ class UpdateForm(UserChangeForm):
         )
         self.fields["password2"].label = _("Подтверждение пароля")
         self.fields["password2"].help_text = _(
-            "Для подтверждения введите, пожалуйста, пароль ещё раз."
+            "Для подтверждения введите, пожалуйста, пароль еще раз."
         )
 
     def clean_password2(self):
@@ -192,7 +192,7 @@ class UpdateForm(UserChangeForm):
         if len(password2) < 3:
             raise ValidationError(
                 _(
-                    "Введённый пароль слишком короткий.\
+                    "Введенный пароль слишком короткий.\
              Он должен содержать как минимум 3 символа."
                 )
             )

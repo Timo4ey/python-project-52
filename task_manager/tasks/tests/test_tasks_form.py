@@ -193,7 +193,7 @@ class TestTaskDelete(TestUserLabelStatusSetUP):
         self.assertEqual(response.status_code, 302)
         self.assertRedirects(response, reverse_lazy("tasks"))
         messages = str(list(get_messages(response.wsgi_request))[0])
-        self.assertEqual(messages, "Задачу может удалить только её автор")
+        self.assertEqual(messages, "Задачу может удалить только ее автор")
 
     def test_cant_delete_another_users_task_en(self):
         self.client.cookies.load({settings.LANGUAGE_COOKIE_NAME: "en-us"})

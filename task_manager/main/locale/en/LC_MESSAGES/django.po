@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-06-16 11:54+0000\n"
+"POT-Creation-Date: 2023-06-20 11:06+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -27,7 +27,9 @@ msgid "Пароль"
 msgstr "Password"
 
 #: task_manager/main/views.py:23
-msgid "Пожалуйста, введите правильные имя пользователя и пароль. "
+#, fuzzy
+#| msgid "Пожалуйста, введите правильные имя пользователя и пароль. "
+msgid "Пожалуйста, введите правильные имя пользователя и пароль."
 msgstr "Please, input username or password correctly. "
 
 #: task_manager/main/views.py:24

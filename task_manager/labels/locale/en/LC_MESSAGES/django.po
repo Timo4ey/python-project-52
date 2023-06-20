@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-06-19 09:19+0000\n"
+"POT-Creation-Date: 2023-06-20 11:06+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -73,12 +73,12 @@ msgid "Удалить"
 msgstr "Delete"
 
 #: task_manager/labels/templates/label/update.html:5
-
 msgid "Изменение метки"
 msgstr "Change label"
 
 #: task_manager/labels/views.py:19 task_manager/labels/views.py:30
 #: task_manager/labels/views.py:43 task_manager/labels/views.py:60
+#: task_manager/labels/views.py:87
 msgid "Вы не авторизованы! Пожалуйста, выполните вход."
 msgstr "You aren't authorized! Please, login"
 
@@ -90,20 +90,18 @@ msgstr "Label has been created successfully"
 msgid "Метка успешно изменена"
 msgstr "Label has been updated successfully"
 
-#: task_manager/labels/views.py:87
-#, fuzzy
-#| msgid "Вы не авторизованы! Пожалуйста, выполните вход."
-msgid "Вы не авторизованы! Пожалуйста,                        выполните вход."
-msgstr "You aren't authorized! Please, login"
-
-#: task_manager/labels/views.py:114
+#: task_manager/labels/views.py:113
 #, fuzzy
 #| msgid "Невозможно удалить метку, потому что она используется"
-msgid ""
-"Невозможно удалить метку,                                потому что она "
-"используется"
+msgid "Невозможно удалить метку, потому что она используется"
 msgstr "It's imposable to delete this label, because it is using"
 
-#: task_manager/labels/views.py:120
+#: task_manager/labels/views.py:118
 msgid "Метка успешно удалена"
 msgstr "Label has been deleted successfully"
+
+#, fuzzy
+#~| msgid "Вы не авторизованы! Пожалуйста, выполните вход."
+#~ msgid ""
+#~ "Вы не авторизованы! Пожалуйста,                        выполните вход."
+#~ msgstr "You aren't authorized! Please, login"

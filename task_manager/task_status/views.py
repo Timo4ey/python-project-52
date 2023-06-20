@@ -81,7 +81,7 @@ class StatusUpdateView(View):
                 )
             if form.is_valid():
                 form.save()
-                messages.success(request, message=_("Статус успешно изменён"))
+                messages.success(request, message=_("Статус успешно изменен"))
                 return redirect("statuses")
         messages.error(
             request,
@@ -114,5 +114,5 @@ class StatusDeleteView(View):
                 )
                 return redirect("statuses")
             status.delete()
-        messages.success(request, message=_("Статус успешно удалён"))
+        messages.success(request, message=_("Статус успешно удален"))
         return redirect("statuses")
