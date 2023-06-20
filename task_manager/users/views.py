@@ -58,7 +58,7 @@ class UserUpdateView(View):
             form = UpdateForm(data=request.POST or None, instance=current_user)
             if form.is_valid():
                 form.save()
-                messages.success(request, _("Пользователь успешно изменён"))
+                messages.success(request, _("Пользователь успешно изменен"))
                 return redirect("users")
         form = UpdateForm(request.POST)
         return render(request, "users/update.html", {"form": form}, status=400)
