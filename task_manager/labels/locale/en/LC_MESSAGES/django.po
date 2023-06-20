@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-10 08:49+0000\n"
+"POT-Creation-Date: 2023-06-19 09:19+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,16 +18,20 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: task_manager/labels/forms.py:11
+#: task_manager/labels/forms.py:12
 #: task_manager/labels/templates/label/index.html:10
 msgid "Имя"
 msgstr "Name"
 
+#: task_manager/labels/forms.py:29
+msgid "Метка с таким названием уже сущуствует"
+msgstr "Label is already exist"
+
 #: task_manager/labels/templates/label/create.html:6
 msgid "Создать Метку"
-msgstr "Create a label"
+msgstr "Create label"
 
-#: task_manager/labels/templates/label/create.html:21
+#: task_manager/labels/templates/label/create.html:24
 msgid "Создать"
 msgstr "Create"
 
@@ -69,12 +73,12 @@ msgid "Удалить"
 msgstr "Delete"
 
 #: task_manager/labels/templates/label/update.html:5
-msgid "Изменение метку "
-msgstr "Change this label "
 
-#: task_manager/labels/views.py:20 task_manager/labels/views.py:31
-#: task_manager/labels/views.py:43 task_manager/labels/views.py:57
-#: task_manager/labels/views.py:77
+msgid "Изменение метки"
+msgstr "Change label"
+
+#: task_manager/labels/views.py:19 task_manager/labels/views.py:30
+#: task_manager/labels/views.py:43 task_manager/labels/views.py:60
 msgid "Вы не авторизованы! Пожалуйста, выполните вход."
 msgstr "You aren't authorized! Please, login"
 
@@ -82,11 +86,17 @@ msgstr "You aren't authorized! Please, login"
 msgid "Метка успешно создана"
 msgstr "Label has been created successfully"
 
-#: task_manager/labels/views.py:74
+#: task_manager/labels/views.py:82
 msgid "Метка успешно изменена"
 msgstr "Label has been updated successfully"
 
-#: task_manager/labels/views.py:99
+#: task_manager/labels/views.py:87
+#, fuzzy
+#| msgid "Вы не авторизованы! Пожалуйста, выполните вход."
+msgid "Вы не авторизованы! Пожалуйста,                        выполните вход."
+msgstr "You aren't authorized! Please, login"
+
+#: task_manager/labels/views.py:114
 #, fuzzy
 #| msgid "Невозможно удалить метку, потому что она используется"
 msgid ""
@@ -94,6 +104,6 @@ msgid ""
 "используется"
 msgstr "It's imposable to delete this label, because it is using"
 
-#: task_manager/labels/views.py:104
+#: task_manager/labels/views.py:120
 msgid "Метка успешно удалена"
 msgstr "Label has been deleted successfully"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-10 10:29+0000\n"
+"POT-Creation-Date: 2023-06-16 11:54+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,26 +18,26 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: task_manager/main/forms.py:18 task_manager/main/forms.py:19
+#: task_manager/main/forms.py:16 task_manager/main/forms.py:17
 msgid "Имя пользователя"
 msgstr "Username"
 
-#: task_manager/main/forms.py:26 task_manager/main/forms.py:27
+#: task_manager/main/forms.py:25 task_manager/main/forms.py:26
 msgid "Пароль"
 msgstr "Password"
 
-#: task_manager/main/views.py:24
+#: task_manager/main/views.py:23
 msgid "Пожалуйста, введите правильные имя пользователя и пароль. "
 msgstr "Please, input username or password correctly. "
 
-#: task_manager/main/views.py:25
+#: task_manager/main/views.py:24
 msgid "Оба поля могут быть чувствительны к регистру."
 msgstr "Both fields can be sensible to the register."
 
-#: task_manager/main/views.py:33
+#: task_manager/main/views.py:30
 msgid "Вы залогинены"
 msgstr "You login"
 
-#: task_manager/main/views.py:45
+#: task_manager/main/views.py:40
 msgid "Вы разлогинены"
 msgstr "You logout"

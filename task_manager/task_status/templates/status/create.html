@@ -11,10 +11,14 @@
             <label for="{{ form.name.auto_id }}">{{ form.name.label }}</label>
                 {% if form.errors %}
                     {{ form.name | add_classes:'is-invalid'}}
-                {% else %}
-                    {{ form.name }}
+                    <div class="text-danger">
 
-                {% endif %}
+                        <small>{{ form.name.errors.as_text  }}</small>
+                    </div>
+                    {% else %}
+                    {{ form.name }}
+                    
+                    {% endif %}
             {% endif %}
             </div>
         <div class="form-group">

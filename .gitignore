@@ -2,3 +2,8 @@
 __pycache__
 .idea
 trash
+.vscode
+.pytest_cache
+.mypy_cache
+.venv
+old_tests/

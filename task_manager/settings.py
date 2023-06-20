@@ -10,11 +10,12 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 import os
-from dotenv import load_dotenv
 from pathlib import Path
-from django.utils.translation import gettext_lazy as _
-from django.contrib.messages import constants as message_constants
+
 import rollbar
+from django.contrib.messages import constants as message_constants
+from django.utils.translation import gettext_lazy as _
+from dotenv import load_dotenv
 
 load_dotenv()
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -32,123 +33,113 @@ DEBUG = True
 ALLOWED_HOSTS = ["127.0.0.1", "webserver", ".railway.app", "*"]
 CSRF_TRUSTED_ORIGINS = [
     "https://python-project-52-production-4e67.up.railway.app",
-    "http://127.0.0.1:8000/"
+    "http://127.0.0.1:8000/",
 ]
 # Application definition
 
 INSTALLED_APPS = [
-    'django.contrib.admin',
-    'django.contrib.auth',
-    'django_extensions',
-    'bootstrap4',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.messages',
-    'django.contrib.staticfiles',
+    "django.contrib.admin",
+    "django.contrib.auth",
+    "django_extensions",
+    "bootstrap4",
+    "django.contrib.contenttypes",
+    "django.contrib.sessions",
+    "django.contrib.messages",
+    "django.contrib.staticfiles",
     "debug_toolbar",
-    'django.middleware.csrf',
-
-    'whitenoise.runserver_nostatic',
-    'task_manager',
-    'task_manager.main',
-    'task_manager.users',
-    'task_manager.main.templatetags',
-    'task_manager.task_status',
-    'task_manager.tasks',
-    'task_manager.labels',
-    'django_filters',
-
-
+    "django.middleware.csrf",
+    "whitenoise.runserver_nostatic",
+    "task_manager",
+    "task_manager.main",
+    "task_manager.users",
+    "task_manager.main.templatetags",
+    "task_manager.task_status",
+    "task_manager.tasks",
+    "task_manager.labels",
+    "django_filters",
 ]
 
 MIDDLEWARE = [
-    'rollbar.contrib.django.middleware.RollbarNotifierMiddleware',
-    'django.middleware.security.SecurityMiddleware',
-    'django.contrib.sessions.middleware.SessionMiddleware',
-    'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
-    'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'django.contrib.messages.middleware.MessageMiddleware',
-    'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'django.middleware.locale.LocaleMiddleware',
-    'django.middleware.locale.LocaleMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
-    'task_manager.rollbar_middleware.CustomRollbarNotifierMiddleware',
-    'rollbar.contrib.django.middleware.RollbarNotifierMiddlewareExcluding404',
-    'rollbar.contrib.django.middleware.RollbarNotifierMiddlewareOnly404',
+    "rollbar.contrib.django.middleware.RollbarNotifierMiddleware",
+    "django.middleware.security.SecurityMiddleware",
+    "django.contrib.sessions.middleware.SessionMiddleware",
+    "django.middleware.common.CommonMiddleware",
+    "django.middleware.csrf.CsrfViewMiddleware",
+    "django.contrib.auth.middleware.AuthenticationMiddleware",
+    "django.contrib.messages.middleware.MessageMiddleware",
+    "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    "django.middleware.locale.LocaleMiddleware",
+    "django.middleware.locale.LocaleMiddleware",
+    "whitenoise.middleware.WhiteNoiseMiddleware",
+    "task_manager.rollbar_middleware.CustomRollbarNotifierMiddleware",
+    "rollbar.contrib.django.middleware.RollbarNotifierMiddlewareExcluding404",
+    "rollbar.contrib.django.middleware.RollbarNotifierMiddlewareOnly404",
     "debug_toolbar.middleware.DebugToolbarMiddleware",
 ]
 
-ROOT_URLCONF = 'task_manager.urls'
+ROOT_URLCONF = "task_manager.urls"
 
 TEMPLATES = [
     {
-        'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [
-            BASE_DIR / 'templates', 'task_manager/main/templates',
-            'task_manager/users/templates'
+        "BACKEND": "django.template.backends.django.DjangoTemplates",
+        "DIRS": [
+            BASE_DIR / "templates",
+            "task_manager/main/templates",
+            "task_manager/users/templates",
         ],
-        'APP_DIRS': True,
-        'OPTIONS': {
-            'context_processors': [
-                'django.template.context_processors.debug',
-                'django.template.context_processors.request',
-                'django.contrib.auth.context_processors.auth',
-                'django.contrib.messages.context_processors.messages',
+        "APP_DIRS": True,
+        "OPTIONS": {
+            "context_processors": [
+                "django.template.context_processors.debug",
+                "django.template.context_processors.request",
+                "django.contrib.auth.context_processors.auth",
+                "django.contrib.messages.context_processors.messages",
             ],
         },
     },
 ]
 
-WSGI_APPLICATION = 'task_manager.wsgi.application'
+WSGI_APPLICATION = "task_manager.wsgi.application"
 
 
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+    "default": {
+        "ENGINE": "django.db.backends.sqlite3",
+        "NAME": BASE_DIR / "db.sqlite3",
     }
 }
 
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
-us = 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator'
+us = "django.contrib.auth.password_validation.UserAttributeSimilarityValidator"
 AUTH_PASSWORD_VALIDATORS = [
-    {
-        'NAME': us,
-    },
-    {
-        'NAME':
-            'django.contrib.auth.password_validation.MinimumLengthValidator',
-    },
-    {
-        'NAME':
-            'django.contrib.auth.password_validation.CommonPasswordValidator',
-    },
-    {
-        'NAME':
-            'django.contrib.auth.password_validation.NumericPasswordValidator',
-    },
+    {"NAME": "django.contrib.auth.password_validation.%s" % validator}
+    for validator in [
+        "UserAttributeSimilarityValidator",
+        "MinimumLengthValidator",
+        "CommonPasswordValidator",
+        "NumericPasswordValidator",
+    ]
 ]
 
 
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
 
-LANGUAGE_CODE = 'ru'
+LANGUAGE_CODE = "ru"
 
 # gettext = lambda s: s
 # #
 LANGUAGES = (
-    ('en-us', _('English')),
-    ('ru', _('Russian')),
+    ("en-us", _("English")),
+    ("ru", _("Russian")),
 )
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = "UTC"
 
 USE_I18N = True
 
@@ -158,35 +149,36 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-STATIC_URL = 'static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATIC_URL = "static/"
+STATIC_ROOT = os.path.join(BASE_DIR, "static")
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
-DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 LOCALE_PATHS = (
-    (BASE_DIR / 'task_manager/main/locale'),
-    (BASE_DIR / 'task_manager/users/locale'),
+    (BASE_DIR / "task_manager/main/locale"),
+    (BASE_DIR / "task_manager/users/locale"),
 )
 
 SHELL_PLUS_PRINT_SQL = True
 
 
-MESSAGE_TAGS = {message_constants.DEBUG: "debug",
-                message_constants.INFO: "info",
-                message_constants.SUCCESS: "success",
-                message_constants.WARNING: "warning",
-                message_constants.ERROR: "danger",
-                }
+MESSAGE_TAGS = {
+    message_constants.DEBUG: "debug",
+    message_constants.INFO: "info",
+    message_constants.SUCCESS: "success",
+    message_constants.WARNING: "warning",
+    message_constants.ERROR: "danger",
+}
 
 ROLLBAR = {
-    'access_token': os.getenv('ROLLBAR_TOKEN'),
-    'environment': 'development' if DEBUG else 'production',
-    'code_version': '1.0',
-    'root': BASE_DIR,
+    "access_token": os.getenv("ROLLBAR_TOKEN"),
+    "environment": "development" if DEBUG else "production",
+    "code_version": "1.0",
+    "root": BASE_DIR,
 }
 
 

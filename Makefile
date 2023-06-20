@@ -9,13 +9,31 @@ prod:migrate
 test-django:lint
 	 @$(MANAGE)  test task_manager.tests
 
+check:
+	poetry run pytest task_manager -vv
+
 func-tests:
 	 @$(MANAGE) test task_manager.functional_tests
 
+cov:
+	poetry run pytest --cov=task_manager
+
+tests-coverage:
+	poetry run pytest --cov=task_manager --cov-report xml
 lint:
 	poetry run flake8 task_manager
 
 .PHONY: install
+
+black:
+	poetry run black .
+
+pep-isort:
+	poetry run isort . 
+
+mypy:
+	poetry run mypy . 
+
 install:
 	poetry install
 

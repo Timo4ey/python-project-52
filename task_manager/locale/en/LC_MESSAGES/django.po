@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-10 10:24+0000\n"
+"POT-Creation-Date: 2023-06-16 12:56+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,11 +18,11 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: task_manager/settings.py:147
+#: task_manager/settings.py:143
 msgid "English"
 msgstr ""
 
-#: task_manager/settings.py:148
+#: task_manager/settings.py:144
 msgid "Russian"
 msgstr ""
 
@@ -38,19 +38,14 @@ msgstr "Follow to the main page"
 msgid "Произошла ошибка"
 msgstr "Something went wrong"
 
-#: task_manager/templates/base.html:11
-#, fuzzy
-#| msgid "Менеджер задач"
-msgid "Менеджер задач Hexlet"
-msgstr "Task Manger"
-
-#: task_manager/templates/index.html:11
-msgid "Привет от Хекслета!"
-msgstr "Hello from Hexlet"
+#: task_manager/templates/base.html:11 task_manager/templates/index.html:11
+#: task_manager/templates/navbar.html:4
+msgid "Менеджер задач"
+msgstr "Task Manager"
 
 #: task_manager/templates/index.html:12
-msgid "Практические курсы по программированию"
-msgstr "Practice programming courses"
+msgid "Инструмент для идеального управления вашими задачами"
+msgstr "Tool for perfect managing your tasks"
 
 #: task_manager/templates/index.html:14
 msgid "Узнать больше"
@@ -67,10 +62,6 @@ msgstr "Login"
 #: task_manager/templates/login.html:24
 msgid "Войти"
 msgstr "Login"
-
-#: task_manager/templates/navbar.html:4
-msgid "Менеджер задач"
-msgstr "Task Manger"
 
 #: task_manager/templates/navbar.html:11
 msgid "Пользователи"
@@ -95,62 +86,3 @@ msgstr "Logout"
 #: task_manager/templates/navbar.html:37
 msgid "Регистрация"
 msgstr "Registration"
-
-
-#, fuzzy
-#~| msgid "Пользователи"
-#~ msgid "Имя пользователя"
-#~ msgstr "Users"
-
-#~ msgid "Пароль"
-#~ msgstr "Password"
-
-#~ msgid "Вы залогинены"
-#~ msgstr "You are login"
-
-#~ msgid "Вы разлогинены"
-#~ msgstr "You are logout"
-
-#~ msgid "Имя"
-#~ msgstr "Name"
-
-#~ msgid "Описание"
-#~ msgstr "Description"
-
-#, fuzzy
-#~| msgid "Статусы"
-#~ msgid "Статус"
-#~ msgstr "Status"
-
-#~ msgid "Исполнитель"
-#~ msgstr "Performer"
-
-#, fuzzy
-#~| msgid "Менеджер задач"
-#~ msgid "Создать задачу "
-#~ msgstr "Task Manger"
-
-#~ msgid "Создать"
-#~ msgstr "Create"
-
-#, fuzzy
-#~| msgid "Менеджер задач"
-#~ msgid "Создать задачу"
-#~ msgstr "Task Manger"
-
-#~ msgid "Автор"
-#~ msgstr "Author"
-
-#~ msgid "Дата создания"
-#~ msgstr "Crated at"
-
-#~ msgid "Изменить"
-#~ msgstr "Update"
-
-#~ msgid "Удалить"
-#~ msgstr "Delete"
-
-#, fuzzy
-#~| msgid "Менеджер задач"
-#~ msgid "Изменить задачу "
-#~ msgstr "Task Manger"

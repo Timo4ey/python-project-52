@@ -34,4 +34,4 @@ jobs:
           make migrate
       - name: Tests
         run: |
-          make test-django
+          make check
