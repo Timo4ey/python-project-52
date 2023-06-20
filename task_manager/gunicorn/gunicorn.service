@@ -5,8 +5,8 @@ After=network.target
 
 [Service]
 User=root
-WorkingDirectory=/var/www/bot_backend #путь до каталога с файлом manage.py
-ExecStart=/var/www/bot_backend/bot_backend/bin/gunicorn --workers 5 --bind unix:/run/gunicorn.sock bot_backend.wsgi:application
+WorkingDirectory=/var/www/task_manager #путь до каталога с файлом manage.py
+ExecStart=/var/www/app/task_manager/bin/gunicorn --workers 5 --bind unix:/run/gunicorn.sock task_manager.wsgi:application
 #путь до файла gunicorn в виртуальном окружении
 
 [Install]
