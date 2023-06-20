@@ -1,13 +1,19 @@
 MANAGE := poetry run python manage.py
-
+PORT ?= 8000
 start:
-	poetry run gunicorn -w 5 task_manager.wsgi
+	poetry run gunicorn -w 5 -b 0.0.0.0:$(PORT) task_manager.wsgi
 
 prod:migrate
 	poetry run gunicorn -w 5 task_manager.wsgi
 
 test-django:lint
 	 @$(MANAGE)  test task_manager.tests
+
+docker-build:
+	docker compose build
+
+up:
+	docker compose up
 
 check:
 	poetry run pytest task_manager -vv
@@ -71,3 +77,6 @@ build:
 
 publish:
 	poetry publish --dry-run
+
+collectstatic:
+	poetry run python manage.py collectstatic --noinput
