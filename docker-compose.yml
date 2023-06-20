@@ -1,0 +1,26 @@
+services:
+  task_manager:
+    build: .
+    ports:
+      - "3000:8000"
+    container_name: task_manager
+    volumes:
+      - static_volume:/task_manager/static
+  
+  web_nginx:
+    build:
+      dockerfile: ./Dockerfile
+      context: task_manager/nginx/
+    container_name: dj_nginx
+    ports:
+      - "8000:80"
+    volumes:
+      - static_volume:/task_manager/static
+    environment:
+      - NGINX_PORT=80
+    depends_on:
+      - task_manager
+
+volumes:
+  static_volume:
+
