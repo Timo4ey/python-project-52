@@ -1,0 +1,56 @@
+[
+    {
+        "user" : {
+            "first_name" : "Garry",
+            "last_name" : "Galler",
+            "username" : "garry_galler",
+            "password1" : "secretPassword",
+            "password2" : "secretPassword"
+
+        }, 
+        "user_update" : {
+                "first_name" : "Garrila",
+                "last_name" : "Gallera",
+                "username" : "garrila_gallera",
+                "password1" : "secretPassword",
+                "password2" : "secretPassword"
+    
+            },
+        "user1" : {
+            "first_name" : "Germina",
+            "last_name" : "Gesse",
+            "username" : "germina",
+            "password1" : "secretPassword12",
+            "password2" : "secretPassword12"
+
+        },
+        "short_password": "ab",
+        "status":{
+            "name": "test_1",
+            "name1": "test_3",
+            "name2": "test_2"
+        },
+        "label":{
+            "name": "test_label_1",
+            "name1": "test_label_2",
+            "name2": "test_label_3"
+        },
+        "tasks":{
+            "task":{
+                "name":"The Zen of Python",
+                "description": "Beautiful is better than ugly. Explicit is better than implicit. Simple is better than complex. Complex is better than complicated. Flat is better than nested. Sparse is better than dense."
+            },
+            "task1":{
+                "name":"Flask Web Development",
+                "description": "Flask is a small framework by most standards—small enough to be called a “micro-framework,” and small enough that once you become familiar with it, you will likely be able to read and understand all of its source code."
+
+            },
+            "task2":{
+
+                "name":"How to Flatten a List of Lists in Python",
+                "description": "Sometimes, when you’re working with data, you may have the data as a list of nested lists. A common operation is to flatten this data into a one-dimensional list in Python. Flattening a list involves converting a multidimensional list, such as a matrix, into a one-dimensional list."
+
+            }
+        }
+    }
+]

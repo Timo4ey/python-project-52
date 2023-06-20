@@ -37,3 +37,11 @@
       1. last_name is empty
       1. username over > 150
       1. username is empty
+
+4. Module Tests
+   1. Login
+   2. Registration
+      1. Valid
+      1. Invalid
+   3. Update
+   3. Delete
