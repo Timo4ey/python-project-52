@@ -4,6 +4,7 @@
 
 ![GitHub Pipenv locked Python version](https://img.shields.io/github/pipenv/locked/python-version/Timo4ey/python-project-52)
 
+![PyPI - Versions from Framework Classifiers](https://img.shields.io/pypi/frameworkversions/django/task_manager)
 
 # Task Manager
 Task Manager it is a software  package that helps manage your organization's activity
