@@ -1,29 +1,28 @@
 from django import forms
-
-from django.utils.translation import gettext_lazy as _
 from django.contrib.auth.models import User
+from django.utils.translation import gettext_lazy as _
 
 
 class UserLogingForm(forms.ModelForm):
-
     class Meta:
         model = User
-        fields = ['username', 'password']
+        fields = ["username", "password"]
 
     def __init__(self, *args, **kwargs):
         super(UserLogingForm, self).__init__(*args, **kwargs)
-        self.fields['username'].widget.attrs.update(
+        self.fields["username"].widget.attrs.update(
             {
-                "class": '',
-                "placeholder": _('Имя пользователя'),
-                "label": _('Имя пользователя'),
+                "class": "",
+                "placeholder": _("Имя пользователя"),
+                "label": _("Имя пользователя"),
             }
         )
 
-        self.fields['password'].widget = forms.PasswordInput()
-        self.fields['password'].widget.attrs.update(
-            {"class": '',
-             "placeholder": _('Пароль'),
-             "label": _('Пароль'),
-             }
+        self.fields["password"].widget = forms.PasswordInput()
+        self.fields["password"].widget.attrs.update(
+            {
+                "class": "",
+                "placeholder": _("Пароль"),
+                "label": _("Пароль"),
+            }
         )

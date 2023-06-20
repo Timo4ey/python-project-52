@@ -2,7 +2,7 @@
     {% load i18n %}
     {% block content %}
     {% load user_extras %}
-    <h1 class="my-4"> {% trans "Изменение пользователя" %}</h1>
+    <h1 class="my-4">{% trans "Изменение пользователя" %}</h1>
 
         <form action="{% url 'update_user' id=user.id %}" method="post">
 

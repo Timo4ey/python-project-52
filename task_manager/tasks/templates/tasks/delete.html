@@ -5,6 +5,6 @@
         <p>{% trans 'Вы уверены, что хотите удалить' %} {{ name }}?</p>
     <form action="{% url 'delete_task' id=id %}" method="POST">
         {% csrf_token %}
-        <input  class="btn btn-danger" type="submit" value="{% trans 'Да, удалить' %}">
+        <input class="btn btn-danger" type="submit" value="{% trans 'Да, удалить' %}">
     </form>
     {% endblock %}

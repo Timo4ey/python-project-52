@@ -7,11 +7,11 @@ class CustomRollbarNotifierMiddleware(RollbarNotifierMiddleware):
 
         # Example of adding arbitrary metadata (optional)
         extra_data = {
-            'trace_id': 'aabbccddeeff',
-            'feature_flags': [
-                'feature_1',
-                'feature_2',
-            ]
+            "trace_id": "aabbccddeeff",
+            "feature_flags": [
+                "feature_1",
+                "feature_2",
+            ],
         }
 
         return extra_data
@@ -23,10 +23,10 @@ class CustomRollbarNotifierMiddleware(RollbarNotifierMiddleware):
             # Adding info about the user affected by this event (optional)
             # The 'id' field is required, anything else is optional
             payload_data = {
-                'person': {
-                    'id': request.user.id,
-                    'username': request.user.username,
-                    'email': request.user.email,
+                "person": {
+                    "id": request.user.id,
+                    "username": request.user.username,
+                    "email": request.user.email,
                 },
             }
 
