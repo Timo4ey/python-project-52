@@ -139,7 +139,7 @@ msgid "У вас нет прав для изменения другого пол
 msgstr "You don't have rights to change another user."
 
 #: task_manager/users/views.py:61
-msgid "Пользователь успешно изменён"
+msgid "Пользователь успешно изменен"
 msgstr "User has been changed successfully"
 
 #: task_manager/users/views.py:70
