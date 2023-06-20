@@ -8,12 +8,8 @@
 
 # Task Manager
 Task Manager it is a software  package that helps manage your organization's activity. 
-<div>
-    
-    <video src="README_FILES/video/task_manger_usage.mp4" width=628>
-</div>
 
-[![Test](https://media.geeksforgeeks.org/wp-content/uploads/20211208204735/imageedit79735317586.png)](https://drive.google.com/file/d/1wowMs2RuMwa9Gs5_3cIjPE_FR2FSDwsf/view?usp=drive_link)
+https://github.com/Timo4ey/python-project-52/assets/58641775/1c9c5811-6417-4052-9b90-ffe1e39a804b
 
 
 How to use:
