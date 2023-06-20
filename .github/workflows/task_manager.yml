@@ -37,7 +37,7 @@ jobs:
           make check
       - name: Test & publish code coverage
         uses: paambaati/codeclimate-action@v4.0.0
-        if: github.ref_name == 'master'
+        if: github.ref_name == 'main'
         env:
           CC_TEST_REPORTER_ID: ${{ secrets.TEST_SCOVERAGE }}
         with:
