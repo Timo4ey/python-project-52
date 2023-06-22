@@ -14,7 +14,7 @@ from task_manager.users.models import User
 
 
 class LabelStatusesPermissionMixin(UserPassesTestMixin):
-    def test_func(self) -> bool | None:
+    def test_func(self) -> bool:
         pattern = self.find_pattern(self)
         if self.kwargs.get("id") in list(
             Tasks.objects.all().values_list(
