@@ -159,8 +159,8 @@ STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 LOCALE_PATHS = (
-    (BASE_DIR / "task_manager/main/locale"),
-    (BASE_DIR / "task_manager/users/locale"),
+    (BASE_DIR / "task_manager/locale"),
+    # (os.path.join(BASE_DIR, "locale")),
 )
 
 SHELL_PLUS_PRINT_SQL = True

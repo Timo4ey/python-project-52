@@ -9,7 +9,7 @@ en_headers = {"Accept-Language": "en"}
 b = '<input class="btn btn-primary" type="submit" value="Зарегистрировать">'
 
 
-class Registration(TestCase):
+class TestRegistration(TestCase):
     def setUp(self):
         self.client = Client()
         self.main_url = reverse_lazy("create_user")
@@ -83,7 +83,7 @@ class Registration(TestCase):
         self.assertEquals(response.headers.get("Content-Language"), "en-us")
 
 
-class UsersViews(TestCase):
+class TestUsersViews(TestCase):
     def setUp(self):
         self.client = Client()
         self.main_url = reverse_lazy("users")
@@ -143,7 +143,7 @@ class UsersViews(TestCase):
         self.assertEquals(response.headers.get("Content-Language"), "en-us")
 
 
-class UsersUpdate(TestUserSetUp):
+class TestUsersUpdate(TestUserSetUp):
     def test_views_update_user_en(self):
         self.client.cookies.load({settings.LANGUAGE_COOKIE_NAME: "en-us"})
 

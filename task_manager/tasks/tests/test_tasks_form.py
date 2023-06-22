@@ -85,7 +85,7 @@ class TestTaskCreate(TestUserLabelStatusSetUP):
                 "labels": self.label,
             },
         )
-        self.assertEqual(response.status_code, 400)
+        self.assertEqual(response.status_code, 200)
         self.assertIn(
             "Tasks with this Name already exists.",
             str(response.context["form"]),
@@ -148,7 +148,7 @@ class TestTaskUpdate(TestUserLabelStatusSetUP):
                 "labels": self.label,
             },
         )
-        self.assertEqual(response.status_code, 400)
+        self.assertEqual(response.status_code, 200)
         self.assertIn(
             "Tasks with this Name already exists.",
             str(response.context["form"]),

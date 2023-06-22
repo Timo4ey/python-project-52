@@ -1,9 +1,27 @@
 from django import forms
-from django.contrib.auth.forms import UserChangeForm, UserCreationForm
+from django.contrib.auth.forms import (
+    AuthenticationForm,
+    UserChangeForm,
+    UserCreationForm,
+)
 from django.contrib.auth.models import User
 from django.core.exceptions import ValidationError
 from django.core.validators import MaxLengthValidator
 from django.utils.translation import gettext_lazy as _
+
+
+class UserLoginForm(AuthenticationForm):
+    class Meta:
+        model = User
+        fields = ["username", "password"]
+
+        widgets = {
+            "username": forms.TextInput(attrs={"class": "form-control"}),
+            "password": forms.PasswordInput(attrs={"class": "form-control"}),
+        }
+
+
+username = _("Имя пользователя")
 
 
 class SignUpForm(UserCreationForm):
@@ -38,11 +56,11 @@ class SignUpForm(UserCreationForm):
         self.fields["username"].widget.attrs.update(
             {
                 "class": "form-control",
-                "placeholder": _("Имя пользователя"),
-                "label": _("Имя пользователя"),
+                "placeholder": username,
+                "label": username,
             }
         )
-        self.fields["username"].label = _("Имя пользователя")
+        self.fields["username"].label = username
 
         self.fields["password1"].widget.attrs.update(
             {
@@ -63,7 +81,7 @@ class SignUpForm(UserCreationForm):
             {
                 "class": "form-control",
                 "placeholder": _("Подтверждение пароля"),
-                "label": _("Пароль"),
+                "label": _("Подтверждение пароля"),
             }
         )
         self.fields["password2"].label = _("Подтверждение пароля")
@@ -150,12 +168,12 @@ class UpdateForm(UserChangeForm):
         self.fields["username"].widget.attrs.update(
             {
                 "class": "form-control",
-                "placeholder": _("Имя пользователя"),
-                "label": _("Имя пользователя"),
+                "placeholder": username,
+                "label": username,
             }
         )
         self.fields["username"].validators = [MaxLengthValidator]
-        self.fields["username"].label = _("Имя")
+        self.fields["username"].label = username
 
         self.fields["password1"].widget.attrs.update(
             {
@@ -176,7 +194,7 @@ class UpdateForm(UserChangeForm):
             {
                 "class": "form-control",
                 "placeholder": _("Подтверждение пароля"),
-                "label": _("Пароль"),
+                "label": _("Подтверждение пароля"),
             }
         )
         self.fields["password2"].label = _("Подтверждение пароля")
@@ -195,4 +213,12 @@ class UpdateForm(UserChangeForm):
                     "Введенный пароль слишком короткий.\
              Он должен содержать как минимум 3 символа."
                 )
+            )
+
+    def clean_is_active(self):
+        if not User.objects.get(
+            username=self.cleaned_data["username"]
+        ).is_active:
+            raise ValidationError(
+                _("Вы не авторизованы! Пожалуйста, выполните вход.")
             )

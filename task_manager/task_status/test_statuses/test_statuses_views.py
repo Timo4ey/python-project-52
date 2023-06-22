@@ -91,7 +91,7 @@ class TestStatusCreate(TestStatusSetUp):
     def setUp(self) -> None:
         return super().setUp()
 
-    def test_update_page_en(self):
+    def test_create_page_en(self):
         self.client.cookies.load({settings.LANGUAGE_COOKIE_NAME: "en-us"})
 
         response = self.client.get(reverse_lazy("create_status"))
@@ -99,7 +99,7 @@ class TestStatusCreate(TestStatusSetUp):
         self.assertIn("Create status", content)
         self.assertIn("Name", content)
 
-    def test_update_page_ru(self):
+    def test_create_page_ru(self):
         self.client.cookies.load({settings.LANGUAGE_COOKIE_NAME: "ru"})
 
         response = self.client.get(reverse_lazy("create_status"))

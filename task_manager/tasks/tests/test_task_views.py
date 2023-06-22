@@ -218,7 +218,7 @@ class TestTasksViewsDelete(TestUserLabelStatusSetUP):
         self.assertIn('<h1 class="my-4">Delete task</h1>', content)
 
         self.assertIn(
-            f"<p>Are you deferentially want to delete {self.task.name}?</p>",
+            f"<p>Are you sure that you want to delete {self.task.name}?</p>",
             content,
         )
 

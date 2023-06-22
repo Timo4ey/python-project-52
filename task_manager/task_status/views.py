@@ -1,118 +1,54 @@
-from django.contrib import messages
-from django.shortcuts import get_object_or_404, redirect, render, reverse
+from django.contrib.messages.views import SuccessMessageMixin
+from django.urls import reverse_lazy
 from django.utils.translation import gettext_lazy as _
-from django.views import View
+from django.views.generic import CreateView, DeleteView, ListView, UpdateView
 
-from ..tasks.models import Tasks
+from task_manager.services import (
+    AuthorizationCheckMixin,
+    LabelStatusesPermissionMixin,
+)
+
 from .forms import FormTaskStatus
 from .models import TaskStatus
 
 # Create your views here.
 
 
-class IndexViews(View):
-    def get(self, request, *args, **kwargs):
-        if request.user.is_authenticated:
-            statuses = TaskStatus.objects.all()
-            return render(request, "status/index.html", {"statuses": statuses})
-        messages.error(
-            request,
-            _("Вы не авторизованы! Пожалуйста, выполните вход."),
-        )
-        return redirect(reverse("login"))
+class IndexViews(AuthorizationCheckMixin, ListView):
+    model = TaskStatus
+    template_name = "status/index.html"
+    context_object_name = "statuses"
 
 
-class StatusCreateView(View):
-    def get(self, request, *args, **kwargs):
-        if request.user.is_authenticated:
-            form = FormTaskStatus()
-            return render(request, "status/create.html", {"form": form})
-        messages.error(
-            request,
-            _("Вы не авторизованы! Пожалуйста, выполните вход."),
-        )
-        return redirect(reverse("login"))
-
-    def post(self, request, *args, **kwargs):
-        if request.user.is_authenticated:
-            form = FormTaskStatus(request.POST)
-            if form.is_valid():
-                form.save()
-                messages.success(request, message=_("Статус успешно создан"))
-                return redirect("statuses")
-            return render(request, "status/create.html", {"form": form})
-        messages.error(
-            request,
-            _("Вы не авторизованы! Пожалуйста, выполните вход."),
-        )
-        return redirect(reverse("login"))
+class StatusCreateView(
+    AuthorizationCheckMixin, SuccessMessageMixin, CreateView
+):
+    model = TaskStatus
+    form_class = FormTaskStatus
+    template_name = "status/create.html"
+    success_url = reverse_lazy("statuses")
+    success_message = _("Статус успешно создан")
 
 
-class StatusUpdateView(View):
-    def get(self, request, *args, **kwargs):
-        if request.user.is_authenticated:
-            print(request.user.id)
-            instance = TaskStatus.objects.get(id=kwargs.get("id"))
-            form = FormTaskStatus(instance=instance)
-            return render(
-                request,
-                "status/update.html",
-                {"form": form, "id": kwargs.get("id")},
-            )
-        messages.error(
-            request, _("Вы не авторизованы! Пожалуйста, выполните вход.")
-        )
-        return redirect(reverse("login"))
-
-    def post(self, request, *args, **kwargs):
-        status_id = kwargs.get("id")
-        if request.user.is_authenticated:
-            instance = TaskStatus.objects.get(id=status_id)
-            form = FormTaskStatus(request.POST, instance=instance)
-            new_name = request.POST.get("name")
-
-            if instance.name != new_name and TaskStatus.objects.filter(
-                name=new_name
-            ):
-                return render(
-                    request,
-                    "status/update.html",
-                    {"form": form, "id": status_id},
-                )
-            if form.is_valid():
-                form.save()
-                messages.success(request, message=_("Статус успешно изменен"))
-                return redirect("statuses")
-        messages.error(
-            request,
-            _("Вы не авторизованы! Пожалуйста, выполните вход."),
-        )
-        return redirect(reverse("login"))
+class StatusUpdateView(
+    AuthorizationCheckMixin, SuccessMessageMixin, UpdateView
+):
+    model = TaskStatus
+    template_name = "status/update.html"
+    form_class = FormTaskStatus
+    pk_url_kwarg = "id"
+    success_message = _("Статус успешно изменен")
+    success_url = reverse_lazy("statuses")
 
 
-class StatusDeleteView(View):
-    def get(self, request, *args, **kwargs):
-        status_id = kwargs.get("id")
-        if request.user.is_authenticated:
-            name = get_object_or_404(TaskStatus, id=status_id)
-            return render(
-                request,
-                "status/delete.html",
-                {"name": name.name, "status_id": status_id},
-            )
-
-    def post(self, request, *args, **kwargs):
-        if request.user.is_authenticated:
-            status_id = kwargs.get("id")
-            status = get_object_or_404(TaskStatus, id=status_id)
-            tasks = Tasks.objects.filter(status=status).exists()
-            mes = _("Невозможно удалить статус, потому что он используется")
-            if tasks:
-                messages.error(
-                    request,
-                    mes,
-                )
-                return redirect("statuses")
-            status.delete()
-        messages.success(request, message=_("Статус успешно удален"))
-        return redirect("statuses")
+class StatusDeleteView(
+    AuthorizationCheckMixin,
+    SuccessMessageMixin,
+    LabelStatusesPermissionMixin,
+    DeleteView,
+):
+    model = TaskStatus
+    template_name = "status/delete.html"
+    pk_url_kwarg = "id"
+    success_message = _("Статус успешно удален")
+    success_url = reverse_lazy("statuses")
