@@ -42,7 +42,7 @@ class TaskFilter(django_filters.FilterSet):
         super(TaskFilter, self).__init__(*args, **kwargs)
         self.user_id = self.request.user.id
 
-    def my_custom_filter(self, queryset, value):
+    def my_custom_filter(self, queryset, field, value):
         if value:
             return queryset.filter(creator_id=self.user_id)
         return queryset
