@@ -3,7 +3,7 @@
     {% load user_extras %}
     {% block content %}
         <h1 class="my-4">{% trans "Изменить задачу" %}</h1>
-    <form action="{% url  'update_task' id=id %}" method="post">
+    <form action="{{ taskss.get_absolute_url_upd }}" method="post">
         {% csrf_token %}
         <table>
 

@@ -1,3 +1,4 @@
+from django.conf import settings
 from django.test import Client, TestCase
 from django.urls import reverse
 
@@ -53,11 +54,11 @@ class Login(TestCase):
             str(response._container[0].decode("utf-8")),
         )
         self.assertIn(
-            '<label for="id_for_username">Имя пользователя</label>',
+            '<label for="id_username">Имя пользователя</label>',
             str(response._container[0].decode("utf-8")),
         )
         self.assertIn(
-            '<label for="id_for_password">Пароль</label>',
+            '<label for="id_password">Пароль</label>',
             str(response._container[0].decode("utf-8")),
         )
         self.assertIn(
@@ -68,16 +69,18 @@ class Login(TestCase):
 
     def test_en_content(self):
         response = self.client.get(self.main_url, headers=en_headers)
+        self.client.cookies.load({settings.LANGUAGE_COOKIE_NAME: "en-us"})
+
         self.assertIn(
             '<h1 class="my-4">Login</h1>',
             str(response._container[0].decode("utf-8")),
         )
         self.assertIn(
-            '<label for="id_for_username">Username</label>',
+            '<label for="id_username">Username</label>',
             str(response._container[0].decode("utf-8")),
         )
         self.assertIn(
-            '<label for="id_for_password">Password</label>',
+            '<label for="id_password">Password</label>',
             str(response._container[0].decode("utf-8")),
         )
         self.assertIn(

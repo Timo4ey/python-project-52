@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse_lazy
 
 
 class TaskStatus(models.Model):
@@ -8,3 +9,9 @@ class TaskStatus(models.Model):
 
     def __str__(self):
         return self.name
+
+    def get_absolute_url_upd(self):
+        return reverse_lazy("update_status", kwargs={"id": self.id})
+
+    def get_absolute_url_delete(self):
+        return reverse_lazy("delete_status", kwargs={"id": self.id})

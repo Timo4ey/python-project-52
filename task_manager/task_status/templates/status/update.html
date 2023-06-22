@@ -3,7 +3,7 @@
     {% block content %}
     {% load user_extras %}
     <h1 class="my-4">{% trans 'Изменение статуса ' %}</h1>
-    <form action="{% url 'update_status' id=id %}" method="post">
+    <form action="{{ taskstatus.get_absolute_url_upd }}" method="post">
         {% csrf_token %}
         <div class="form-group">
             {% if form %}

@@ -1,115 +1,54 @@
-from django.contrib import messages
-from django.shortcuts import get_object_or_404, redirect, render, reverse
+from django.contrib.messages.views import SuccessMessageMixin
+from django.urls import reverse_lazy
 from django.utils.translation import gettext_lazy as _
-from django.views import View
+from django.views.generic import CreateView, DeleteView, ListView, UpdateView
 
-from ..tasks.models import Tasks
+from task_manager.services import (
+    AuthorizationCheckMixin,
+    LabelStatusesPermissionMixin,
+)
+
 from .forms import FormLabel
 from .models import Label
 
 # Create your views here.
 
 
-class IndexViews(View):
-    def get(self, request, *args, **kwargs):
-        if request.user.is_authenticated:
-            labels = Label.objects.all()
-            return render(request, "label/index.html", {"labels": labels})
-        messages.error(
-            request, _("Вы не авторизованы! Пожалуйста, выполните вход.")
-        )
-        return redirect(reverse("login"))
+class IndexViews(AuthorizationCheckMixin, ListView):
+    model = Label
+    template_name = "label/index.html"
+    context_object_name = "labels"
 
 
-class LabelCreateView(View):
-    def get(self, request, *args, **kwargs):
-        if request.user.is_authenticated:
-            form = FormLabel()
-            return render(request, "label/create.html", {"form": form})
-        messages.error(
-            request, _("Вы не авторизованы! Пожалуйста, выполните вход.")
-        )
-        return redirect(reverse("login"))
-
-    def post(self, request, *args, **kwargs):
-        if request.user.is_authenticated:
-            form = FormLabel(request.POST)
-            if form.is_valid():
-                form.save()
-                messages.success(request, message=_("Метка успешно создана"))
-                return redirect("labels")
-            return render(request, "label/create.html", {"form": form})
-        messages.error(
-            request, _("Вы не авторизованы! Пожалуйста, выполните вход.")
-        )
-        return redirect(reverse("login"))
+class LabelCreateView(
+    AuthorizationCheckMixin, SuccessMessageMixin, CreateView
+):
+    model = Label
+    form_class = FormLabel
+    template_name = "label/create.html"
+    success_url = reverse_lazy("labels")
+    success_message = _("Метка успешно создана")
 
 
-class LabelUpdateView(View):
-    def get(self, request, *args, **kwargs):
-        if request.user.is_authenticated:
-            print(request.user.id)
-            instance = Label.objects.get(id=kwargs.get("id"))
-            form = FormLabel(instance=instance)
-            return render(
-                request,
-                "label/update.html",
-                {"form": form, "id": kwargs.get("id")},
-            )
-        messages.error(
-            request, _("Вы не авторизованы! Пожалуйста, выполните вход.")
-        )
-        return redirect(reverse("login"))
-
-    def post(self, request, *args, **kwargs):
-        status_id = kwargs.get("id")
-        if request.user.is_authenticated:
-            instance = Label.objects.get(id=status_id)
-            form = FormLabel(request.POST, instance=instance)
-            new_name = request.POST.get("name")
-
-            if instance.name != new_name and Label.objects.filter(
-                name=new_name
-            ):
-                return render(
-                    request,
-                    "label/update.html",
-                    {"form": form, "id": status_id},
-                )
-            if form.is_valid() or instance.name == new_name:
-                if form.is_valid():
-                    form.save()
-                messages.success(request, message=_("Метка успешно изменена"))
-                return redirect("labels")
-        messages.error(
-            request,
-            _("Вы не авторизованы! Пожалуйста, выполните вход."),
-        )
-        return redirect(reverse("login"))
+class LabelUpdateView(
+    AuthorizationCheckMixin, SuccessMessageMixin, UpdateView
+):
+    model = Label
+    form_class = FormLabel
+    template_name = "label/update.html"
+    pk_url_kwarg = "id"
+    success_message = _("Метка успешно изменена")
+    success_url = reverse_lazy("labels")
 
 
-class LabelDeleteView(View):
-    def get(self, request, *args, **kwargs):
-        label_id = kwargs.get("id")
-        if request.user.is_authenticated:
-            name = get_object_or_404(Label, id=label_id)
-            return render(
-                request,
-                "label/delete.html",
-                {"name": name.name, "label_id": label_id},
-            )
-
-    def post(self, request, *args, **kwargs):
-        if request.user.is_authenticated:
-            label_id = kwargs.get("id")
-            label = get_object_or_404(Label, id=label_id)
-            tasks = Tasks.objects.filter(labels=label).exists()
-            if tasks:
-                messages.error(
-                    request,
-                    _("Невозможно удалить метку, потому что она используется"),
-                )
-                return redirect("labels")
-            label.delete()
-        messages.success(request, message=_("Метка успешно удалена"))
-        return redirect("labels")
+class LabelDeleteView(
+    AuthorizationCheckMixin,
+    SuccessMessageMixin,
+    LabelStatusesPermissionMixin,
+    DeleteView,
+):
+    model = Label
+    template_name = "label/delete.html"
+    success_message = _("Метка успешно удалена")
+    pk_url_kwarg = "id"
+    success_url = reverse_lazy("labels")

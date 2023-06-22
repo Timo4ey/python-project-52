@@ -4,33 +4,33 @@
         <h1 class="my-4">{% trans 'Просмотр задачи' %}</h1>
         <div class="card">
   <div class="card-header bg-secondary text-white">
-    <h2>{{ task.name }}</h2>
+    <h2>{{ tasks.name }}</h2>
   </div>
   <div class="card-body bg-light">
-    <p>{{ task.description }}</p>
+    <p>{{ tasks.description }}</p>
     <hr>
     <div class="container">
       <div class="row p-1">
         <div class="col">{% trans 'Автор' %}</div>
-        <div class="col">{{ task.creator }}</div>
+        <div class="col">{{ tasks.creator }}</div>
       </div>
       <div class="row p-1">
         <div class="col">{% trans 'Исполнитель' %}</div>
-        <div class="col">{{ task.executor }}</div>
+        <div class="col">{{ tasks.executor }}</div>
       </div>
       <div class="row p-1">
         <div class="col">{% trans 'Статус' %}</div>
-        <div class="col">{{ task.status }}</div>
+        <div class="col">{{ tasks.status }}</div>
       </div>
       <div class="row p-1">
         <div class="col">{% trans 'Дата создания' %}</div>
-        <div class="col">{{ task.created_at|date:'d.m.Y H:m' }}</div>
+        <div class="col">{{ tasks.created_at|date:'d.m.Y H:m' }}</div>
       </div>
       <div class="row p-1">
         <div class="col">
           <h6>{% trans 'Метки:' %}</h6>
           <ul>
-          {% for label in task.labels.values %}
+          {% for label in tasks.labels.values %}
           <li>{{ label.name }}</li>
           {% endfor %}
             </ul>
@@ -38,9 +38,9 @@
       </div>
       <div class="row p-1">
         <div class="col">
-        <a href="{% url 'update_task'  id=task.id %}">{% trans 'Изменить' %}</a>
+        <a href="{{ tasks.get_absolute_url_upd }}">{% trans 'Изменить' %}</a>
           <br>
-        <a href="{% url 'delete_task' id=task.id %}">{% trans 'Удалить' %}</a>
+        <a href="{{ tasks.get_absolute_url_delete }}">{% trans 'Удалить' %}</a>
         </div>
       </div>
     </div>

@@ -139,7 +139,7 @@ class TestsUpdateLabel(TestUserSetUp):
     def test_update_label_ru(self):
         self.client.cookies.load({settings.LANGUAGE_COOKIE_NAME: "ru"})
 
-        label = Label.objects.create(name=data["label"]["name1"])
+        label = Label.objects.create(name=data["label"]["name"])
         label.save()
         response = self.client.post(
             reverse_lazy("update_label", kwargs={"id": label.id}),
