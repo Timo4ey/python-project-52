@@ -161,6 +161,10 @@ msgstr "Status is already exist"
 msgid "Создать статус"
 msgstr "Create status"
 
+msgid "Ваш пароль должен содержать как минимум 3 символа."
+msgstr "Your password must content at least 3 symbols."
+
+
 #: task_manager/task_status/templates/status/delete.html:4
 msgid "Удаление статуса"
 msgstr "Create status"

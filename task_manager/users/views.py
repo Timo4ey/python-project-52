@@ -34,10 +34,10 @@ class UserFormCreateView(SuccessMessageMixin, CreateView):
 
 
 class UserUpdateView(
+    SuccessMessageMixin,
     AuthorizationCheckMixin,
     UserPermissionMixin,
     UpdateView,
-    SuccessMessageMixin,
 ):
     model = User
     template_name = "users/update.html"
