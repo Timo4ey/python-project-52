@@ -3,11 +3,13 @@ from typing import Any
 from django import http
 from django.contrib import messages
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
+from django.contrib.messages.views import SuccessMessageMixin
 from django.forms import ValidationError
 from django.http.response import HttpResponseRedirect
 from django.shortcuts import redirect
 from django.urls import reverse_lazy
 from django.utils.translation import gettext_lazy as _
+from django.views.generic import CreateView
 
 from task_manager.tasks.models import Tasks
 from task_manager.users.models import User
@@ -157,3 +159,9 @@ class TaskPermissionMixin(UserPassesTestMixin):
         if len(task) == 0:
             raise ValidationError("Tasks matching query does not exist.")
         return task[0].creator.id
+
+
+class LabelStatusCreateMixin(
+    AuthorizationCheckMixin, SuccessMessageMixin, CreateView
+):
+    pass

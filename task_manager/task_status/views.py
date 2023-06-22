@@ -1,10 +1,11 @@
 from django.contrib.messages.views import SuccessMessageMixin
 from django.urls import reverse_lazy
 from django.utils.translation import gettext_lazy as _
-from django.views.generic import CreateView, DeleteView, ListView, UpdateView
+from django.views.generic import DeleteView, ListView, UpdateView
 
 from task_manager.services import (
     AuthorizationCheckMixin,
+    LabelStatusCreateMixin,
     LabelStatusesPermissionMixin,
 )
 
@@ -20,9 +21,7 @@ class IndexViews(AuthorizationCheckMixin, ListView):
     context_object_name = "statuses"
 
 
-class StatusCreateView(
-    AuthorizationCheckMixin, SuccessMessageMixin, CreateView
-):
+class StatusCreateView(LabelStatusCreateMixin):
     model = TaskStatus
     form_class = FormTaskStatus
     template_name = "status/create.html"
