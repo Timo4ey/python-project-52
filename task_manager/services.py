@@ -63,7 +63,7 @@ class LabelStatusesPermissionMixin(UserPassesTestMixin):
 
 
 class UserPermissionMixin(UserPassesTestMixin):
-    def test_func(self) -> bool | None:
+    def test_func(self) -> bool:
         if self.request.user.id != self.kwargs.get("id"):
             return False
         return True
@@ -136,7 +136,7 @@ class ErrorMessageMixin:
 
 
 class TaskPermissionMixin(UserPassesTestMixin):
-    def test_func(self) -> bool | None:
+    def test_func(self) -> bool:
         print(self.find_task_creator(self))
         print(self.request.user.id)
         if self.request.user.id != self.find_task_creator(self):
