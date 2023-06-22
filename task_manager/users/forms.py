@@ -15,14 +15,6 @@ class UserLoginForm(AuthenticationForm):
         model = User
         fields = ["username", "password"]
 
-        widgets = {
-            "username": forms.TextInput(attrs={"class": "form-control"}),
-            "password": forms.PasswordInput(attrs={"class": "form-control"}),
-        }
-
-
-username = _("Имя пользователя")
-
 
 class SignUpForm(UserCreationForm):
     first_name = forms.CharField(
@@ -53,40 +45,10 @@ class SignUpForm(UserCreationForm):
 
     def __init__(self, *args, **kwargs):
         super(SignUpForm, self).__init__(*args, **kwargs)
-        self.fields["username"].widget.attrs.update(
-            {
-                "class": "form-control",
-                "placeholder": username,
-                "label": username,
-            }
-        )
-        self.fields["username"].label = username
-
-        self.fields["password1"].widget.attrs.update(
-            {
-                "class": "form-control",
-                "placeholder": _("Пароль"),
-                "label": _("Пароль"),
-                "min_size": 3,
-            }
-        )
-        self.fields["password1"].label = _("Пароль")
         self.fields[
             "password1"
         ].help_text = (
             f'{_("Ваш пароль должен содержать как минимум 3 символа.")}'
-        )
-
-        self.fields["password2"].widget.attrs.update(
-            {
-                "class": "form-control",
-                "placeholder": _("Подтверждение пароля"),
-                "label": _("Подтверждение пароля"),
-            }
-        )
-        self.fields["password2"].label = _("Подтверждение пароля")
-        self.fields["password2"].help_text = _(
-            "Для подтверждения введите, пожалуйста, пароль еще раз."
         )
 
     def clean_password2(self):
@@ -109,6 +71,9 @@ class SignUpForm(UserCreationForm):
                 _("Пользователь с таким именем уже существует.")
             )
         return username
+
+
+username = _("Имя пользователя")
 
 
 class UpdateForm(UserChangeForm):
@@ -213,12 +178,4 @@ class UpdateForm(UserChangeForm):
                     "Введенный пароль слишком короткий.\
              Он должен содержать как минимум 3 символа."
                 )
-            )
-
-    def clean_is_active(self):
-        if not User.objects.get(
-            username=self.cleaned_data["username"]
-        ).is_active:
-            raise ValidationError(
-                _("Вы не авторизованы! Пожалуйста, выполните вход.")
             )

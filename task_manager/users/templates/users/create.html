@@ -1,36 +1,15 @@
-{% extends 'base.html' %}
-    {% load i18n %}
-    {% load user_extras %}
-    {% block content %}
-        <h1 class="my-4">{% trans "Регистрация" %}</h1>
-    <form action="{% url 'create_user' %}" method="post">
-        {% csrf_token %}
-        <table>
+{% extends 'base_form.html' %}
+        
+        {% load bootstrap4 %}
+            {% load i18n %}
+            {% load user_extras %}
+            {% block header %}<h1 class="my-4">{% trans "Регистрация" %}</h1>{% endblock %}
+            
+            
 
-        {% for element in form %}
-            <div class="form-group">
-            {% if element.errors %}
+            {% block button%}
+                        <input class="btn btn-primary" type="submit" value="{% trans 'Зарегистрировать' %}">
+            {% endblock %}
 
-                <label for="{{ element.auto_id }}">{{ element.label }}</label>
-                {{ element | add_classes:'is-invalid' }}
-                <div class="text-danger">
-                    <small>{{ element.errors.as_text  }}</small>
-                </div>
-            {% elif form.errors and not element.errors%}
 
-                <label for="{{ element.auto_id  }}">{{ element.label }}</label>
-                {{ element | add_classes:'is-valid' }}
-
-             {% else%}
-           <label for="{{ element.auto_id }}">{{ element.label }}</label>
-                {{ element }}
-            {% endif %}
-        <small class="form-text text-muted ::marker">{{ element.help_text|escape }}</small>
-
-            </div>
-        {% endfor %}
-
-            <input class="btn btn-primary" type="submit" value="{% trans 'Зарегистрировать' %}">
-        </table>
-    </form>
-    {% endblock %}
+    

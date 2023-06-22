@@ -120,7 +120,7 @@ class TestUserCreation(TestUserSetUp):
         self.assertEqual(len(messages), 0)
 
         self.assertIn(
-            "Password mismatch",
+            "The two password fields didn’t match.",
             str(response.context["form"]),
         )
 

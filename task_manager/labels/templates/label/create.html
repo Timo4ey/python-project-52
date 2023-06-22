@@ -1,27 +1,12 @@
-{% extends 'base.html' %}
-    {% load i18n %}
-    {% block content %}
-    {% load user_extras %}
-
-    <h1 class="my-4">{% trans 'Создать Метку' %}</h1>
-    <form action="{% url 'create_label' %}" method="post">
-        {% csrf_token %}
-        <div class="form-group">
-            {% if form %}
-            <label for="{{ form.name.auto_id }}">{{ form.name.label }}</label>
-                {% if form.errors %}
-                    {{ form.name | add_classes:'is-invalid'}}
-                    <div class="text-danger">
-                        <small>{{ form.name.errors.as_text  }}</small>
-                    </div>
-                {% else %}
-                    {{ form.name }}
-
-                {% endif %}
-            {% endif %}
-            </div>
-        <div class="form-group">
-            <input class="btn btn-primary" type="submit" value="{% trans 'Создать' %}">
-        </div>
-    </form>
-    {% endblock %}
+{% extends 'base_form.html' %}
+        
+        {% load bootstrap4 %}
+            {% load i18n %}
+            {% load user_extras %}
+            {% block header %}<h1 class="my-4">{% trans "Создать Метку" %}</h1>{% endblock %}
+            
+            
+    
+            {% block button%}
+                        <input class="btn btn-primary" type="submit" value="{% trans 'Создать' %}">
+            {% endblock %}

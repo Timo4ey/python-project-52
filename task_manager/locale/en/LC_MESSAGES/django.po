@@ -175,7 +175,7 @@ msgid "Статусы"
 msgstr "Statuses"
 
 #: task_manager/task_status/templates/status/update.html:5
-msgid "Изменение статуса "
+msgid "Изменение статуса"
 msgstr "Update status"
 
 #: task_manager/task_status/views.py:41
@@ -350,7 +350,7 @@ msgstr "Please input the password again for confirmation."
 
 #: task_manager/users/forms.py:92 task_manager/users/forms.py:205
 msgid "Введенные пароли не совпадают."
-msgstr "Password mismatch"
+msgstr "The two password fields didn’t match."
 
 #: task_manager/users/forms.py:96 task_manager/users/forms.py:209
 msgid ""

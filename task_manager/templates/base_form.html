@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+    {% load bootstrap4 %}
+    {% load i18n %}
+    {% load user_extras %}
+    {% block content %}
+    {% block header %}{% endblock %}
+    <form method="post">
+        {% csrf_token %}
+        {% bootstrap_form form %}
+        <div class="form-group">
+            {% block button %}{% endblock %}
+        </div>
+
+    </form>
+{% endblock %}
