@@ -81,5 +81,5 @@ class UserLogOutView(SuccessMessageMixin, LogoutView):
         messages.add_message(request, messages.INFO, _("Вы разлогинены"))
         return response
 
-    def get_success_url(self) -> str | None:
+    def get_success_url(self) -> str:
         return reverse_lazy("main")
